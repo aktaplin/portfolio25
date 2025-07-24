@@ -1,34 +1,103 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import profileImage from './assets/profile.jpg'
+
+function CaseStudyLockup({ category, title }) {
+  return (
+    <div className="case-study">
+      <div className="case-study-category">{category}</div>
+      <div className="case-study-title">{title}</div>
+    </div>
+  )
+}
+
+function TextBlock({ title, description }) {
+  return (
+    <div className="text-block">
+      <div className="text-block-title">{title}</div>
+      <div className="text-block-description">{description}</div>
+    </div>
+  )
+}
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="homepage">
+      <div className="content-container">
+        <div className="hero-panel">
+          <h1 className="main-title">Adam Taplin</h1>
+          
+          <div className="hero-section">
+            <div className="hero-content">
+              <h2 className="hero-title">
+                Thoughtful leadership for enterprise design teams
+              </h2>
+              <p className="hero-description">
+                I take the chaos out of complex projects and turn them into wins. 
+                While agency life has taught me to juggle competing priorities and 
+                tight deadlines, I thrive on building the kind of collaborative 
+                culture that makes great work possible through multiple viewpoints 
+                and a creative, curious mindset.
+              </p>
+            </div>
+            {/* <div className="profile-image-container">
+              <img src={profileImage} alt="Adam Taplin" className="profile-image" />
+            </div> */}
+          </div>
+        </div>
+
+        <div className="scrollable-content">
+          <div className="work-section">
+            <h2 className="section-title">Work</h2>
+            <div className="case-studies">
+              <CaseStudyLockup 
+                category="A story of innovation"
+                title="(Re)defining the AI-powered future for an aging incumbent"
+              />
+              <CaseStudyLockup 
+                category="A story of Leadership"
+                title="Reviving a struggling team to deliver the impossible"
+              />
+            </div>
+          </div>
+
+          <div className="philosophy-section">
+            <h2 className="section-title">Philosophy</h2>
+            <div className="text-blocks">
+              <TextBlock 
+                title="Build collaboratively"
+                description="Creativity thrives when multiple viewpoints inform a solution. I strive to create an environment of risk-taking and trust."
+              />
+              <TextBlock 
+                title="Stay curious"
+                description="I am a lifelong learner, and that is why I love design. Knowing the details can make the difference between success and failure."
+              />
+              <TextBlock 
+                title="Listen well"
+                description="Design is industrial-grade, professional empathy. I listen to my team, clients, and users to find the intersection of their needs."
+              />
+              <TextBlock 
+                title="Keep it light"
+                description="In a world of JIRA tickets, politics, and arguments over pixels sometimes the biggest unlock is just to have a little fun."
+              />
+            </div>
+          </div>
+
+          <div className="clients-section">
+            <h2 className="section-title">Past clients</h2>
+            <div className="client-logos">
+              <div className="client-logo">Ford</div>
+              <div className="client-logo">Mastercard</div>
+              <div className="client-logo">Mercedes-Benz</div>
+              <div className="client-logo">Microsoft</div>
+              <div className="client-logo">Prudential</div>
+              <div className="client-logo">State Farm</div>
+              <div className="client-logo">Verizon</div>
+              <div className="client-logo">WEX</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
