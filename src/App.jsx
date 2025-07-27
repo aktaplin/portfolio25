@@ -32,7 +32,9 @@ function App() {
                 Thoughtful leadership for enterprise design teams
               </h2> */}
               <p className="hero-description">
-              I turn complex project chaos into clear wins. Agency life has taught me to juggle competing priorities while building collaborative cultures where great work thrives through diverse perspectives and creative curiosity.
+              I turn complex project chaos into clear wins. Agency life has taught me to 
+              juggle competing priorities while building <span className="highlight">collaborative cultures</span> where 
+              great work thrives through diverse perspectives and <span className="highlight">creative curiosity</span>.
               </p>
             </div>
             {/* <div className="profile-image-container">
