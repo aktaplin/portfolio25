@@ -33,14 +33,9 @@ function App() {
           
           <div className="hero-section">
             <div className="hero-content">
-              {/* <h2 className="hero-title">
-                Thoughtful leadership for enterprise design teams
-              </h2> */}
-              <p className="hero-description">
-              I turn complex project chaos into clear wins. Agency life has taught me to 
-              juggle competing priorities while building <span className="highlight">collaborative cultures</span> where 
-              great work thrives through diverse perspectives and <span className="highlight">creative curiosity</span>.
-              </p>
+              <h2 className="hero-title">
+                Enterprise design team leadership
+              </h2>
             </div>
             {/* <div className="profile-image-container">
               <img src={profileImage} alt="Adam Taplin" className="profile-image" />
@@ -49,6 +44,12 @@ function App() {
         </div>
 
         <div className="scrollable-content">
+          <p className="display-2">
+            I turn complex project chaos into clear wins. Agency life has taught me to 
+            juggle competing priorities while building <span className="highlight">collaborative cultures</span> where 
+            great work thrives through diverse perspectives and <span className="highlight">creative curiosity</span>.
+          </p>
+          
           <div className="work-section">
             <h2 className="section-title">Work</h2>
             <div className="case-studies">
