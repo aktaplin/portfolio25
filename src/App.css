@@ -259,8 +259,37 @@
 
 .case-study {
   display: flex;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid #E8E0D6;
+  border-radius: 12px;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.case-study:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.case-study-icon {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(229, 80, 57, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+
+.case-study-content {
+  display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  flex-grow: 1;
 }
 
 .case-study-category {

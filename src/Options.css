@@ -1,0 +1,76 @@
+/* CaseStudyLockup Options Archive */
+/* These are alternative designs for the CaseStudyLockup component */
+
+/* Option 1: Card with subtle border and hover shadow */
+.case-study-option1 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border: 1px solid #E8E0D6;
+  border-radius: 12px;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.case-study-option1:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Option 2: Card with background container and icon space */
+.case-study-option2 {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background-color: #FAFAF9;
+  border-radius: 16px;
+  border: 1px solid rgba(229, 80, 57, 0.1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.case-study-option2:hover {
+  background-color: #F5F5F4;
+  border-color: rgba(229, 80, 57, 0.2);
+}
+
+.case-study-icon {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(229, 80, 57, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+
+.case-study-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1;
+}
+
+/* Option 3: Minimal card with gradient hover state */
+.case-study-option3 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 24px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.case-study-option3:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #fefefe 50%, #f9f9f9 100%);
+  border-color: rgba(229, 80, 57, 0.15);
+  box-shadow: 0 2px 8px rgba(229, 80, 57, 0.08);
+}

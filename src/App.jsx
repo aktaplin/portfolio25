@@ -1,11 +1,16 @@
 import './App.css'
 import profileImage from './assets/profile.jpg'
 
-function CaseStudyLockup({ category, title }) {
+function CaseStudyLockup({ category, title, icon }) {
   return (
     <div className="case-study">
-      <div className="case-study-category">{category}</div>
-      <div className="case-study-title">{title}</div>
+      <div className="case-study-icon">
+        {icon || '✦'}
+      </div>
+      <div className="case-study-content">
+        <div className="case-study-category">{category}</div>
+        <div className="case-study-title">{title}</div>
+      </div>
     </div>
   )
 }
@@ -50,10 +55,12 @@ function App() {
               <CaseStudyLockup 
                 category="A story of innovation"
                 title="(Re)defining the AI-powered future for an aging incumbent"
+                icon="🚀"
               />
               <CaseStudyLockup 
                 category="A story of leadership"
                 title="Reviving a struggling team to deliver the impossible"
+                icon="👥"
               />
             </div>
           </div>
