@@ -28,15 +28,11 @@ function App() {
           
           <div className="hero-section">
             <div className="hero-content">
-              <h2 className="hero-title">
+              {/* <h2 className="hero-title">
                 Thoughtful leadership for enterprise design teams
-              </h2>
+              </h2> */}
               <p className="hero-description">
-                I take the chaos out of complex projects and turn them into wins. 
-                While agency life has taught me to juggle competing priorities and 
-                tight deadlines, I thrive on building the kind of collaborative 
-                culture that makes great work possible through multiple viewpoints 
-                and a creative, curious mindset.
+              I turn complex project chaos into clear wins. Agency life has taught me to juggle competing priorities while building collaborative cultures where great work thrives through diverse perspectives and creative curiosity.
               </p>
             </div>
             {/* <div className="profile-image-container">
@@ -54,7 +50,7 @@ function App() {
                 title="(Re)defining the AI-powered future for an aging incumbent"
               />
               <CaseStudyLockup 
-                category="A story of Leadership"
+                category="A story of leadership"
                 title="Reviving a struggling team to deliver the impossible"
               />
             </div>
