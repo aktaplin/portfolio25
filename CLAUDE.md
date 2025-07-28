@@ -12,7 +12,7 @@ This is a React + Vite portfolio project configured for deployment to GitHub Pag
 - `npm run build` - Build for production (outputs to `dist/`)
 - `npm run lint` - Run ESLint to check code quality
 - `npm run preview` - Preview production build locally
-- `npm run deploy` - Deploy to GitHub Pages using gh-pages
+- ~~`npm run deploy` - Deploy to GitHub Pages using gh-pages~~ (deprecated - use GitHub Actions)
 
 ## Project Structure
 
@@ -28,7 +28,32 @@ This is a React + Vite portfolio project configured for deployment to GitHub Pag
 
 - **Vite**: Configured with React plugin and GitHub Pages base path (`/portfolio25/`)
 - **ESLint**: Uses modern flat config with React hooks and React refresh plugins
-- **Deployment**: Configured for GitHub Pages deployment from `dist/` folder
+- **Deployment**: Automated GitHub Actions workflow deploys to GitHub Pages
+
+## Deployment
+
+The project uses GitHub Actions for automated deployment to GitHub Pages. The workflow is configured in `.github/workflows/deploy.yml`.
+
+### Deployment Process:
+1. **Automatic**: Any push to `master` branch triggers deployment
+2. **Manual**: Can be triggered via GitHub Actions "workflow_dispatch"
+3. **Build**: GitHub Actions runs `npm install` and `npm run build`
+4. **Deploy**: Built files from `dist/` are pushed to `gh-pages` branch
+5. **Serve**: GitHub Pages serves the site from `gh-pages` branch
+
+### GitHub Pages Settings Required:
+- **Source**: "Deploy from a branch"
+- **Branch**: "gh-pages" 
+- **Folder**: "/ (root)"
+
+### Live Site:
+- URL: https://aktaplin.github.io/portfolio25/
+
+### Troubleshooting Deployment:
+- If `gh-pages` npm package fails (Windows file locking issues), use GitHub Actions workflow
+- If GitHub Actions times out, ensure Node.js version is 18 and use fast install flags
+- For blank pages or 404 errors, check GitHub Pages source settings point to `gh-pages` branch
+- Deployment typically takes 2-5 minutes to complete and propagate
 
 ## Key Technical Details
 
