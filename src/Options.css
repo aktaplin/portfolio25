@@ -74,3 +74,124 @@
   border-color: rgba(229, 80, 57, 0.15);
   box-shadow: 0 2px 8px rgba(229, 80, 57, 0.08);
 }
+
+/* Skills Section Options Archive */
+
+/* Skills Option 1: Grid-based with category cards */
+.skills-section-option1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.skill-category {
+  background-color: #FAFAF9;
+  border: 1px solid #E8E0D6;
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.2s ease;
+}
+
+.skill-category:hover {
+  border-color: rgba(229, 80, 57, 0.2);
+  background-color: #F8F8F7;
+}
+
+.skill-category-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  color: #1F1F1F;
+  margin: 0 0 16px 0;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  background-color: rgba(229, 80, 57, 0.1);
+  color: #1F1F1F;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* Skills Option 3: Compact horizontal layout */
+.skills-section-option3 {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.skill-category-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 0;
+  border-bottom: 1px solid #E8E0D6;
+}
+
+.skill-category-compact:last-child {
+  border-bottom: none;
+}
+
+.skill-category-title-compact {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(229, 80, 57, 1);
+  margin: 0;
+}
+
+.skill-items-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.skill-item-compact {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #1F1F1F;
+  position: relative;
+}
+
+.skill-item-compact:not(:last-child)::after {
+  content: "•";
+  position: absolute;
+  right: -10px;
+  color: #ccc;
+}
+
+/* Responsive adjustments for Skills Options */
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .skills-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
