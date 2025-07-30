@@ -1,5 +1,39 @@
 import './App.css'
 import profileImage from './assets/profile.jpg'
+import { useState, useEffect } from 'react'
+
+function ThemeSwitcher() {
+  const [theme, setTheme] = useState('coral-navy')
+  
+  const themes = [
+    { value: 'coral-navy', label: 'Coral Navy' },
+    { value: 'sage-depths', label: 'Sage Depths' },
+    { value: 'warm-slate', label: 'Warm Slate' },
+    { value: 'midnight-copper', label: 'Midnight Copper' },
+    { value: 'classic-crimson', label: 'Classic Crimson' },
+    { value: 'rust-sage', label: 'Rust Sage' },
+    { value: 'electric-sage', label: 'Electric Sage' },
+    { value: 'cyber-noir', label: 'Cyber Noir' }
+  ]
+  
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
+  
+  return (
+    <div className="theme-switcher">
+      <select 
+        value={theme} 
+        onChange={(e) => setTheme(e.target.value)}
+        className="theme-selector"
+      >
+        {themes.map(t => (
+          <option key={t.value} value={t.value}>{t.label}</option>
+        ))}
+      </select>
+    </div>
+  )
+}
 
 function CaseStudyLockup({ category, title, icon }) {
   return (
@@ -79,6 +113,7 @@ function SkillsSection() {
 function App() {
   return (
     <div className="homepage">
+      <ThemeSwitcher />
       <div className="content-container">
         <div className="hero-panel">
           <h1 className="main-title">Adam Taplin</h1>
