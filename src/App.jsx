@@ -147,7 +147,6 @@ function Homepage({ onNavigateToCaseStudy }) {
                 category="A story of innovation"
                 title="(Re)defining the AI-powered future for an aging incumbent"
                 icon="🚀"
-                onClick={onNavigateToCaseStudy}
               />
               <CaseStudyLockup 
                 category="A story of leadership"
