@@ -1,6 +1,6 @@
 import './App.css'
-import profileImage from './assets/profile.jpg'
 import { useState, useEffect } from 'react'
+import CaseStudy from './CaseStudy'
 
 function ThemeSwitcher() {
   const [theme, setTheme] = useState('coral-navy')
@@ -13,7 +13,10 @@ function ThemeSwitcher() {
     { value: 'classic-crimson', label: 'Classic Crimson' },
     { value: 'rust-sage', label: 'Rust Sage' },
     { value: 'electric-sage', label: 'Electric Sage' },
-    { value: 'cyber-noir', label: 'Cyber Noir' }
+    { value: 'cyber-noir', label: 'Cyber Noir' },
+    { value: 'neon-minimalism', label: 'Neon Minimalism' },
+    { value: 'obsidian-glass', label: 'Obsidian Glass' },
+    { value: 'brutalist-neon', label: 'Brutalist Neon' }
   ]
   
   useEffect(() => {
@@ -35,9 +38,9 @@ function ThemeSwitcher() {
   )
 }
 
-function CaseStudyLockup({ category, title, icon }) {
+function CaseStudyLockup({ category, title, icon, onClick }) {
   return (
-    <div className="case-study">
+    <div className="case-study" onClick={onClick}>
       <div className="case-study-icon">
         {icon || '✦'}
       </div>
@@ -110,7 +113,7 @@ function SkillsSection() {
   );
 }
 
-function App() {
+function Homepage({ onNavigateToCaseStudy }) {
   return (
     <div className="homepage">
       <ThemeSwitcher />
@@ -144,6 +147,7 @@ function App() {
                 category="A story of innovation"
                 title="(Re)defining the AI-powered future for an aging incumbent"
                 icon="🚀"
+                onClick={onNavigateToCaseStudy}
               />
               <CaseStudyLockup 
                 category="A story of leadership"
@@ -194,6 +198,29 @@ function App() {
       </div>
     </div>
   )
+}
+
+function App() {
+  const [currentPage, setCurrentPage] = useState('home')
+  
+  const navigateToCaseStudy = () => {
+    setCurrentPage('case-study')
+  }
+  
+  const navigateHome = () => {
+    setCurrentPage('home')
+  }
+  
+  // Add navigation to window object so the back button can access it
+  useEffect(() => {
+    window.navigateHome = navigateHome
+  }, [])
+  
+  if (currentPage === 'case-study') {
+    return <CaseStudy />
+  }
+  
+  return <Homepage onNavigateToCaseStudy={navigateToCaseStudy} />
 }
 
 export default App

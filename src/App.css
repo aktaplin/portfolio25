@@ -99,6 +99,64 @@
   --color-border: #333333;
 }
 
+[data-theme="neon-minimalism"] {
+  --color-navy: #000000;
+  --color-text: #1A1A1A;
+  --color-link: #8A2BE2;
+  --color-highlight: rgba(138, 43, 226, 0.2);
+  --color-accent: #8A2BE2;
+  --color-hero-bg: #FFFFFF;
+  --color-white: #FFFFFF;
+  --color-border: #F0F0F0;
+}
+
+[data-theme="obsidian-glass"] {
+  --color-navy: #E0E6ED;
+  --color-text: #B8C5D1;
+  --color-link: #0080FF;
+  --color-highlight: rgba(0, 128, 255, 0.15);
+  --color-accent: #FF1493;
+  --color-hero-bg: rgba(10, 10, 15, 0.95);
+  --color-white: #0A0A0F;
+  --color-border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="brutalist-neon"] {
+  --color-navy: #000000;
+  --color-text: #1A1A1A;
+  --color-link: #00FF00;
+  --color-highlight: rgba(0, 255, 0, 0.8);
+  --color-accent: #FF0080;
+  --color-hero-bg: #F8F8F8;
+  --color-white: #FFFFFF;
+  --color-border: #000000;
+}
+
+[data-theme="obsidian-glass"] .hero-panel {
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="obsidian-glass"] .case-study {
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border);
+}
+
+[data-theme="brutalist-neon"] .case-study {
+  border: 3px solid var(--color-border);
+  border-radius: 0;
+  box-shadow: 4px 4px 0 rgba(0, 255, 0, 0.2);
+}
+
+[data-theme="brutalist-neon"] .hero-panel {
+  border: 2px solid var(--color-border);
+  border-radius: 0;
+}
+
 [data-theme="cyber-noir"] .hero-panel::before {
   content: '';
   position: absolute;
@@ -644,4 +702,353 @@
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 12px;
   border: 1px solid var(--color-border);
+}
+
+/* Case Study Page Styles */
+.case-study-page {
+  background-color: var(--color-white);
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.case-study-hero {
+  background: var(--color-hero-bg);
+  padding: 40px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-link);
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  transition: opacity 0.2s ease;
+}
+
+.back-button:hover {
+  opacity: 0.7;
+}
+
+.case-study-title-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.case-study-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.case-study-main-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: clamp(36px, 8vw, 48px);
+  line-height: 1.2;
+  letter-spacing: -0.48px;
+  color: var(--color-navy);
+  margin: 0;
+}
+
+.hero-image-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.hero-wex-logo {
+  max-width: 200px;
+  height: auto;
+  border-radius: 12px;
+}
+
+.case-study-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.case-study-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-study-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-text);
+  max-width: 65ch;
+}
+
+.case-study-text p {
+  margin: 0 0 16px 0;
+}
+
+.case-study-text p:last-child {
+  margin-bottom: 0;
+}
+
+.case-study-text ul {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+.case-study-text li {
+  margin-bottom: 8px;
+}
+
+.case-study-text li:last-child {
+  margin-bottom: 0;
+}
+
+.case-study-image-section {
+  display: flex;
+  justify-content: center;
+}
+
+.case-study-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.role-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.role-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.role-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.role-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.role-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--color-text);
+}
+
+.role-description {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-text);
+  opacity: 0.7;
+}
+
+.role-bullets {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.role-bullets li {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.role-bullets li:last-child {
+  margin-bottom: 0;
+}
+
+.case-study-activities {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 65ch;
+}
+
+@media (min-width: 768px) {
+  .case-study-activities {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.activity-card {
+  background: var(--color-navy);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--color-navy);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.activity-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.activity-duration {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Tablet breakpoint */
+@media (min-width: 768px) {
+  .case-study-page {
+    padding: 40px;
+  }
+  
+  .case-study-hero {
+    padding: 60px;
+  }
+  
+  .case-study-main-title {
+    font-size: clamp(48px, 6vw, 64px);
+  }
+}
+
+/* Desktop breakpoint - Split screen layout */
+@media (min-width: 1200px) {
+  .case-study-page {
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .case-study-hero {
+    background: var(--color-hero-bg);
+    padding: 80px;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .case-study-main-title {
+    font-size: clamp(48px, 4vw, 64px);
+  }
+  
+  .case-study-page .scrollable-content {
+    background-color: var(--color-white);
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+/* Apply theme-specific styles to case study page */
+[data-theme="obsidian-glass"] .case-study-hero {
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="brutalist-neon"] .case-study-hero {
+  border: 2px solid var(--color-border);
+  border-radius: 0;
+}
+
+[data-theme="cyber-noir"] .case-study-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 255, 255, 0.3) 30%,
+    rgba(0, 255, 255, 0.4) 50%,
+    rgba(0, 255, 255, 0.3) 70%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 5px rgba(0, 255, 255, 0.2),
+    0 0 10px rgba(0, 255, 255, 0.1);
+  animation: scanning-beam 48s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="cyber-noir"] .case-study-hero {
+  position: relative;
+}
+
+[data-theme="cyber-noir"] .case-study-hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+[data-theme="obsidian-glass"] .activity-card {
+  backdrop-filter: blur(5px);
+  background-color: var(--color-navy);
+  border: 1px solid var(--color-border);
+}
+
+[data-theme="brutalist-neon"] .activity-card {
+  background: var(--color-navy);
+  border: 2px solid var(--color-navy);
+  border-radius: 0;
+  box-shadow: 3px 3px 0 rgba(0, 255, 0, 0.1);
+}
+
+[data-theme="cyber-noir"] .activity-card {
+  background: var(--color-navy);
+  border: 1px solid var(--color-accent);
 }
