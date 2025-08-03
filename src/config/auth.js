@@ -2,9 +2,8 @@
 // To change the password, run: node scripts/generateHash.js "your-new-password"
 
 const AUTH_CONFIG = {
-  // Default password: "portfolio2025" 
   // Change this hash when you want a new password
-  passwordHash: "265e55af28eb7f4028daca5cd7f10f89f1efe911f802f82294a094fa8c0eb03b"
+  passwordHash: "e38cecb499558d65b041cd46dcdda1fb61051a7ada9f115b9e98cc6c2dabe09f"
 }
 
 // Simple hash function for client-side password checking
