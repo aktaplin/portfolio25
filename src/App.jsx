@@ -1,6 +1,9 @@
 import './App.css'
 import { useState, useEffect } from 'react'
 import CaseStudy from './CaseStudy'
+import { AuthProvider } from './contexts/AuthContext'
+import { useAuth } from './hooks/useAuth'
+import PasswordModal from './components/PasswordModal'
 
 function ThemeSwitcher() {
   const [theme, setTheme] = useState('coral-navy')
@@ -113,7 +116,13 @@ function SkillsSection() {
   );
 }
 
-function Homepage({ onNavigateToCaseStudy }) {
+function Homepage() {
+  const { requestAccess } = useAuth()
+  
+  const handleCaseStudyClick = (navigateCallback) => {
+    requestAccess(navigateCallback)
+  }
+
   return (
     <div className="homepage">
       <ThemeSwitcher />
@@ -147,11 +156,13 @@ function Homepage({ onNavigateToCaseStudy }) {
                 category="A story of innovation"
                 title="(Re)defining the AI-powered future for an aging incumbent"
                 icon="🚀"
+                onClick={() => handleCaseStudyClick(() => window.navigateToProtectedCaseStudy && window.navigateToProtectedCaseStudy('wex'))}
               />
               <CaseStudyLockup 
                 category="A story of leadership"
                 title="Reviving a struggling team to deliver the impossible"
                 icon="👥"
+                onClick={() => handleCaseStudyClick(() => window.navigateToProtectedCaseStudy && window.navigateToProtectedCaseStudy('leadership'))}
               />
             </div>
           </div>
@@ -199,27 +210,74 @@ function Homepage({ onNavigateToCaseStudy }) {
   )
 }
 
-function App() {
+function AppContent() {
   const [currentPage, setCurrentPage] = useState('home')
+  const [currentCaseStudy, setCurrentCaseStudy] = useState(null)
   
-  const navigateToCaseStudy = () => {
+  const navigateToProtectedCaseStudy = (caseStudyId) => {
+    setCurrentCaseStudy(caseStudyId)
     setCurrentPage('case-study')
   }
   
   const navigateHome = () => {
     setCurrentPage('home')
+    setCurrentCaseStudy(null)
   }
   
-  // Add navigation to window object so the back button can access it
+  // Add navigation to window object so components can access it
   useEffect(() => {
     window.navigateHome = navigateHome
+    window.navigateToProtectedCaseStudy = navigateToProtectedCaseStudy
   }, [])
   
-  if (currentPage === 'case-study') {
+  if (currentPage === 'case-study' && currentCaseStudy === 'wex') {
     return <CaseStudy />
   }
   
-  return <Homepage onNavigateToCaseStudy={navigateToCaseStudy} />
+  if (currentPage === 'case-study' && currentCaseStudy === 'leadership') {
+    // Placeholder for future leadership case study
+    return (
+      <div className="case-study-page">
+        <div className="content-container">
+          <div className="case-study-hero">
+            <button 
+              onClick={navigateHome}
+              className="back-button"
+            >
+              ← Back
+            </button>
+            <div className="case-study-title-section">
+              <div className="case-study-subtitle">A story of leadership</div>
+              <h1 className="case-study-main-title">
+                Leadership Case Study
+              </h1>
+            </div>
+          </div>
+          <div className="scrollable-content">
+            <div className="case-study-content">
+              <div className="case-study-section">
+                <h2 className="section-title">Coming Soon</h2>
+                <div className="case-study-text">
+                  <p>This case study is currently in development.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+  
+  return <Homepage />
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+      <PasswordModal />
+    </AuthProvider>
+  )
 }
 
 export default App
