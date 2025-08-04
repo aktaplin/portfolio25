@@ -19,7 +19,8 @@ function ThemeSwitcher() {
     { value: 'cyber-noir', label: 'Cyber Noir' },
     { value: 'neon-minimalism', label: 'Neon Minimalism' },
     { value: 'obsidian-glass', label: 'Obsidian Glass' },
-    { value: 'brutalist-neon', label: 'Brutalist Neon' }
+    { value: 'brutalist-neon', label: 'Brutalist Neon' },
+    { value: 'technical-soft-futurism', label: 'Technical Soft Futurism' }
   ]
   
   useEffect(() => {
