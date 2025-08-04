@@ -52,10 +52,10 @@ function BackButton() {
 
 export default function CaseStudy() {
   return (
-    <div className="case-study-page">
+    <div className="case-study-page bg-radial-gradients bg-dot-grid-overlay">
       <ThemeSwitcher />
       <div className="content-container">
-        <div className="case-study-hero">
+        <div className="case-study-hero hero-layered-bg">
           <BackButton />
           <div className="case-study-title-section">
             <div className="case-study-subtitle">A story of innovation</div>

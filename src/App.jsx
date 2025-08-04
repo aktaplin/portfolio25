@@ -98,9 +98,9 @@ function Homepage() {
   initializeTheme()
 
   return (
-    <div className="homepage">
+    <div className="homepage bg-radial-gradients bg-dot-grid-overlay">
       <div className="content-container">
-        <div className="hero-panel">
+        <div className="hero-panel hero-layered-bg">
           <h1 className="main-title">Adam Taplin</h1>
           
           <div className="hero-section">
@@ -212,7 +212,7 @@ function AppContent() {
     return (
       <div className="case-study-page">
         <div className="content-container">
-          <div className="case-study-hero">
+          <div className="case-study-hero hero-layered-bg">
             <button 
               onClick={navigateHome}
               className="back-button"

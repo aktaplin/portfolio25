@@ -4,10 +4,12 @@
   --color-text: #2D3436;
   --color-link: #FF6B6B;
   --color-highlight: rgba(255, 107, 107, 0.15);
-  --color-accent: #4A90E2;
   --color-hero-bg: #B8B5B0;
   --color-white: #FAFAFA;
-  --color-border: #B8B5B0;
+  
+  /* Aliases for consistency */
+  --color-accent: var(--color-navy);
+  --color-border: var(--color-hero-bg);
 }
 
 
@@ -38,114 +40,31 @@
   margin: -24px -24px 0 -24px;
 }
 
+.hero-panel.hero-layered-bg {
+  background: 
+    radial-gradient(circle, #00000008 1px, transparent 1px),
+    radial-gradient(circle at 20% 30%, #4A90E220 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, #FF6B6B10 0%, transparent 50%),
+    var(--color-white);
+  background-size: 
+    24px 24px,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
 .scrollable-content {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-/* Tablet breakpoint */
-@media (min-width: 768px) {
-  .homepage {
-    padding: 40px;
-  }
-  
-  .hero-panel {
-    padding: 60px 40px;
-    margin: -40px -40px 0 -40px;
-    border-radius: 0;
-  }
-  
-  .content-container {
-    max-width: 768px;
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-  }
-  
-  .hero-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
-  }
-  
-  .hero-content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .philosophy-section .text-blocks {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-  }
-  
-  .client-logos {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
 
-/* Desktop breakpoint - Split screen layout */
-@media (min-width: 1200px) {
-  .homepage {
-    padding: 0;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  .content-container {
-    max-width: none;
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 0;
-  }
-  
-  .hero-panel {
-    background: var(--color-hero-bg);
-    padding: 80px;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 60px;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow: hidden;
-    margin: 0;
-  }
-  
-  .scrollable-content {
-    background-color: var(--color-white);
-    padding: 80px;
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
-    height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  
-  .hero-section {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
-  
-  .philosophy-section .text-blocks {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-  
-  .client-logos {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 .main-title {
   font-family: 'Playfair Display', serif;
@@ -157,17 +76,6 @@
   margin: 0;
 }
 
-@media (min-width: 768px) {
-  .main-title {
-    font-size: clamp(48px, 6vw, 64px);
-  }
-}
-
-@media (min-width: 1200px) {
-  .main-title {
-    font-size: clamp(48px, 4vw, 64px);
-  }
-}
 
 .hero-section {
   display: flex;
@@ -185,17 +93,6 @@
   margin: 0;
 }
 
-@media (min-width: 768px) {
-  .hero-title {
-    font-size: clamp(32px, 4vw, 42px);
-  }
-}
-
-@media (min-width: 1200px) {
-  .hero-title {
-    font-size: clamp(32px, 2.5vw, 42px);
-  }
-}
 
 .profile-image-container {
   margin: 20px 0;
@@ -210,12 +107,6 @@
   background-color: #ccc;
 }
 
-@media (min-width: 768px) {
-  .profile-image {
-    height: 100px;
-    max-width: 100px;
-  }
-}
 
 @media (min-width: 1200px) {
   .profile-image {
@@ -252,17 +143,6 @@
   margin: 0;
 }
 
-@media (min-width: 768px) {
-  .display-2 {
-    font-size: clamp(28px, 4vw, 36px);
-  }
-}
-
-@media (min-width: 1200px) {
-  .display-2 {
-    font-size: clamp(32px, 3vw, 40px);
-  }
-}
 
 .highlight {
   text-decoration: underline;
@@ -281,19 +161,6 @@
   margin: 0 0 20px 0;
 }
 
-@media (min-width: 768px) {
-  .section-title {
-    font-size: clamp(32px, 4vw, 42px);
-    margin: 0 0 30px 0;
-  }
-}
-
-@media (min-width: 1200px) {
-  .section-title {
-    font-size: clamp(36px, 3vw, 48px);
-    margin: 0 0 40px 0;
-  }
-}
 
 .work-section {
   display: flex;
@@ -449,18 +316,6 @@
   color: var(--color-text);
 }
 
-/* Responsive adjustments */
-@media (min-width: 768px) {
-  .skills-columns {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 1200px) {
-  .skills-columns {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
 
 .clients-section {
   display: flex;
@@ -502,6 +357,24 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
+
+.case-study-hero.hero-layered-bg {
+  background: 
+    radial-gradient(circle, #00000008 1px, transparent 1px),
+    radial-gradient(circle at 20% 30%, #4A90E220 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, #FF6B6B10 0%, transparent 50%),
+    var(--color-white);
+  background-size: 
+    24px 24px,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(74, 144, 226, 0.2);
 }
 
 .back-button {
@@ -684,11 +557,6 @@
   max-width: 65ch;
 }
 
-@media (min-width: 768px) {
-  .case-study-activities {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 .activity-card {
   background: var(--color-navy);
@@ -718,58 +586,7 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Tablet breakpoint */
-@media (min-width: 768px) {
-  .case-study-page {
-    padding: 40px;
-  }
-  
-  .case-study-hero {
-    padding: 60px;
-  }
-  
-  .case-study-main-title {
-    font-size: clamp(48px, 6vw, 64px);
-  }
-}
 
-/* Desktop breakpoint - Split screen layout */
-@media (min-width: 1200px) {
-  .case-study-page {
-    padding: 0;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  .case-study-hero {
-    background: var(--color-hero-bg);
-    padding: 80px;
-    border-radius: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 60px;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  .case-study-main-title {
-    font-size: clamp(48px, 4vw, 64px);
-  }
-  
-  .case-study-page .scrollable-content {
-    background-color: var(--color-white);
-    padding: 80px;
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
-    height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-}
 
 
 /* Password Modal Styles */
@@ -938,8 +755,8 @@ html {
   position: relative;
 }
 
-/* Fixed dot grid pattern overlay for full viewport */
-html::after {
+/* Shared background pattern utilities */
+.bg-dot-grid::after {
   content: '';
   position: fixed;
   top: 0;
@@ -952,7 +769,7 @@ html::after {
   z-index: 1;
 }
 
-.homepage::before {
+.bg-radial-gradients::before {
   content: '';
   position: fixed;
   top: 0;
@@ -966,7 +783,7 @@ html::after {
   z-index: -2;
 }
 
-.homepage::after {
+.bg-dot-grid-overlay::after {
   content: '';
   position: fixed;
   top: 0;
@@ -977,51 +794,6 @@ html::after {
   background-size: 24px 24px;
   pointer-events: none;
   z-index: -1;
-}
-
-.case-study-page::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(circle at 20% 30%, #4A90E220 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, #FF6B6B10 0%, transparent 50%);
-  pointer-events: none;
-  z-index: -2;
-}
-
-.case-study-page::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: radial-gradient(circle, #00000008 1px, transparent 1px);
-  background-size: 24px 24px;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.hero-panel {
-  background: 
-    radial-gradient(circle, #00000008 1px, transparent 1px),
-    radial-gradient(circle at 20% 30%, #4A90E220 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, #FF6B6B10 0%, transparent 50%),
-    var(--color-white);
-  background-size: 
-    24px 24px,
-    100% 100%,
-    100% 100%,
-    100% 100%;
-  backdrop-filter: blur(10px);
-  box-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(74, 144, 226, 0.2);
 }
 
 .case-study {
@@ -1076,23 +848,6 @@ html::after {
     0 0 0 1px rgba(74, 144, 226, 0.2);
 }
 
-.case-study-hero {
-  background: 
-    radial-gradient(circle, #00000008 1px, transparent 1px),
-    radial-gradient(circle at 20% 30%, #4A90E220 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, #FF6B6B10 0%, transparent 50%),
-    var(--color-white);
-  background-size: 
-    24px 24px,
-    100% 100%,
-    100% 100%,
-    100% 100%;
-  backdrop-filter: blur(10px);
-  box-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(74, 144, 226, 0.2);
-}
 
 /* Magnetic hover effects for case studies */
 .case-study-icon {
@@ -1109,18 +864,68 @@ html::after {
 }
 
 /* Hero panel text styling */
-.hero-panel .main-title {
-  color: var(--color-text);
-}
-
-.hero-panel .hero-title {
-  color: var(--color-text);
-}
-
-.case-study-hero .case-study-main-title {
-  color: var(--color-text);
-}
-
+.hero-panel .main-title,
+.hero-panel .hero-title,
+.case-study-hero .case-study-main-title,
 .case-study-hero .case-study-subtitle {
   color: var(--color-text);
+}
+
+/* ========================================
+   CONSOLIDATED RESPONSIVE BREAKPOINTS
+   ======================================== */
+
+/* Tablet: 768px and up */
+@media (min-width: 768px) {
+  /* Layout adjustments */
+  .homepage { padding: 40px; }
+  .hero-panel { padding: 60px 40px; margin: -40px -40px 0 -40px; border-radius: 0; }
+  .content-container { max-width: 768px; gap: 60px; }
+  .hero-section { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .hero-content { display: flex; flex-direction: column; gap: 20px; }
+  .philosophy-section .text-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .client-logos { grid-template-columns: repeat(4, 1fr); }
+  
+  /* Typography scaling */
+  .main-title { font-size: clamp(48px, 6vw, 64px); }
+  .hero-title { font-size: clamp(32px, 4vw, 42px); }
+  .display-2 { font-size: clamp(28px, 4vw, 36px); }
+  .section-title { font-size: clamp(32px, 4vw, 42px); margin: 0 0 30px 0; }
+  
+  /* Component adjustments */
+  .profile-image { height: 100px; max-width: 100px; }
+  .skills-columns { grid-template-columns: 1fr 1fr; }
+  .case-study-activities { grid-template-columns: repeat(2, 1fr); }
+  
+  /* Case study page */
+  .case-study-page { padding: 40px; }
+  .case-study-hero { padding: 60px; }
+  .case-study-main-title { font-size: clamp(48px, 6vw, 64px); }
+}
+
+/* Desktop: 1200px and up */
+@media (min-width: 1200px) {
+  /* Split screen layout */
+  .homepage { padding: 0; height: 100vh; overflow: hidden; }
+  .content-container { max-width: none; width: 100%; height: 100vh; display: grid; grid-template-columns: 1fr 3fr; gap: 0; }
+  .hero-panel { background: var(--color-hero-bg); padding: 80px; border-radius: 16px; justify-content: center; gap: 60px; position: sticky; top: 0; height: 100vh; overflow: hidden; margin: 0; }
+  .scrollable-content { background-color: var(--color-white); padding: 80px; gap: 80px; height: 100vh; overflow-y: auto; overflow-x: hidden; }
+  .hero-section { display: flex; flex-direction: column; gap: 40px; }
+  .philosophy-section .text-blocks { gap: 32px; }
+  .client-logos { grid-template-columns: repeat(2, 1fr); }
+  
+  /* Typography scaling */
+  .main-title { font-size: clamp(48px, 4vw, 64px); }
+  .hero-title { font-size: clamp(32px, 2.5vw, 42px); }
+  .display-2 { font-size: clamp(32px, 3vw, 40px); }
+  .section-title { font-size: clamp(36px, 3vw, 48px); margin: 0 0 40px 0; }
+  
+  /* Component adjustments */
+  .skills-columns { grid-template-columns: 1fr 1fr 1fr; }
+  
+  /* Case study page split screen */
+  .case-study-page { padding: 0; height: 100vh; overflow: hidden; }
+  .case-study-hero { background: var(--color-hero-bg); padding: 80px; border-radius: 0; justify-content: center; gap: 60px; position: sticky; top: 0; height: 100vh; overflow: hidden; }
+  .case-study-main-title { font-size: clamp(48px, 4vw, 64px); }
+  .case-study-page .scrollable-content { background-color: var(--color-white); padding: 80px; gap: 80px; height: 100vh; overflow-y: auto; overflow-x: hidden; }
 }
