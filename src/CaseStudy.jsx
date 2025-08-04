@@ -1,42 +1,14 @@
 import './App.css'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
+import Navigation from './components/Navigation'
 
 const imgImage = "http://localhost:3845/assets/9bae1906e382970e6dc0fc62388a00c50aec635c.png";
 
-function ThemeSwitcher() {
-  const [theme, setTheme] = useState('coral-navy')
-  
-  const themes = [
-    { value: 'coral-navy', label: 'Coral Navy' },
-    { value: 'sage-depths', label: 'Sage Depths' },
-    { value: 'warm-slate', label: 'Warm Slate' },
-    { value: 'midnight-copper', label: 'Midnight Copper' },
-    { value: 'classic-crimson', label: 'Classic Crimson' },
-    { value: 'rust-sage', label: 'Rust Sage' },
-    { value: 'electric-sage', label: 'Electric Sage' },
-    { value: 'cyber-noir', label: 'Cyber Noir' },
-    { value: 'neon-minimalism', label: 'Neon Minimalism' },
-    { value: 'obsidian-glass', label: 'Obsidian Glass' },
-    { value: 'brutalist-neon', label: 'Brutalist Neon' }
-  ]
-  
+// Set Technical Soft Futurism theme on component load
+function initializeTheme() {
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-  }, [theme])
-  
-  return (
-    <div className="theme-switcher">
-      <select 
-        value={theme} 
-        onChange={(e) => setTheme(e.target.value)}
-        className="theme-selector"
-      >
-        {themes.map(t => (
-          <option key={t.value} value={t.value}>{t.label}</option>
-        ))}
-      </select>
-    </div>
-  )
+    document.documentElement.setAttribute('data-theme', 'technical-soft-futurism')
+  }, [])
 }
 
 function BackButton() {
@@ -51,9 +23,12 @@ function BackButton() {
 }
 
 export default function CaseStudy() {
+  // Initialize theme
+  initializeTheme()
+  
   return (
     <div className="case-study-page bg-radial-gradients bg-dot-grid-overlay">
-      <ThemeSwitcher />
+      <Navigation />
       <div className="content-container">
         <div className="case-study-hero hero-layered-bg">
           <BackButton />
