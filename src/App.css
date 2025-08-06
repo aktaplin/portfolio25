@@ -770,11 +770,13 @@
   background-size: 20px 20px, 100% 100%, 100% 100%, 100% 100%;
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(74, 144, 226, 0.1);
-  width: 100vw;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   z-index: 1000;
+  box-sizing: border-box;
 }
 
 /* Navigation Logo */
@@ -939,6 +941,178 @@ html {
   transform: scale(1.02);
 }
 
+/* ======================================
+   TIMELINE DESIGN OPTIONS
+   ====================================== */
+
+/* TIMELINE OPTION 1: Vertical Connected Timeline */
+.timeline-option-1 {
+  position: relative;
+  padding: 0 0 0 40px;
+}
+
+.timeline-option-1::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #4A90E2, #FF6B6B);
+  border-radius: 2px;
+}
+
+.timeline-item-v1 {
+  position: relative;
+  margin-bottom: 32px;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(74, 144, 226, 0.15);
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.06);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.timeline-item-v1::before {
+  content: '';
+  position: absolute;
+  left: -24.5px;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #4A90E2, #FF6B6B);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #ffffff, 0 0 0 6px rgba(74, 144, 226, 0.2);
+  z-index: 2;
+}
+
+.timeline-item-v1:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.12);
+  border-color: rgba(74, 144, 226, 0.3);
+}
+
+.timeline-item-v1:hover::before {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px #ffffff, 0 0 0 8px rgba(74, 144, 226, 0.3);
+}
+
+.timeline-item-v1:active {
+  transform: translateY(-1px);
+}
+
+.timeline-item-v1 .activity-title {
+  color: #333333 !important;
+  margin-bottom: 8px;
+}
+
+.timeline-item-v1 .activity-duration {
+  color: rgba(74, 144, 226, 0.8) !important;
+}
+
+/* TIMELINE OPTION 2: Alternating Vertical Timeline */
+.timeline-option-2 {
+  position: relative;
+  padding: 0 20px;
+}
+
+.timeline-option-2::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #4A90E2, #FF6B6B);
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+
+.timeline-item-v2 {
+  position: relative;
+  margin-bottom: 40px;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(74, 144, 226, 0.15);
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.06);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: calc(50% - 30px);
+}
+
+.timeline-item-v2:nth-child(odd) {
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+.timeline-item-v2:nth-child(even) {
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.timeline-item-v2::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #4A90E2, #FF6B6B);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #ffffff, 0 0 0 6px rgba(74, 144, 226, 0.2);
+  z-index: 2;
+}
+
+.timeline-item-v2:nth-child(odd)::before {
+  right: -26px;
+}
+
+.timeline-item-v2:nth-child(even)::before {
+  left: -26px;
+}
+
+.timeline-item-v2::after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  width: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(74, 144, 226, 0.3), rgba(255, 107, 107, 0.3));
+}
+
+.timeline-item-v2:nth-child(odd)::after {
+  right: -20px;
+}
+
+.timeline-item-v2:nth-child(even)::after {
+  left: -20px;
+}
+
+.timeline-item-v2:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.12);
+  border-color: rgba(74, 144, 226, 0.3);
+}
+
+.timeline-item-v2:hover::before {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px #ffffff, 0 0 0 8px rgba(74, 144, 226, 0.3);
+}
+
+.timeline-item-v2:active {
+  transform: translateY(-1px);
+}
+
+.timeline-item-v2 .activity-title {
+  color: #333333 !important;
+  margin-bottom: 8px;
+}
+
+.timeline-item-v2 .activity-duration {
+  color: rgba(74, 144, 226, 0.8) !important;
+}
+
 /* Hero panel text styling */
 .hero-panel .main-title,
 .case-study-hero .case-study-main-title,
@@ -1009,4 +1183,241 @@ html {
   /* Case study specific styling */
   .case-study-hero { padding: 60px 40px; border-radius: 16px; }
   .case-study-main-title { font-size: clamp(48px, 4vw, 64px); }
+}
+
+/* ========================================
+   TIMELINE RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+/* Mobile: Convert alternating timeline to single column */
+@media (max-width: 767px) {
+  .timeline-option-2::before {
+    left: 20px;
+    transform: none;
+  }
+  
+  .timeline-item-v2 {
+    width: calc(100% - 40px);
+    margin-left: 40px;
+    margin-right: 0;
+  }
+  
+  .timeline-item-v2:nth-child(odd),
+  .timeline-item-v2:nth-child(even) {
+    align-self: stretch;
+    margin-left: 40px;
+    margin-right: 0;
+  }
+  
+  .timeline-item-v2:nth-child(odd)::before,
+  .timeline-item-v2:nth-child(even)::before {
+    left: -32px;
+    right: auto;
+  }
+  
+  .timeline-item-v2:nth-child(odd)::after,
+  .timeline-item-v2:nth-child(even)::after {
+    left: -20px;
+    right: auto;
+  }
+}
+
+/* Tablet and Desktop: Keep alternating layout */
+@media (min-width: 768px) {
+  .timeline-option-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ========================================
+   ACTIVITY MODAL STYLES
+   ======================================== */
+
+/* Mobile: Full-screen modal */
+.activity-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 2000;
+  padding: 0;
+  backdrop-filter: blur(4px);
+}
+
+.activity-modal {
+  background: var(--color-white);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: slideUpMobile 0.3s ease-out;
+  border-radius: 0;
+}
+
+.activity-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 24px 16px 24px;
+  border-bottom: 1px solid rgba(74, 144, 226, 0.1);
+  flex-shrink: 0;
+}
+
+.activity-modal-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--color-navy);
+  margin: 0;
+  padding-right: 20px;
+}
+
+.activity-modal-close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 8px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.activity-modal-close:hover {
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+.activity-modal-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.activity-modal-duration {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: rgba(74, 144, 226, 0.8);
+  background: rgba(74, 144, 226, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  align-self: flex-start;
+}
+
+.activity-modal-image-section {
+  display: flex;
+  justify-content: center;
+}
+
+.activity-modal-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.activity-modal-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-text);
+}
+
+.activity-modal-text h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--color-text);
+  margin: 24px 0 12px 0;
+}
+
+.activity-modal-text h3:first-child {
+  margin-top: 0;
+}
+
+.activity-modal-text p {
+  margin: 0 0 16px 0;
+}
+
+.activity-modal-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile slide up animation */
+@keyframes slideUpMobile {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Desktop: Bottom sheet */
+@media (min-width: 768px) {
+  .activity-modal-overlay {
+    align-items: flex-end;
+    justify-content: center;
+    padding: 40px;
+  }
+  
+  .activity-modal {
+    width: 100%;
+    max-width: 768px;
+    height: 70vh;
+    max-height: 600px;
+    border-radius: 16px 16px 0 0;
+    animation: slideUpDesktop 0.3s ease-out;
+    box-shadow: 
+      0 -10px 40px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(74, 144, 226, 0.1);
+  }
+  
+  .activity-modal-header {
+    padding: 32px 32px 20px 32px;
+  }
+  
+  .activity-modal-title {
+    font-size: 28px;
+  }
+  
+  .activity-modal-content {
+    padding: 0 32px 32px 32px;
+  }
+  
+  .activity-modal-text {
+    font-size: 17px;
+    line-height: 28px;
+  }
+}
+
+/* Desktop slide up animation */
+@keyframes slideUpDesktop {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
