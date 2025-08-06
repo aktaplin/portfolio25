@@ -104,9 +104,7 @@ function Homepage() {
         <Navigation />
         <div className="scrollable-content">
           <p className="display-2">
-            I turn complex project chaos into clear wins. Agency life has taught me to 
-            juggle competing priorities while building <span className="highlight">collaborative cultures</span> where 
-            great work thrives through diverse perspectives and <span className="highlight">creative curiosity</span>.
+          I orchestrate messy projects into successful outcomes. Agency life shapes my approach: align diverse teams, navigate competing priorities, and keep everyone sane while we build something great.
           </p>
           
           <div className="work-section">
