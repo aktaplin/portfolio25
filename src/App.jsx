@@ -102,21 +102,6 @@ function Homepage() {
     <div className="homepage bg-radial-gradients bg-dot-grid-overlay">
       <div className="content-container">
         <Navigation />
-        <div className="hero-panel hero-layered-bg">
-          <h1 className="main-title">Adam Taplin</h1>
-          
-          <div className="hero-section">
-            <div className="hero-content">
-              <h2 className="hero-title">
-                Enterprise design team leadership
-              </h2>
-            </div>
-            {/* <div className="profile-image-container">
-              <img src={profileImage} alt="Adam Taplin" className="profile-image" />
-            </div> */}
-          </div>
-        </div>
-
         <div className="scrollable-content">
           <p className="display-2">
             I turn complex project chaos into clear wins. Agency life has taught me to 
@@ -215,21 +200,16 @@ function AppContent() {
       <div className="case-study-page">
         <div className="content-container">
           <Navigation />
-          <div className="case-study-hero hero-layered-bg">
-            <button 
-              onClick={navigateHome}
-              className="back-button"
-            >
-              ← Back
-            </button>
-            <div className="case-study-title-section">
-              <div className="case-study-subtitle">A story of leadership</div>
-              <h1 className="case-study-main-title">
-                Leadership Case Study
-              </h1>
-            </div>
-          </div>
           <div className="scrollable-content">
+            <div className="case-study-hero hero-layered-bg">
+              <div className="case-study-title-section">
+                <div className="case-study-subtitle">A story of leadership</div>
+                <h1 className="case-study-main-title">
+                  Leadership Case Study
+                </h1>
+              </div>
+            </div>
+            
             <div className="case-study-page-content">
               <div className="case-study-section">
                 <h2 className="section-title">Coming Soon</h2>

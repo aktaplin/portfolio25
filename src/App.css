@@ -16,7 +16,6 @@
 .homepage {
   background-color: var(--color-white);
   min-height: 100vh;
-  padding: 24px;
   display: flex;
   justify-content: center;
 }
@@ -27,7 +26,11 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 0;
+}
+
+.scrollable-content {
+  padding: 90px 24px 40px 24px;
 }
 
 .hero-panel {
@@ -347,7 +350,6 @@
 .case-study-page {
   background-color: var(--color-white);
   min-height: 100vh;
-  padding: 24px;
   display: flex;
   justify-content: center;
 }
@@ -761,10 +763,18 @@
   margin-bottom: 0;
   height: 50px;
   background: 
-    radial-gradient(ellipse at top left, rgba(74, 144, 226, 0.03), transparent 40%),
+    radial-gradient(circle, #00000008 1px, transparent 1px),
+    radial-gradient(circle at 20% 30%, #4A90E220 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, #FF6B6B10 0%, transparent 50%),
     rgba(250, 250, 250, 0.85);
+  background-size: 20px 20px, 100% 100%, 100% 100%, 100% 100%;
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(74, 144, 226, 0.1);
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 /* Navigation Logo */
@@ -943,18 +953,19 @@ html {
 /* Tablet: 768px and up */
 @media (min-width: 768px) {
   /* Layout adjustments */
-  .homepage { padding: 40px; }
-  .hero-panel { padding: 60px 40px; margin: -40px -40px 0 -40px; border-radius: 0; }
-  .content-container { max-width: 768px; gap: 60px; }
-  .hero-section { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-  .hero-content { display: flex; flex-direction: column; gap: 20px; }
+  .homepage, .case-study-page { padding: 0; }
+  .content-container { max-width: 768px; margin: 0 auto; }
+  .scrollable-content { padding: 40px; }
   .philosophy-section .text-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
   .client-logos { grid-template-columns: repeat(4, 1fr); }
   
   /* Navigation container for tablet */
   .navigation-container {
     padding: 12px 40px;
-    height: 50px;
+  }
+  
+  .scrollable-content {
+    padding: 90px 40px 40px 40px;
   }
   
   /* Typography scaling */
@@ -976,14 +987,11 @@ html {
 
 /* Desktop: 1200px and up */
 @media (min-width: 1200px) {
-  /* Split screen layout */
-  .homepage { padding: 0; height: 100vh; overflow: hidden; }
-  .content-container { max-width: none; width: 100%; height: 100vh; display: grid; grid-template-columns: 1fr 3fr; gap: 0; }
-  .navigation-container { grid-column: 2; grid-row: 1; z-index: 10; position: relative; }
-  .hero-panel { grid-column: 1; grid-row: 1 / -1; }
-  .scrollable-content { grid-column: 2; grid-row: 1; padding-top: 130px; }
-  .hero-panel { background: var(--color-hero-bg); padding: 80px; border-radius: 16px; justify-content: center; gap: 60px; position: sticky; top: 0; height: 100vh; overflow: hidden; margin: 0; }
-  .scrollable-content { background-color: var(--color-white); padding: 80px 80px 80px 80px; gap: 80px; height: 100vh; overflow-y: auto; overflow-x: hidden; }
+  /* Simple centered layout for homepage and case studies */
+  .homepage, .case-study-page { padding: 0; }
+  .content-container { max-width: 768px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; height: auto; }
+  .navigation-container { padding: 12px 80px; }
+  .scrollable-content { padding: 90px 40px 40px 40px; }
   .hero-section { display: flex; flex-direction: column; gap: 40px; }
   .philosophy-section .text-blocks { gap: 32px; }
   .client-logos { grid-template-columns: repeat(2, 1fr); }
@@ -997,19 +1005,8 @@ html {
   /* Component adjustments */
   .skills-columns { grid-template-columns: 1fr 1fr 1fr; }
   
-  /* Navigation container for desktop */
-  .navigation-container {
-    padding: 12px 80px;
-    height: 50px;
-  }
   
-  /* Case study page split screen */
-  .case-study-page { padding: 0; height: 100vh; overflow: hidden; }
-  .case-study-page .content-container { display: grid; grid-template-columns: 1fr 3fr; }
-  .case-study-page .navigation-container { grid-column: 2; grid-row: 1; z-index: 10; position: relative; }
-  .case-study-page .case-study-hero { grid-column: 1; grid-row: 1 / -1; }
-  .case-study-page .scrollable-content { grid-column: 2; grid-row: 1; padding-top: 130px; }
-  .case-study-hero { background: var(--color-hero-bg); padding: 80px; border-radius: 0; justify-content: center; gap: 60px; position: sticky; top: 0; height: 100vh; overflow: hidden; }
+  /* Case study specific styling */
+  .case-study-hero { padding: 60px 40px; border-radius: 16px; }
   .case-study-main-title { font-size: clamp(48px, 4vw, 64px); }
-  .case-study-page .scrollable-content { background-color: var(--color-white); padding: 80px; gap: 80px; height: 100vh; overflow-y: auto; overflow-x: hidden; }
 }

@@ -30,20 +30,19 @@ export default function CaseStudy() {
     <div className="case-study-page bg-radial-gradients bg-dot-grid-overlay">
       <div className="content-container">
         <Navigation />
-        <div className="case-study-hero hero-layered-bg">
-          <BackButton />
-          <div className="case-study-title-section">
-            <div className="case-study-subtitle">A story of innovation</div>
-            <h1 className="case-study-main-title">
-              WEX Mobility Vision 2027
-            </h1>
-          </div>
-          <div className="hero-image-section">
-            <img src={imgImage} alt="WEX logo" className="hero-wex-logo" />
-          </div>
-        </div>
-
         <div className="scrollable-content">
+          <div className="case-study-hero hero-layered-bg">
+            <div className="case-study-title-section">
+              <div className="case-study-subtitle">A story of innovation</div>
+              <h1 className="case-study-main-title">
+                WEX Mobility Vision 2027
+              </h1>
+            </div>
+            <div className="hero-image-section">
+              <img src={imgImage} alt="WEX logo" className="hero-wex-logo" />
+            </div>
+          </div>
+
           <div className="case-study-page-content">
             <div className="case-study-section">
               <h2 className="section-title">Problem</h2>
