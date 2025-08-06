@@ -1,7 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 export default function Navigation() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const handleHomeClick = (e) => {
+    e.preventDefault()
+    if (window.navigateHome) {
+      window.navigateHome()
+    }
+  }
 
   const handleWorkClick = (e) => {
     e.preventDefault()
@@ -15,44 +20,28 @@ export default function Navigation() {
         }
       }, 100)
     }
-    setIsMenuOpen(false)
   }
 
-  const handleMenuItemClick = () => {
-    setIsMenuOpen(false)
-  }
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
+  const handleAboutClick = (e) => {
+    e.preventDefault()
+    // TODO: Navigate to About page when created
+    console.log('About page navigation - to be implemented')
   }
 
   return (
-    <>
-      {/* Floating Hamburger Button */}
-      <button 
-        className={`hamburger-floating ${isMenuOpen ? 'active' : ''}`}
-        onClick={toggleMenu}
-        aria-label="Toggle menu"
+    <nav className="navigation-container">
+      <a 
+        href="/" 
+        className="nav-logo"
+        onClick={handleHomeClick}
       >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      {/* Mobile Menu Overlay */}
-      <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-        <ul className="nav-links">
-          <li><a href="#work" onClick={handleWorkClick}>Work</a></li>
-          <li><a href="#about" onClick={handleMenuItemClick}>About</a></li>
-          <li><a href="#process" onClick={handleMenuItemClick}>Process</a></li>
-          <li><a href="#contact" onClick={handleMenuItemClick}>Contact</a></li>
-        </ul>
+        Adam Taplin
+      </a>
+      
+      <div className="nav-links">
+        <a href="#work" onClick={handleWorkClick}>Work</a>
+        <a href="#about" onClick={handleAboutClick}>About</a>
       </div>
-
-      {/* Backdrop */}
-      {isMenuOpen && (
-        <div className="nav-backdrop" onClick={() => setIsMenuOpen(false)}></div>
-      )}
-    </>
+    </nav>
   )
 }

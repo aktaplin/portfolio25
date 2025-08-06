@@ -100,8 +100,8 @@ function Homepage() {
 
   return (
     <div className="homepage bg-radial-gradients bg-dot-grid-overlay">
-      <Navigation />
       <div className="content-container">
+        <Navigation />
         <div className="hero-panel hero-layered-bg">
           <h1 className="main-title">Adam Taplin</h1>
           
@@ -213,8 +213,8 @@ function AppContent() {
     // Placeholder for future leadership case study
     return (
       <div className="case-study-page">
-        <Navigation />
         <div className="content-container">
+          <Navigation />
           <div className="case-study-hero hero-layered-bg">
             <button 
               onClick={navigateHome}
@@ -230,7 +230,7 @@ function AppContent() {
             </div>
           </div>
           <div className="scrollable-content">
-            <div className="case-study-content">
+            <div className="case-study-page-content">
               <div className="case-study-section">
                 <h2 className="section-title">Coming Soon</h2>
                 <div className="case-study-text">

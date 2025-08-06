@@ -28,8 +28,8 @@ export default function CaseStudy() {
   
   return (
     <div className="case-study-page bg-radial-gradients bg-dot-grid-overlay">
-      <Navigation />
       <div className="content-container">
+        <Navigation />
         <div className="case-study-hero hero-layered-bg">
           <BackButton />
           <div className="case-study-title-section">
@@ -44,7 +44,7 @@ export default function CaseStudy() {
         </div>
 
         <div className="scrollable-content">
-          <div className="case-study-content">
+          <div className="case-study-page-content">
             <div className="case-study-section">
               <h2 className="section-title">Problem</h2>
               <div className="case-study-text">
