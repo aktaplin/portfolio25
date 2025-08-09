@@ -5,6 +5,14 @@ import { AuthProvider } from './contexts/AuthContext'
 import { useAuth } from './hooks/useAuth'
 import PasswordModal from './components/PasswordModal'
 import Navigation from './components/Navigation'
+import fordLogo from './assets/logos/ford.svg'
+import mastercardLogo from './assets/logos/mastercard.svg'
+import mercedesLogo from './assets/logos/mercedes.png'
+import microsoftLogo from './assets/logos/microsoft.png'
+import prudentialLogo from './assets/logos/Pru_RGB.png'
+import statefarmLogo from './assets/logos/statefarm.png'
+import verizonLogo from './assets/logos/verizon.svg'
+import wexLogo from './assets/logos/wex.svg'
 
 // Set Technical Soft Futurism theme on app load
 function initializeTheme() {
@@ -152,14 +160,30 @@ function Homepage() {
           <div className="clients-section">
             <h2 className="section-title">Past clients</h2>
             <div className="client-logos">
-              <div className="client-logo">Ford</div>
-              <div className="client-logo">Mastercard</div>
-              <div className="client-logo">Mercedes-Benz</div>
-              <div className="client-logo">Microsoft</div>
-              <div className="client-logo">Prudential</div>
-              <div className="client-logo">State Farm</div>
-              <div className="client-logo">Verizon</div>
-              <div className="client-logo">WEX</div>
+              <div className="client-logo">
+                <img src={fordLogo} alt="Ford" />
+              </div>
+              <div className="client-logo">
+                <img src={mastercardLogo} alt="Mastercard" />
+              </div>
+              <div className="client-logo">
+                <img src={mercedesLogo} alt="Mercedes-Benz" />
+              </div>
+              <div className="client-logo">
+                <img src={microsoftLogo} alt="Microsoft" />
+              </div>
+              <div className="client-logo">
+                <img src={prudentialLogo} alt="Prudential" />
+              </div>
+              <div className="client-logo">
+                <img src={statefarmLogo} alt="State Farm" />
+              </div>
+              <div className="client-logo">
+                <img src={verizonLogo} alt="Verizon" />
+              </div>
+              <div className="client-logo">
+                <img src={wexLogo} alt="WEX" />
+              </div>
             </div>
           </div>
         </div>

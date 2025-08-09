@@ -2,8 +2,9 @@ import './App.css'
 import { useEffect, useState } from 'react'
 import Navigation from './components/Navigation'
 import ActivityModal from './components/ActivityModal'
+import wexLogo from './assets/logos/wex.svg'
 
-const imgImage = "http://localhost:3845/assets/9bae1906e382970e6dc0fc62388a00c50aec635c.png";
+const imgImage = wexLogo;
 
 // Set Technical Soft Futurism theme on component load
 function initializeTheme() {
@@ -30,14 +31,8 @@ const activitiesData = {
     duration: 'Week 1-2',
     content: (
       <div>
-        <h3>Setting the Foundation</h3>
-        <p>The first two weeks were critical for establishing the project framework and assembling the right team. We needed a diverse group of designers, strategists, and technologists to tackle WEX's complex challenges.</p>
-        
-        <h3>Key Activities</h3>
-        <p>I personally interviewed and selected 8 team members, ensuring we had expertise in automotive technology, AI/ML applications, and enterprise UX. We established our collaboration tools, defined roles, and created our project charter.</p>
-        
-        <h3>Strategic Alignment</h3>
-        <p>Critical stakeholder meetings with WEX leadership helped us understand not just the brief, but the underlying business pressures. Fleet electrification wasn't just a trend—it was an existential threat to their gallon-based revenue model.</p>
+        <p>I evaluated the design resources on the bench, spoke with those available, and selected the skill and personality mix best suited to this project.</p>
+        <p>With all aboard, I fleshed out the design portion of the internal briefing for day 1.</p>
       </div>
     )
   },
