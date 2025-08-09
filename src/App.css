@@ -354,6 +354,146 @@
   filter: grayscale(0.2) opacity(0.8);
 }
 
+/* ========================================
+   COLOR PICKER COMPONENT
+   ======================================== */
+
+.color-picker {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 3000;
+  font-family: 'Inter', sans-serif;
+}
+
+.color-picker-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(250, 250, 250, 0.95);
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.color-picker-trigger:hover {
+  border-color: rgba(74, 144, 226, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.color-preview {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.color-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.color-arrow {
+  font-size: 10px;
+  color: rgba(74, 144, 226, 0.6);
+  transition: transform 0.2s ease;
+}
+
+.color-picker-dropdown {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  min-width: 240px;
+  background: rgba(250, 250, 250, 0.98);
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  animation: dropdownSlideIn 0.2s ease;
+}
+
+@keyframes dropdownSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.color-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid rgba(74, 144, 226, 0.08);
+}
+
+.color-option:last-child {
+  border-bottom: none;
+}
+
+.color-option:hover {
+  background-color: rgba(74, 144, 226, 0.05);
+}
+
+.color-option.selected {
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+.color-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.color-info {
+  flex: 1;
+}
+
+.color-option-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.color-description {
+  font-size: 12px;
+  color: rgba(45, 52, 54, 0.6);
+  line-height: 1.3;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .color-picker {
+    bottom: 16px;
+    left: 16px;
+  }
+  
+  .color-picker-dropdown {
+    min-width: 220px;
+  }
+  
+  .color-name {
+    display: none;
+  }
+}
+
 /* Case Study Page Styles */
 .case-study-page {
   background-color: var(--color-white);

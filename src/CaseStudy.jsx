@@ -2,6 +2,7 @@ import './App.css'
 import { useEffect, useState } from 'react'
 import Navigation from './components/Navigation'
 import ActivityModal from './components/ActivityModal'
+import ColorPicker from './components/ColorPicker'
 import wexLogo from './assets/logos/wex.svg'
 
 const imgImage = wexLogo;
@@ -122,6 +123,7 @@ export default function CaseStudy() {
   
   return (
     <div className="case-study-page bg-radial-gradients bg-dot-grid-overlay">
+      <ColorPicker />
       <div className="content-container">
         <Navigation />
         <div className="scrollable-content">

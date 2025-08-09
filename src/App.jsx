@@ -5,6 +5,7 @@ import { AuthProvider } from './contexts/AuthContext'
 import { useAuth } from './hooks/useAuth'
 import PasswordModal from './components/PasswordModal'
 import Navigation from './components/Navigation'
+import ColorPicker from './components/ColorPicker'
 import fordLogo from './assets/logos/ford.svg'
 import mastercardLogo from './assets/logos/mastercard.svg'
 import mercedesLogo from './assets/logos/mercedes.png'
@@ -108,6 +109,7 @@ function Homepage() {
 
   return (
     <div className="homepage bg-radial-gradients bg-dot-grid-overlay">
+      <ColorPicker />
       <div className="content-container">
         <Navigation />
         <div className="scrollable-content">
