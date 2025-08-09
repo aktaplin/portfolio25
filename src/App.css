@@ -64,7 +64,7 @@
 .scrollable-content {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 48px;
 }
 
 
@@ -83,7 +83,7 @@
 .hero-section {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 .hero-title {
@@ -98,7 +98,7 @@
 
 
 .profile-image-container {
-  margin: 20px 0;
+  margin: 24px 0;
 }
 
 .profile-image {
@@ -161,7 +161,7 @@
   line-height: 1.25;
   letter-spacing: -0.18px;
   color: var(--color-text);
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
 }
 
 
@@ -331,7 +331,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin-top: 32px;
 }
 
 .client-logo {
@@ -1297,7 +1296,7 @@ html {
   .main-title { font-size: clamp(48px, 6vw, 64px); }
   .hero-title { font-size: clamp(28px, 3.5vw, 36px); }
   .display-2 { font-size: clamp(28px, 4vw, 36px); }
-  .section-title { font-size: clamp(32px, 4vw, 42px); margin: 0 0 30px 0; }
+  .section-title { font-size: clamp(32px, 4vw, 42px); margin: 0 0 24px 0; }
   
   /* Component adjustments */
   .profile-image { height: 100px; max-width: 100px; }
@@ -1328,7 +1327,7 @@ html {
   .main-title { font-size: clamp(48px, 4vw, 64px); }
   .hero-title { font-size: clamp(28px, 2.2vw, 36px); }
   .display-2 { font-size: clamp(32px, 3vw, 40px); }
-  .section-title { font-size: clamp(36px, 3vw, 48px); margin: 0 0 40px 0; }
+  .section-title { font-size: clamp(36px, 3vw, 48px); margin: 0 0 32px 0; }
   
   /* Component adjustments */
   .skills-columns { grid-template-columns: 1fr 1fr 1fr; }
