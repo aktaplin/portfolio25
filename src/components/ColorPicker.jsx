@@ -2,34 +2,40 @@ import React, { useState, useEffect } from 'react'
 
 const colorOptions = [
   {
-    name: 'Original Coral',
-    value: '#FF6B6B',
-    description: 'Soft and vibrant'
+    name: 'Cyan + White',
+    value: '#00FFFF',
+    base: '#FFFFFF',
+    description: 'Clean electric flow'
   },
   {
-    name: 'Slate Stone', 
-    value: '#6B7C95',
-    description: 'Architectural slate'
+    name: 'Volt Green',
+    value: '#00FF41',
+    base: '#6B7C95',
+    description: 'Matrix code vibes'
   },
   {
-    name: 'Cedar Warm',
-    value: '#A67C52', 
-    description: 'Natural wood tones'
+    name: 'Laser Orange',
+    value: '#FF8500',
+    base: '#6B7C95',
+    description: 'High-energy accent'
   },
   {
-    name: 'Copper Patina',
-    value: '#8B6B47',
-    description: 'Weathered elegance'
+    name: 'Plasma Pink',
+    value: '#FF0080',
+    base: '#6B7C95',
+    description: 'Synthetic intensity'
   },
   {
-    name: 'Sage Steel',
-    value: '#7A8B7A',
-    description: 'Tech meets nature'
+    name: 'Neon Purple',
+    value: '#8A2BE2',
+    base: '#6B7C95',
+    description: 'Electric dreams'
   },
   {
-    name: 'Canyon Clay',
-    value: '#B8956A',
-    description: 'Desert landscapes'
+    name: 'Acid Yellow',
+    value: '#CCFF00',
+    base: '#6B7C95',
+    description: 'Sharp contrast'
   }
 ]
 
@@ -53,11 +59,17 @@ export default function ColorPicker() {
   const updateCSSVariables = (color) => {
     const root = document.documentElement
     const hex = color.value
+    const baseHex = color.base || '#6B7C95' // Default to slate if no base specified
     
     // Convert hex to RGB for rgba usage
     const r = parseInt(hex.slice(1, 3), 16)
     const g = parseInt(hex.slice(3, 5), 16)
     const b = parseInt(hex.slice(5, 7), 16)
+    
+    // Convert base hex to RGB for rgba usage
+    const baseR = parseInt(baseHex.slice(1, 3), 16)
+    const baseG = parseInt(baseHex.slice(3, 5), 16)
+    const baseB = parseInt(baseHex.slice(5, 7), 16)
     
     // Update CSS custom properties
     root.style.setProperty('--color-link', hex)
@@ -77,8 +89,8 @@ export default function ColorPicker() {
       .navigation-container {
         background: 
           radial-gradient(circle, #00000008 1px, transparent 1px),
-          radial-gradient(circle at 20% 30%, #4A90E220 0%, transparent 50%),
-          radial-gradient(circle at 80% 70%, ${hex}10 0%, transparent 50%),
+          radial-gradient(circle at 20% 30%, rgba(${baseR}, ${baseG}, ${baseB}, 0.2) 0%, transparent 50%),
+          radial-gradient(circle at 80% 70%, rgba(${r}, ${g}, ${b}, 0.1) 0%, transparent 50%),
           rgba(250, 250, 250, 0.85) !important;
         background-size: 20px 20px, 100% 100%, 100% 100%, 100% 100% !important;
       }
@@ -92,23 +104,23 @@ export default function ColorPicker() {
       .bg-radial-gradients {
         background-image: 
           radial-gradient(circle, #00000008 1px, transparent 1px),
-          radial-gradient(circle at 20% 30%, #4A90E220 0%, transparent 50%),
-          radial-gradient(circle at 80% 70%, ${hex}10 0%, transparent 50%),
+          radial-gradient(circle at 20% 30%, rgba(${baseR}, ${baseG}, ${baseB}, 0.2) 0%, transparent 50%),
+          radial-gradient(circle at 80% 70%, rgba(${r}, ${g}, ${b}, 0.1) 0%, transparent 50%),
           var(--color-white) !important;
       }
       
       .bg-dot-grid-overlay::before {
         background-image: 
           radial-gradient(circle, #00000008 1px, transparent 1px),
-          radial-gradient(circle at 20% 30%, #4A90E220 0%, transparent 50%),
-          radial-gradient(circle at 80% 70%, ${hex}10 0%, transparent 50%),
+          radial-gradient(circle at 20% 30%, rgba(${baseR}, ${baseG}, ${baseB}, 0.2) 0%, transparent 50%),
+          radial-gradient(circle at 80% 70%, rgba(${r}, ${g}, ${b}, 0.1) 0%, transparent 50%),
           rgba(250, 250, 250, 0.85) !important;
       }
       
       .hero-layered-bg::before {
         background-image: 
-          radial-gradient(circle at 20% 30%, #4A90E220 0%, transparent 50%),
-          radial-gradient(circle at 80% 70%, ${hex}10 0%, transparent 50%) !important;
+          radial-gradient(circle at 20% 30%, rgba(${baseR}, ${baseG}, ${baseB}, 0.2) 0%, transparent 50%),
+          radial-gradient(circle at 80% 70%, rgba(${r}, ${g}, ${b}, 0.1) 0%, transparent 50%) !important;
       }
 
       /* Case study hero background */
@@ -116,8 +128,8 @@ export default function ColorPicker() {
       .case-study-hero {
         background: 
           radial-gradient(circle, #00000008 1px, transparent 1px),
-          radial-gradient(circle at 20% 30%, #4A90E220 0%, transparent 50%),
-          radial-gradient(circle at 80% 70%, ${hex}10 0%, transparent 50%),
+          radial-gradient(circle at 20% 30%, rgba(${baseR}, ${baseG}, ${baseB}, 0.2) 0%, transparent 50%),
+          radial-gradient(circle at 80% 70%, rgba(${r}, ${g}, ${b}, 0.1) 0%, transparent 50%),
           var(--color-white) !important;
         background-size: 
           24px 24px,
@@ -130,25 +142,25 @@ export default function ColorPicker() {
       .case-study::before,
       .homepage .case-study::before,
       div .case-study::before {
-        background: linear-gradient(90deg, rgba(74, 144, 226, 0.5), rgba(${r}, ${g}, ${b}, 0.5)) !important;
-        background-image: linear-gradient(90deg, rgba(74, 144, 226, 0.5), rgba(${r}, ${g}, ${b}, 0.5)) !important;
+        background: linear-gradient(90deg, rgba(${baseR}, ${baseG}, ${baseB}, 0.5), rgba(${r}, ${g}, ${b}, 0.5)) !important;
+        background-image: linear-gradient(90deg, rgba(${baseR}, ${baseG}, ${baseB}, 0.5), rgba(${r}, ${g}, ${b}, 0.5)) !important;
       }
 
       /* Navigation link hover effects */
       .nav-links a::before,
       .navigation-container .nav-links a::before {
-        background: linear-gradient(90deg, rgba(74, 144, 226, 0.5), rgba(${r}, ${g}, ${b}, 0.5)) !important;
-        background-image: linear-gradient(90deg, rgba(74, 144, 226, 0.5), rgba(${r}, ${g}, ${b}, 0.5)) !important;
+        background: linear-gradient(90deg, rgba(${baseR}, ${baseG}, ${baseB}, 0.5), rgba(${r}, ${g}, ${b}, 0.5)) !important;
+        background-image: linear-gradient(90deg, rgba(${baseR}, ${baseG}, ${baseB}, 0.5), rgba(${r}, ${g}, ${b}, 0.5)) !important;
       }
       
       /* Timeline elements */
       .timeline-option-1::before {
-        background: linear-gradient(180deg, #4A90E2, ${hex}) !important;
+        background: linear-gradient(180deg, ${baseHex}, ${hex}) !important;
       }
       
       .timeline-item-v1::before,
       .timeline-item-v2::before {
-        background: linear-gradient(135deg, #4A90E2, ${hex}) !important;
+        background: linear-gradient(135deg, ${baseHex}, ${hex}) !important;
       }
 
       /* Text links */
