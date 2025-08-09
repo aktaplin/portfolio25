@@ -168,6 +168,7 @@
 .work-section {
   display: flex;
   flex-direction: column;
+  margin-bottom: 24px;
 }
 
 .case-studies {
@@ -233,6 +234,7 @@
 .philosophy-section {
   display: flex;
   flex-direction: column;
+  margin-bottom: 24px;
 }
 
 .text-blocks {
@@ -266,6 +268,7 @@
 .skills-section {
   display: flex;
   flex-direction: column;
+  margin-bottom: 24px;
 }
 
 .skills-columns {
@@ -325,6 +328,7 @@
 .clients-section {
   display: flex;
   flex-direction: column;
+  margin-bottom: 24px;
 }
 
 .client-logos {

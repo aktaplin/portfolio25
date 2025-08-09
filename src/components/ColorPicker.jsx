@@ -34,8 +34,21 @@ const colorOptions = [
 ]
 
 export default function ColorPicker() {
-  const [selectedColor, setSelectedColor] = useState(colorOptions[0])
+  const [selectedColor, setSelectedColor] = useState(() => {
+    // Load saved theme from localStorage on initialization
+    const savedTheme = localStorage.getItem('portfolio-theme')
+    if (savedTheme) {
+      const found = colorOptions.find(option => option.value === savedTheme)
+      return found || colorOptions[0]
+    }
+    return colorOptions[0]
+  })
   const [isOpen, setIsOpen] = useState(false)
+
+  // Apply saved theme on component mount
+  useEffect(() => {
+    updateCSSVariables(selectedColor)
+  }, [selectedColor]) // Re-run if selectedColor changes
 
   const updateCSSVariables = (color) => {
     const root = document.documentElement
@@ -161,6 +174,8 @@ export default function ColorPicker() {
   const handleColorSelect = (color) => {
     setSelectedColor(color)
     updateCSSVariables(color)
+    // Save theme to localStorage for persistence
+    localStorage.setItem('portfolio-theme', color.value)
     setIsOpen(false)
   }
 
