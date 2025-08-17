@@ -179,9 +179,8 @@ export default function CaseStudy() {
               <h2 className="section-title">My role</h2>
               <div className="role-items">
                 <div className="role-item">
-                  <div className="role-icon">🎯</div>
                   <div className="role-text">
-                    <div className="role-title">Lead</div>
+                    <div className="role-title">Lead 🎯</div>
                     <ul className="role-bullets">
                       <li>Supervised 8 designers and strategists</li>
                       <li>Primary design collaborator for technology, data science, and delivery</li>
@@ -189,9 +188,8 @@ export default function CaseStudy() {
                   </div>
                 </div>
                 <div className="role-item">
-                  <div className="role-icon">📅</div>
                   <div className="role-text">
-                    <div className="role-title">Plan</div>
+                    <div className="role-title">Plan 📅</div>
                     <ul className="role-bullets">
                       <li>Set plan for all design milestones</li>
                       <li>Responded to in-flight requests, new developments</li>
@@ -200,9 +198,8 @@ export default function CaseStudy() {
                   </div>
                 </div>
                 <div className="role-item">
-                  <div className="role-icon">🎨</div>
                   <div className="role-text">
-                    <div className="role-title">Design</div>
+                    <div className="role-title">Design 🎨</div>
                     <ul className="role-bullets">
                       <li>Participated in generative thinking</li>
                       <li>Build team culture</li>
@@ -212,9 +209,8 @@ export default function CaseStudy() {
                   </div>
                 </div>
                 <div className="role-item">
-                  <div className="role-icon">🤝</div>
                   <div className="role-text">
-                    <div className="role-title">Sell it</div>
+                    <div className="role-title">Sell it 🤝</div>
                     <ul className="role-bullets">
                       <li>Presented all demos</li>
                       <li>Secured C-suite support</li>
@@ -254,10 +250,12 @@ export default function CaseStudy() {
 
             <div className="case-study-section">
               <h2 className="section-title">Outcome</h2>
+              <div className="pullquote-minimal">
+                <div className="quote-text">This is fantastic work, and exactly what we've been wanting for some time now.</div>
+                <div className="quote-attribution">Chief Design Officer, WEX Inc.</div>
+              </div>
+              
               <div className="case-study-text">
-                <p>
-                  "This is fantastic work, and exactly what we've been wanting for some time now." -Chief Design Officer, WEX Inc.
-                </p>
                 <p>
                 Due to this project's success, my clients pivoted to requesting an MVP for immediate deployment on their highest-profile authenticated dashboard, dropping their previous priority for our team.                </p>
                 <p>
