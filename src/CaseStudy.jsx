@@ -42,46 +42,44 @@ const activitiesData = {
     duration: 'Week 3-4', 
     content: (
       <div>
-        <h3>Deep Market Analysis</h3>
-        <p>We conducted extensive research into the fleet management ecosystem, interviewing fleet managers, drivers, and technology providers. The landscape was more complex than we initially understood.</p>
-        
-        <h3>Competitive Intelligence</h3>
-        <p>SaaS startups were eating WEX's lunch with better user experiences. We analyzed 15+ competitors and identified key UX patterns that were becoming table stakes in this market.</p>
-        
-        <h3>Concept Development</h3>
-        <p>Our team generated over 40 initial concepts, which we rapidly prototyped and tested. Three core themes emerged that would shape our final recommendations: predictive intelligence, unified experiences, and ecosystem integration.</p>
+        <h3>Research</h3>
+        <p>The clients threw a ton of documents at us. Alongside the strategists, I dove into marking those up for insights and opportunities.I led stakeholder interviews with commercial teams, designers, and other clients.</p>
+      
+        <h3>Concept Generation</h3>
+        <p>Our currency in these phase was ideas. We filled digital post-its full of little snippets like “driver profile” or “morning huddle”.</p>
       </div>
     )
   },
   'workshop': {
-    title: 'Workshop facilitation',
+    title: 'Workshop planning + facilitation',
     duration: 'Week 5-6',
     content: (
       <div>
-        <h3>Collaborative Design Sessions</h3>
-        <p>I facilitated intensive design workshops with both our team and WEX stakeholders. These weren't typical brainstorming sessions—we used structured design thinking methodologies to tackle complex problems systematically.</p>
-        
-        <h3>Stakeholder Alignment</h3>
-        <p>Getting buy-in from WEX's diverse stakeholder groups was challenging. I ran separate sessions for technical teams, business stakeholders, and the C-suite, tailoring our approach and language for each audience.</p>
-        
-        <h3>Rapid Prototyping</h3>
-        <p>We built working prototypes during the workshops, allowing stakeholders to experience our concepts firsthand. This hands-on approach was crucial for getting everyone aligned on the vision.</p>
+        <h3>Workshop Planning</h3>
+        <p>With just three weeks from kickoff to client workshop, we needed to be laser-focused on what we would be doing in the room and work backwards. Based on past experience, I suggested the framework for organizing our ideas that we could iterate against and take with us.</p>
+      
+        <h3>Workshop Facilitation</h3>
+        <p>We presented two sets of ideas: one for fleet managers and one for drivers.
+          The lead strategist and I tag-teamed our presentation. My part was to paint an inspiring picture of the possibilities and to represent the real needs being met by our concepts.
+          We led the clients through down-selecting our ideas, and I led an exercise to imagine a narrative that could stitch them all together into prototype.</p>
       </div>
     )
   },
   'design': {
-    title: 'Detailed design',
+    title: 'Prototyping',
     duration: 'Week 7-8',
     content: (
       <div>
-        <h3>Design System Creation</h3>
-        <p>I led the creation of a comprehensive design system that could scale across WEX's diverse product portfolio. This wasn't just UI components—we defined interaction patterns, data visualization standards, and AI integration guidelines.</p>
-        
-        <h3>High-Fidelity Prototypes</h3>
-        <p>Our team created pixel-perfect prototypes for three key scenarios: 2025 incremental improvements, 2027 transformational changes, and 2030 visionary concepts. Each prototype was fully interactive and data-driven.</p>
-        
-        <h3>Technical Feasibility</h3>
-        <p>Working closely with WEX's engineering teams, I ensured our designs were not just beautiful, but technically achievable within their existing infrastructure constraints.</p>
+        <h3>Story briefing</h3>
+        <p>An outcome of the workshop, aside from a short-list of concepts, was a pair of narratives for our prototypes.
+          I synthesized the artifacts I had co-created with the clients into a comprehensive visual brief for the design team to build from.</p>
+
+        <h3>Creative leadership</h3>
+        <p>We had three weeks to complete our work. Under such pressure, all aspects of the creative process can surge at different times. Are people creating create work? Are they collaborating at their best? Problems big and small come up during this time that require empathy, listening, decisiveness, and a little humor to achieve success.</p>
+
+        <h3>Client demos</h3>
+        <p>I presented all our work to the clients, making me uniquely responsible for understanding all the intentions of the designs and the decision-making to highlight.
+          I’m proud of the response I received to these demos. In addition,  we learned a little each time to respond to for the next round.</p>
       </div>
     )
   },
@@ -90,9 +88,6 @@ const activitiesData = {
     duration: 'Week 9-10',
     content: (
       <div>
-        <h3>Stakeholder Presentation Strategy</h3>
-        <p>I crafted different presentation narratives for different audiences—technical details for the engineering team, business impact for executives, and user experience highlights for the product team.</p>
-        
         <h3>C-Suite Presentation</h3>
         <p>The final presentation to WEX's C-suite was the culmination of 10 weeks of intensive work. I presented our recommendations with confidence, backed by research, prototypes, and a clear implementation roadmap.</p>
         
@@ -242,7 +237,7 @@ export default function CaseStudy() {
                 </div>
                 <div className="timeline-item-v1" onClick={() => handleActivityClick('design')}>
                   <div className="activity-duration">Week 7-8</div>
-                  <h3 className="activity-title">Detailed design</h3>
+                  <h3 className="activity-title">Prototyping</h3>
                 </div>
                 <div className="timeline-item-v1" onClick={() => handleActivityClick('presentation')}>
                   <div className="activity-duration">Week 9-10</div>
