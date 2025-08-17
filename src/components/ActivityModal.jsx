@@ -38,7 +38,12 @@ export default function ActivityModal({ isOpen, onClose, activity }) {
     <div className="activity-modal-overlay" onClick={handleBackdropClick}>
       <div className="activity-modal">
         <div className="activity-modal-header">
-          <h2 className="activity-modal-title">{activity.title}</h2>
+          <div className="activity-modal-header-content">
+            {activity.duration && (
+              <div className="activity-modal-duration">{activity.duration}</div>
+            )}
+            <h2 className="activity-modal-title">{activity.title}</h2>
+          </div>
           <button 
             className="activity-modal-close"
             onClick={onClose}
@@ -49,9 +54,6 @@ export default function ActivityModal({ isOpen, onClose, activity }) {
         </div>
         
         <div className="activity-modal-content">
-          {activity.duration && (
-            <div className="activity-modal-duration">{activity.duration}</div>
-          )}
           
           {activity.image && (
             <div className="activity-modal-image-section">

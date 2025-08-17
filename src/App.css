@@ -1133,21 +1133,22 @@ html {
   transform: translateY(-50%);
   width: 12px;
   height: 12px;
-  background: linear-gradient(135deg, #4A90E2, #FF6B6B);
+  background: linear-gradient(135deg, #00D9FF, #FFFFFF);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px #ffffff, 0 0 0 6px rgba(74, 144, 226, 0.2);
+  box-shadow: 0 0 0 4px #ffffff, 0 0 0 6px rgba(0, 217, 255, 0.2);
   z-index: 2;
+  transition: all 0.3s ease;
 }
 
 .timeline-item-v1:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.12);
-  border-color: rgba(74, 144, 226, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 217, 255, 0.12);
+  border-color: rgba(0, 217, 255, 0.3);
 }
 
 .timeline-item-v1:hover::before {
   transform: translateY(-50%) scale(1.2);
-  box-shadow: 0 0 0 4px #ffffff, 0 0 0 8px rgba(74, 144, 226, 0.3);
+  box-shadow: 0 0 0 4px #ffffff, 0 0 0 8px rgba(0, 217, 255, 0.4), 0 0 0 12px rgba(255, 255, 255, 0.3);
 }
 
 .timeline-item-v1:active {
@@ -1421,11 +1422,17 @@ html {
 
 .activity-modal-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 24px 24px 16px 24px;
-  border-bottom: 1px solid rgba(74, 144, 226, 0.1);
   flex-shrink: 0;
+}
+
+.activity-modal-header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
 }
 
 .activity-modal-title {
@@ -1433,7 +1440,7 @@ html {
   font-weight: 600;
   font-size: 24px;
   line-height: 1.2;
-  color: var(--color-navy);
+  color: #2D3436;
   margin: 0;
   padding-right: 20px;
 }
@@ -1471,14 +1478,11 @@ html {
 .activity-modal-duration {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: rgba(74, 144, 226, 0.8);
-  background: rgba(74, 144, 226, 0.1);
-  padding: 8px 16px;
-  border-radius: 20px;
-  align-self: flex-start;
+  color: rgba(0, 217, 255, 0.8);
+  margin: 0;
 }
 
 .activity-modal-image-section {
