@@ -4,6 +4,9 @@ import Navigation from './components/Navigation'
 import ActivityModal from './components/ActivityModal'
 import ColorPicker from './components/ColorPicker'
 import wexLogo from './assets/logos/wex.svg'
+import researchImage from './assets/img/research.jpg'
+import workshopImage from './assets/img/workshop.jpg'
+import prototypeImage from './assets/img/prototype.jpg'
 
 const imgImage = wexLogo;
 
@@ -39,20 +42,22 @@ const activitiesData = {
   },
   'research': {
     title: 'Research + concept generation',
-    duration: 'Week 3-4', 
+    duration: 'Week 3-4',
+    image: researchImage,
     content: (
       <div>
         <h3>Research</h3>
         <p>The clients threw a ton of documents at us. Alongside the strategists, I dove into marking those up for insights and opportunities.I led stakeholder interviews with commercial teams, designers, and other clients.</p>
       
         <h3>Concept Generation</h3>
-        <p>Our currency in these phase was ideas. We filled digital post-its full of little snippets like “driver profile” or “morning huddle”.</p>
+        <p>Our currency in these phase was ideas. We filled digital post-its full of little snippets like "driver profile" or "morning huddle".</p>
       </div>
     )
   },
   'workshop': {
     title: 'Workshop planning + facilitation',
     duration: 'Week 5-6',
+    image: workshopImage,
     content: (
       <div>
         <h3>Workshop Planning</h3>
@@ -67,6 +72,7 @@ const activitiesData = {
   },
   'design': {
     title: 'Prototyping',
+    image: prototypeImage,
     duration: 'Week 7-8',
     content: (
       <div>
