@@ -777,7 +777,7 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 1.2;
-  color: var(--color-navy);
+  color: #2D3436;
   margin: 0;
 }
 
@@ -785,7 +785,7 @@
   background: none;
   border: none;
   font-size: 24px;
-  color: var(--color-text);
+  color: #2D3436;
   cursor: pointer;
   padding: 0;
   width: 32px;
@@ -810,7 +810,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: var(--color-text);
+  color: #2D3436;
   margin: 0 0 24px 0;
 }
 
@@ -860,7 +860,8 @@
 .password-modal-actions {
   display: flex;
   gap: 12px;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .password-button {
@@ -876,23 +877,34 @@
 }
 
 .password-button:disabled {
-  opacity: 0.6;
   cursor: not-allowed;
 }
 
-.password-button-secondary {
-  background-color: var(--color-hero-bg);
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
+
+.password-link-cancel {
+  background: none;
+  border: none;
+  color: #2D3436;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  margin-left: 8px;
 }
 
-.password-button-secondary:hover:not(:disabled) {
-  background-color: var(--color-border);
+.password-link-cancel:hover:not(:disabled) {
+  opacity: 0.7;
+}
+
+.password-link-cancel:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .password-button-primary {
   background-color: var(--color-link);
-  color: white;
+  color: #2D3436;
 }
 
 .password-button-primary:hover:not(:disabled) {
@@ -1717,4 +1729,9 @@ html {
   .pullquote-minimal .quote-text {
     font-size: 18px;
   }
+}
+
+/* Hide Work and About navigation links */
+.nav-links {
+  display: none;
 }

@@ -65,19 +65,19 @@ export default function PasswordModal() {
             
             <div className="password-modal-actions">
               <button
-                type="button"
-                onClick={handleClose}
-                className="password-button password-button-secondary"
-                disabled={isLoading}
-              >
-                Cancel
-              </button>
-              <button
                 type="submit"
                 className="password-button password-button-primary"
                 disabled={isLoading || !password.trim()}
               >
                 {isLoading ? 'Checking...' : 'Access Case Studies'}
+              </button>
+              <button
+                type="button"
+                onClick={handleClose}
+                className="password-link-cancel"
+                disabled={isLoading}
+              >
+                Cancel
               </button>
             </div>
           </form>

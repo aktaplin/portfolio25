@@ -11,7 +11,7 @@ import prototypeImage from './assets/img/prototype.jpg'
 const imgImage = wexLogo;
 
 // Set Technical Soft Futurism theme on component load
-function initializeTheme() {
+function useInitializeTheme() {
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', 'technical-soft-futurism')
   }, [])
@@ -106,7 +106,7 @@ const activitiesData = {
 
 export default function CaseStudy() {
   // Initialize theme
-  initializeTheme()
+  useInitializeTheme()
   
   // Modal state
   const [selectedActivity, setSelectedActivity] = useState(null)

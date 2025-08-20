@@ -16,7 +16,7 @@ import verizonLogo from './assets/logos/verizon.svg'
 import wexLogo from './assets/logos/wex.svg'
 
 // Set Technical Soft Futurism theme on app load
-function initializeTheme() {
+function useInitializeTheme() {
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', 'technical-soft-futurism')
   }, [])
@@ -105,7 +105,7 @@ function Homepage() {
   }
 
   // Initialize theme
-  initializeTheme()
+  useInitializeTheme()
 
   return (
     <div className="homepage bg-radial-gradients bg-dot-grid-overlay">
@@ -114,7 +114,7 @@ function Homepage() {
         <Navigation />
         <div className="scrollable-content">
           <p className="display-2">
-          I orchestrate messy projects into successful outcomes. Agency life shapes my approach: align diverse teams, navigate competing priorities, and keep everyone sane while we build something great.
+          I'm a complexity specialist from agency life: I align teams, navigate competing priorities, and keep momentum strong while we create customer magic.
           </p>
           
           <div className="work-section">
