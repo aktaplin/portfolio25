@@ -3,7 +3,7 @@
 
 const AUTH_CONFIG = {
   // Change this hash when you want a new password
-  passwordHash: "e38cecb499558d65b041cd46dcdda1fb61051a7ada9f115b9e98cc6c2dabe09f"
+  passwordHash: "19e810229c2fcb5a9eba2c42b74eab1537b8153a642116751ffbb5ee398081fc"
 }
 
 // Simple hash function for client-side password checking
