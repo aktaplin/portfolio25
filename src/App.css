@@ -1678,6 +1678,57 @@ html {
 }
 
 /* ======================================
+   ACTIVITY MODAL INLINE IMAGES
+   ====================================== */
+
+/* Inline image container */
+.activity-modal-inline-image-container {
+  margin: 24px 0;
+  text-align: center;
+}
+
+.activity-modal-inline-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Size variations */
+.activity-modal-inline-image-small {
+  max-width: 300px;
+}
+
+.activity-modal-inline-image-medium {
+  max-width: 500px;
+}
+
+.activity-modal-inline-image-large {
+  max-width: 100%;
+  min-width: 600px;
+}
+
+.activity-modal-image-caption {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .activity-modal-inline-image-large {
+    min-width: auto;
+    max-width: 100%;
+  }
+  
+  .activity-modal-inline-image-container {
+    margin: 20px 0;
+  }
+}
+
+/* ======================================
    PULLQUOTE STYLE OPTIONS
    ====================================== */
 

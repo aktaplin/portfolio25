@@ -1,5 +1,27 @@
 import React, { useEffect } from 'react'
 
+// Inline Image Container component
+function InlineImageContainer({ src, alt, caption, size = 'medium' }) {
+  const sizeClasses = {
+    small: 'activity-modal-inline-image-small',
+    medium: 'activity-modal-inline-image-medium', 
+    large: 'activity-modal-inline-image-large'
+  }
+  
+  return (
+    <div className="activity-modal-inline-image-container">
+      <img 
+        src={src} 
+        alt={alt}
+        className={`activity-modal-inline-image ${sizeClasses[size]}`}
+      />
+      {caption && <div className="activity-modal-image-caption">{caption}</div>}
+    </div>
+  )
+}
+
+export { InlineImageContainer }
+
 export default function ActivityModal({ isOpen, onClose, activity }) {
   // Close modal on escape key
   useEffect(() => {

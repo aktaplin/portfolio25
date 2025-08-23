@@ -2,9 +2,11 @@ import './App.css'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navigation from './components/Navigation'
-import ActivityModal from './components/ActivityModal'
+import ActivityModal, { InlineImageContainer } from './components/ActivityModal'
 import ColorPicker from './components/ColorPicker'
 import verizonLogo from './assets/logos/verizon.svg'
+import activity1Image from './assets/img/+play-enhancement.png'
+import activity2Image from './assets/img/+play-mvp.png'
 
 const imgImage = verizonLogo;
 
@@ -31,29 +33,70 @@ function BackButton() {
 // Empty activity data template
 const activitiesData = {
   'activity-1': {
-    title: '',
-    duration: '',
+    title: 'Regain client trust',
+    duration: '2 months',
     content: (
       <div>
+        <ul>
+          <li>Led team through identifying quick wins</li>
+          <li>Road show with key stakeholders</li>
+          <li>Prioritization based on customer value, business appetite, and technical level of effort</li>
+        </ul>
         
+        <InlineImageContainer 
+          src={activity1Image}
+          alt="+play enhancement wireframes showing quick wins"
+          caption="Quick enhancement wireframes presented to stakeholders"
+          size="large"
+        />
+        
+        <h2>Outcome</h2>
+        <ul>
+          <li>3-5 enhancements released</li>
+          <li>Client partnership established</li>
+        </ul>
       </div>
     )
   },
   'activity-2': {
-    title: '',
-    duration: '',
+    title: 'Reset the culture of my new team',
+    duration: '2 months',
     content: (
       <div>
-        
+        <ul>
+          <li>Instituted all-team, design-only daily afternoon workshops</li>
+          <li>Modeled cross-team collaboration</li>
+          <li>Listened to legacy team to solve collaboration and communication problems across disciplines</li>
+        </ul>
+        <h2>Outcome</h2>
+        <ul>
+          <li>Gradual increase in overall team quality of life survey scores; soon led these scores on the wider account</li>
+          <li>Junior members of team have asked for me to be their people manager</li>
+        </ul>
       </div>
     )
   },
   'activity-3': {
-    title: '',
-    duration: '',
+    title: 'Show them what we can really do',
+    duration: '2 months',
     content: (
       <div>
-        
+        <ul>
+          <li>At client's request, took it all back to square one for a reset</li>
+          <li>Centered on customer benefit, gave team permission to ignore (for now) tech debt and previous product decisions where necessary</li>
+        </ul>
+        <InlineImageContainer 
+          src={activity2Image}
+          alt="+play MVP before and after"
+          caption="Homepage before and after our redesign"
+          size="large"
+        />
+        <h2>Outcome</h2>
+        <ul>
+          <li>“This is fantastic” - client Head of Design Verizon Consumer Group</li>
+          <li>Fresh energy in the program</li>
+          <li>Kernels of ideas began moving forward to wider stakeholder group</li>
+        </ul>
       </div>
     )
   },
