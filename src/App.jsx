@@ -2,6 +2,7 @@ import './App.css'
 import { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import CaseStudy from './CaseStudy'
+import LeadershipCaseStudy from './LeadershipCaseStudy'
 import { AuthProvider } from './contexts/AuthContext'
 import { useAuth } from './hooks/useAuth'
 import PasswordModal from './components/PasswordModal'
@@ -49,17 +50,17 @@ function TextBlock({ title, description }) {
 function SkillsSection() {
   const skillsData = {
     "Project archetypes": [
-      "Vision + value-prop definition",
+      "Vision and value-props",
       "Journey enhancement", 
-      "Platform redesign + migration",
+      "Platform redesign",
       "Design systems",
       "Research"
     ],
     "Tools": [
-      "Prototyping: Figma, Sketch, Axure, Omnigraffle, Visio, Balsamiq (remember that?)",
+      "Prototyping: Figma, Claude Code",
       "Facilitation: Figjam, Mural",
-      "Thought partnership: Claude, ChatGPT, NotebookLM, etc",
-      "Coding: HTML/JS/CSS, Vibecoding w/ Cursor, Claude"
+      "Thought partnership: Claude, ChatGPT, NotebookLM",
+      "Coding: HTML/JS/CSS, Claude Code"
     ],
     "Soft skills": [
       "Strategic communication",
@@ -116,7 +117,7 @@ function Homepage() {
         <Navigation />
         <div className="scrollable-content">
           <p className="display-2">
-          I'm a complexity specialist from agency life: I align teams, navigate competing priorities, and keep momentum strong while we create customer magic.
+          I'm a complexity specialist with an agency background. I align teams, navigate competing priorities, and keep momentum strong while we create customer magic.
           </p>
           
           <div className="work-section">
@@ -196,37 +197,6 @@ function Homepage() {
   )
 }
 
-function LeadershipCaseStudy() {
-  // Initialize theme
-  useInitializeTheme()
-  
-  return (
-    <div className="case-study-page">
-      <div className="content-container">
-        <Navigation />
-        <div className="scrollable-content">
-          <div className="case-study-hero hero-layered-bg">
-            <div className="case-study-title-section">
-              <div className="case-study-subtitle">A story of leadership</div>
-              <h1 className="case-study-main-title">
-                Leadership Case Study
-              </h1>
-            </div>
-          </div>
-          
-          <div className="case-study-page-content">
-            <div className="case-study-section">
-              <h2 className="section-title">Coming Soon</h2>
-              <div className="case-study-text">
-                <p>This case study is currently in development.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
 
 function AppContent() {
   return (
