@@ -157,7 +157,7 @@ export default function LeadershipCaseStudy() {
                     <div className="role-title">Plan 📅</div>
                     <ul className="role-bullets">
                       <li>Plan & execute MVP redesign</li>
-                      <li>Find talent to augment the team</li>
+                      <li>Select talent to augment the team</li>
                       <li>Improve efficiency of handoffs to engineering</li>
                     </ul>
                   </div>
@@ -190,33 +190,33 @@ export default function LeadershipCaseStudy() {
               <h2 className="section-title">My activities</h2>
               <div className="timeline-option-1">
                 <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-1')}>
-                  <div className="activity-duration"></div>
+                  <div className="activity-duration">Month 1-2</div>
                   <h3 className="activity-title">Regain client trust</h3>
                 </div>
                 <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-2')}>
-                  <div className="activity-duration"></div>
+                  <div className="activity-duration">Month 2-3</div>
                   <h3 className="activity-title">Reset the design team culture</h3>
                 </div>
                 <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-3')}>
-                  <div className="activity-duration"></div>
+                  <div className="activity-duration">Month 3-4</div>
                   <h3 className="activity-title">Show what we can <i>really</i> do</h3>
                 </div>
                 <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-4')}>
-                  <div className="activity-duration"></div>
+                  <div className="activity-duration">Month 5</div>
                   <h3 className="activity-title">Execute a complete redesign in 4 weeks</h3>
                 </div>
-                {/* <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-5')}>
-                  <div className="activity-duration"></div>
-                  <h3 className="activity-title"></h3>
-                </div> */}
+                <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-5')}>
+                  <div className="activity-duration">Month 6+</div>
+                  <h3 className="activity-title">Post launch optimization</h3>
+                </div>
               </div>
             </div>
 
             <div className="case-study-section">
               <h2 className="section-title">Outcome</h2>
               <div className="pullquote-minimal">
-                <div className="quote-text"></div>
-                <div className="quote-attribution"></div>
+                <div className="quote-text">Your team made the impossible, possible.</div>
+                <div className="quote-attribution">Senior Director of Design, Verizon Beyond Connectivity Products</div>
               </div>
               
               <div className="case-study-text">

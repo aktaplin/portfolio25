@@ -15,6 +15,7 @@ import microsoftLogo from './assets/logos/microsoft.png'
 import prudentialLogo from './assets/logos/Pru_RGB.png'
 import statefarmLogo from './assets/logos/statefarm.png'
 import verizonLogo from './assets/logos/verizon.svg'
+import wellsFargoLogo from './assets/logos/wellsfargo.svg'
 import wexLogo from './assets/logos/wex.svg'
 
 // Set Technical Soft Futurism theme on app load
@@ -163,7 +164,7 @@ function Homepage() {
           <SkillsSection />
 
           <div className="clients-section">
-            <h2 className="section-title">Past clients</h2>
+            <h2 className="section-title">Select clients</h2>
             <div className="client-logos">
               <div className="client-logo">
                 <img src={fordLogo} alt="Ford" />
@@ -185,6 +186,9 @@ function Homepage() {
               </div>
               <div className="client-logo">
                 <img src={verizonLogo} alt="Verizon" />
+              </div>
+              <div className="client-logo">
+                <img src={wellsFargoLogo} alt="Wells Fargo" />
               </div>
               <div className="client-logo">
                 <img src={wexLogo} alt="WEX" />
