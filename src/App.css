@@ -587,6 +587,19 @@
   border-radius: 12px;
 }
 
+.hero-verizon-logo {
+  max-width: 200px;
+  height: auto;
+}
+
+/* Mobile responsive adjustments for hero logos */
+@media (max-width: 767px) {
+  .hero-wex-logo,
+  .hero-verizon-logo {
+    max-width: 120px;
+  }
+}
+
 .case-study-page-content {
   display: flex;
   flex-direction: column;
