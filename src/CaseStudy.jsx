@@ -1,5 +1,6 @@
 import './App.css'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import ActivityModal from './components/ActivityModal'
 import ColorPicker from './components/ColorPicker'
@@ -18,9 +19,11 @@ function useInitializeTheme() {
 }
 
 function BackButton() {
+  const navigate = useNavigate()
+  
   return (
     <button 
-      onClick={() => window.navigateHome && window.navigateHome()}
+      onClick={() => navigate('/')}
       className="back-button"
     >
       ← Back

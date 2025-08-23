@@ -1,18 +1,26 @@
 import React from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 export default function Navigation() {
+  const navigate = useNavigate()
+  const location = useLocation()
+  
   const handleHomeClick = (e) => {
     e.preventDefault()
-    if (window.navigateHome) {
-      window.navigateHome()
-    }
+    navigate('/')
   }
 
   const handleWorkClick = (e) => {
     e.preventDefault()
-    if (window.navigateHome) {
-      window.navigateHome()
-      // Scroll to work section after navigation
+    if (location.pathname === '/') {
+      // Already on home page, scroll to work section
+      const workSection = document.querySelector('.work-section')
+      if (workSection) {
+        workSection.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else {
+      // Navigate to home page first, then scroll to work section
+      navigate('/')
       setTimeout(() => {
         const workSection = document.querySelector('.work-section')
         if (workSection) {

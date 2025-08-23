@@ -1,5 +1,6 @@
 import './App.css'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import CaseStudy from './CaseStudy'
 import { AuthProvider } from './contexts/AuthContext'
 import { useAuth } from './hooks/useAuth'
@@ -99,9 +100,10 @@ function SkillsSection() {
 
 function Homepage() {
   const { requestAccess } = useAuth()
+  const navigate = useNavigate()
   
-  const handleCaseStudyClick = (navigateCallback) => {
-    requestAccess(navigateCallback)
+  const handleCaseStudyClick = (url) => {
+    requestAccess(() => navigate(url))
   }
 
   // Initialize theme
@@ -124,13 +126,13 @@ function Homepage() {
                 category="A story of innovation"
                 title="(Re)defining the AI-powered future for an aging incumbent"
                 icon="🚀"
-                onClick={() => handleCaseStudyClick(() => window.navigateToProtectedCaseStudy && window.navigateToProtectedCaseStudy('wex'))}
+                onClick={() => handleCaseStudyClick('/innovation-transformation-WEX/')}
               />
               <CaseStudyLockup 
                 category="A story of leadership"
                 title="Reviving a struggling team to deliver the impossible"
                 icon="👥"
-                onClick={() => handleCaseStudyClick(() => window.navigateToProtectedCaseStudy && window.navigateToProtectedCaseStudy('leadership'))}
+                onClick={() => handleCaseStudyClick('/leadership-case-study/')}
               />
             </div>
           </div>
@@ -194,68 +196,55 @@ function Homepage() {
   )
 }
 
-function AppContent() {
-  const [currentPage, setCurrentPage] = useState('home')
-  const [currentCaseStudy, setCurrentCaseStudy] = useState(null)
+function LeadershipCaseStudy() {
+  // Initialize theme
+  useInitializeTheme()
   
-  const navigateToProtectedCaseStudy = (caseStudyId) => {
-    setCurrentCaseStudy(caseStudyId)
-    setCurrentPage('case-study')
-  }
-  
-  const navigateHome = () => {
-    setCurrentPage('home')
-    setCurrentCaseStudy(null)
-  }
-  
-  // Add navigation to window object so components can access it
-  useEffect(() => {
-    window.navigateHome = navigateHome
-    window.navigateToProtectedCaseStudy = navigateToProtectedCaseStudy
-  }, [])
-  
-  if (currentPage === 'case-study' && currentCaseStudy === 'wex') {
-    return <CaseStudy />
-  }
-  
-  if (currentPage === 'case-study' && currentCaseStudy === 'leadership') {
-    // Placeholder for future leadership case study
-    return (
-      <div className="case-study-page">
-        <div className="content-container">
-          <Navigation />
-          <div className="scrollable-content">
-            <div className="case-study-hero hero-layered-bg">
-              <div className="case-study-title-section">
-                <div className="case-study-subtitle">A story of leadership</div>
-                <h1 className="case-study-main-title">
-                  Leadership Case Study
-                </h1>
-              </div>
+  return (
+    <div className="case-study-page">
+      <div className="content-container">
+        <Navigation />
+        <div className="scrollable-content">
+          <div className="case-study-hero hero-layered-bg">
+            <div className="case-study-title-section">
+              <div className="case-study-subtitle">A story of leadership</div>
+              <h1 className="case-study-main-title">
+                Leadership Case Study
+              </h1>
             </div>
-            
-            <div className="case-study-page-content">
-              <div className="case-study-section">
-                <h2 className="section-title">Coming Soon</h2>
-                <div className="case-study-text">
-                  <p>This case study is currently in development.</p>
-                </div>
+          </div>
+          
+          <div className="case-study-page-content">
+            <div className="case-study-section">
+              <h2 className="section-title">Coming Soon</h2>
+              <div className="case-study-text">
+                <p>This case study is currently in development.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    )
-  }
-  
-  return <Homepage />
+    </div>
+  )
+}
+
+function AppContent() {
+  return (
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/innovation-transformation-WEX/" element={<CaseStudy />} />
+      <Route path="/leadership-case-study/" element={<LeadershipCaseStudy />} />
+    </Routes>
+  )
 }
 
 function App() {
   return (
     <AuthProvider>
-      <AppContent />
-      <PasswordModal />
+      <Router basename="/portfolio25">
+        <AppContent />
+        <PasswordModal />
+      </Router>
     </AuthProvider>
   )
 }
