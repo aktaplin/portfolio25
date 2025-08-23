@@ -5,7 +5,15 @@ export default function Navigation() {
   const navigate = useNavigate()
   const location = useLocation()
   
+  // Check if we're on a case study page
+  const isCaseStudyPage = location.pathname !== '/'
+  
   const handleHomeClick = (e) => {
+    e.preventDefault()
+    navigate('/')
+  }
+  
+  const handleBackClick = (e) => {
     e.preventDefault()
     navigate('/')
   }
@@ -38,13 +46,24 @@ export default function Navigation() {
 
   return (
     <nav className="navigation-container">
-      <a 
-        href="/" 
-        className="nav-logo"
-        onClick={handleHomeClick}
-      >
-        Adam Taplin
-      </a>
+      <div className="nav-logo-container">
+        {isCaseStudyPage && (
+          <button 
+            className="nav-back-arrow"
+            onClick={handleBackClick}
+            aria-label="Go back to homepage"
+          >
+            ←
+          </button>
+        )}
+        <a 
+          href="/" 
+          className="nav-logo"
+          onClick={handleHomeClick}
+        >
+          Adam Taplin
+        </a>
+      </div>
       
       <div className="nav-links">
         <a href="#work" onClick={handleWorkClick}>Work</a>

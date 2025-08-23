@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import ActivityNavigation from './ActivityNavigation'
 
 // Inline Image Container component
 function InlineImageContainer({ src, alt, caption, size = 'medium' }) {
@@ -22,7 +23,14 @@ function InlineImageContainer({ src, alt, caption, size = 'medium' }) {
 
 export { InlineImageContainer }
 
-export default function ActivityModal({ isOpen, onClose, activity }) {
+export default function ActivityModal({ 
+  isOpen, 
+  onClose, 
+  activity, 
+  currentActivityKey, 
+  activitiesData, 
+  onActivityChange 
+}) {
   // Close modal on escape key
   useEffect(() => {
     const handleEscape = (e) => {
@@ -88,6 +96,13 @@ export default function ActivityModal({ isOpen, onClose, activity }) {
           <div className="activity-modal-content">
             <div className="activity-modal-text">
               {activity.content}
+              {currentActivityKey && activitiesData && onActivityChange && (
+                <ActivityNavigation
+                  currentActivityKey={currentActivityKey}
+                  activitiesData={activitiesData}
+                  onActivityChange={onActivityChange}
+                />
+              )}
             </div>
           </div>
         </>
@@ -115,6 +130,13 @@ export default function ActivityModal({ isOpen, onClose, activity }) {
           <div className="activity-modal-content">
             <div className="activity-modal-text">
               {activity.content}
+              {currentActivityKey && activitiesData && onActivityChange && (
+                <ActivityNavigation
+                  currentActivityKey={currentActivityKey}
+                  activitiesData={activitiesData}
+                  onActivityChange={onActivityChange}
+                />
+              )}
             </div>
           </div>
         </>

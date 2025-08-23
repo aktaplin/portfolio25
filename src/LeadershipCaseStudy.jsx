@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import ActivityModal, { InlineImageContainer } from './components/ActivityModal'
 import ColorPicker from './components/ColorPicker'
+import CaseStudyNavigation from './components/CaseStudyNavigation'
 import verizonLogo from './assets/logos/verizon.svg'
 import activity1Image from './assets/img/+play-enhancement.png'
 import activity2Image from './assets/img/+play-mvp.png'
@@ -126,16 +127,24 @@ export default function LeadershipCaseStudy() {
   
   // Modal state
   const [selectedActivity, setSelectedActivity] = useState(null)
+  const [selectedActivityKey, setSelectedActivityKey] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   
   const handleActivityClick = (activityKey) => {
     setSelectedActivity(activitiesData[activityKey])
+    setSelectedActivityKey(activityKey)
     setIsModalOpen(true)
+  }
+  
+  const handleActivityChange = (activityKey) => {
+    setSelectedActivity(activitiesData[activityKey])
+    setSelectedActivityKey(activityKey)
   }
   
   const handleCloseModal = () => {
     setIsModalOpen(false)
     setSelectedActivity(null)
+    setSelectedActivityKey(null)
   }
   
   return (
@@ -271,6 +280,8 @@ export default function LeadershipCaseStudy() {
                 </p>
               </div>
             </div>
+
+            <CaseStudyNavigation currentCaseStudyKey="leadership" />
           </div>
         </div>
       </div>
@@ -279,6 +290,9 @@ export default function LeadershipCaseStudy() {
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         activity={selectedActivity}
+        currentActivityKey={selectedActivityKey}
+        activitiesData={activitiesData}
+        onActivityChange={handleActivityChange}
       />
     </div>
   )

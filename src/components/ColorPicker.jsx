@@ -152,6 +152,11 @@ export default function ColorPicker() {
         background: linear-gradient(90deg, rgba(${baseR}, ${baseG}, ${baseB}, 0.5), rgba(${r}, ${g}, ${b}, 0.5)) !important;
         background-image: linear-gradient(90deg, rgba(${baseR}, ${baseG}, ${baseB}, 0.5), rgba(${r}, ${g}, ${b}, 0.5)) !important;
       }
+
+      /* Navigation back arrow hover effect */
+      .nav-back-arrow:hover {
+        background: linear-gradient(90deg, rgba(${baseR}, ${baseG}, ${baseB}, 0.5), rgba(${r}, ${g}, ${b}, 0.5)) !important;
+      }
       
       /* Timeline elements */
       .timeline-option-1::before {
