@@ -36,6 +36,12 @@ const colorOptions = [
     value: '#CCFF00',
     base: '#6B7C95',
     description: 'Sharp contrast'
+  },
+  {
+    name: 'Monochrome',
+    value: '#666666',
+    base: '#2A2A2A',
+    description: 'Pure minimalism'
   }
 ]
 
@@ -177,6 +183,19 @@ export default function ColorPicker() {
       .navigation-container a {
         color: #2D3436 !important;
       }
+      
+      /* Special styling for monochrome theme */
+      ${hex === '#666666' ? `
+        .navigation-container {
+          background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0.8) 70%, transparent 100%) !important;
+        }
+        
+        .navigation-container a,
+        .nav-logo,
+        .nav-back-arrow {
+          color: #FFFFFF !important;
+        }
+      ` : ''}
     `
     
     document.head.appendChild(style)

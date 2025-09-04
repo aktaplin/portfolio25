@@ -2,13 +2,14 @@ import './App.css'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navigation from './components/Navigation'
-import ActivityModal from './components/ActivityModal'
+import ActivityModal, { InlineImageContainer } from './components/ActivityModal'
 import ColorPicker from './components/ColorPicker'
 import CaseStudyNavigation from './components/CaseStudyNavigation'
 import wexLogo from './assets/logos/wex.svg'
 import researchImage from './assets/img/research.jpg'
 import workshopImage from './assets/img/workshop.jpg'
 import prototypeImage from './assets/img/prototype.jpg'
+import storyBriefImage from './assets/img/storyBrief.png'
 
 const imgImage = wexLogo;
 
@@ -249,6 +250,12 @@ export default function CaseStudy() {
                   <div className="activity-duration">Week 5-6</div>
                   <h3 className="activity-title">Workshop facilitation</h3>
                 </div>
+                <InlineImageContainer
+                  src={storyBriefImage}
+                  alt="Story Brief"
+                  caption="Story Brief"
+                  size="xlarge"
+                />
                 <div className="timeline-item-v1" onClick={() => handleActivityClick('design')}>
                   <div className="activity-duration">Week 7-8</div>
                   <h3 className="activity-title">Prototyping</h3>

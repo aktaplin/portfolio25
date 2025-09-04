@@ -6,7 +6,8 @@ function InlineImageContainer({ src, alt, caption, size = 'medium' }) {
   const sizeClasses = {
     small: 'activity-modal-inline-image-small',
     medium: 'activity-modal-inline-image-medium', 
-    large: 'activity-modal-inline-image-large'
+    large: 'activity-modal-inline-image-large',
+    xlarge: 'activity-modal-inline-image-xlarge'
   }
   
   return (

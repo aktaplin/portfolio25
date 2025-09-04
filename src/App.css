@@ -1792,6 +1792,12 @@ html {
   min-width: 600px;
 }
 
+.activity-modal-inline-image-xlarge {
+  max-width: 100%;
+  width: 100%;
+  min-width: 800px;
+}
+
 .activity-modal-image-caption {
   margin-top: 12px;
   font-size: 14px;
