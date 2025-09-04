@@ -118,7 +118,7 @@ function Homepage() {
         <Navigation />
         <div className="scrollable-content">
           <p className="display-2">
-          I'm a complexity specialist with an agency background. I align teams, navigate competing priorities, and keep momentum strong while we create customer magic.
+            I turn complexity into customer experiences that deliver results. Design leader with 13 years of agency experience.
           </p>
           
           <div className="work-section">

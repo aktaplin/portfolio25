@@ -154,7 +154,7 @@ export default function ColorPicker() {
       }
 
       /* Navigation back arrow hover effect */
-      .nav-back-arrow:hover {
+      .nav-back-arrow::before {
         background: linear-gradient(90deg, rgba(${baseR}, ${baseG}, ${baseB}, 0.5), rgba(${r}, ${g}, ${b}, 0.5)) !important;
       }
       
