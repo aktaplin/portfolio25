@@ -47,15 +47,6 @@ export default function Navigation() {
   return (
     <nav className="navigation-container">
       <div className="nav-logo-container">
-        {isCaseStudyPage && (
-          <button 
-            className="nav-back-arrow"
-            onClick={handleBackClick}
-            aria-label="Go back to homepage"
-          >
-            ←
-          </button>
-        )}
         <a 
           href="/" 
           className="nav-logo"
