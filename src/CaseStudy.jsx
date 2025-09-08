@@ -6,6 +6,7 @@ import ActivityModal, { InlineImageContainer } from './components/ActivityModal'
 import ColorPicker from './components/ColorPicker'
 import CaseStudyNavigation from './components/CaseStudyNavigation'
 import Footer from './components/Footer'
+import ImageOverlay from './components/ImageOverlay'
 import wexLogo from './assets/logos/wex.svg'
 import researchImage from './assets/img/research.jpg'
 import workshopImage from './assets/img/workshop.jpg'
@@ -119,6 +120,10 @@ export default function CaseStudy() {
   const [selectedActivityKey, setSelectedActivityKey] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   
+  // Image overlay state
+  const [isImageOverlayOpen, setIsImageOverlayOpen] = useState(false)
+  const [overlayImageData, setOverlayImageData] = useState({ src: '', alt: '', caption: '' })
+  
   const handleActivityClick = (activityKey) => {
     setSelectedActivity(activitiesData[activityKey])
     setSelectedActivityKey(activityKey)
@@ -134,6 +139,16 @@ export default function CaseStudy() {
     setIsModalOpen(false)
     setSelectedActivity(null)
     setSelectedActivityKey(null)
+  }
+  
+  const handleImageClick = (src, alt, caption) => {
+    setOverlayImageData({ src, alt, caption })
+    setIsImageOverlayOpen(true)
+  }
+  
+  const handleCloseImageOverlay = () => {
+    setIsImageOverlayOpen(false)
+    setOverlayImageData({ src: '', alt: '', caption: '' })
   }
   
   return (
@@ -260,6 +275,7 @@ export default function CaseStudy() {
                     alt="Story Brief"
                     caption="The story brief I created became the foundation of the design process."
                     size="xlarge"
+                    onClick={() => handleImageClick(storyBriefImage, "Story Brief", "The story brief I created became the foundation of the design process.")}
                   />
                 </div>
                 <div className="timeline-item-v1" onClick={() => handleActivityClick('design')}>
@@ -302,6 +318,14 @@ export default function CaseStudy() {
         currentActivityKey={selectedActivityKey}
         activitiesData={activitiesData}
         onActivityChange={handleActivityChange}
+      />
+      
+      <ImageOverlay
+        isOpen={isImageOverlayOpen}
+        onClose={handleCloseImageOverlay}
+        imageSrc={overlayImageData.src}
+        imageAlt={overlayImageData.alt}
+        caption={overlayImageData.caption}
       />
     </div>
   )

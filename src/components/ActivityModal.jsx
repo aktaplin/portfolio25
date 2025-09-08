@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import ActivityNavigation from './ActivityNavigation'
 
 // Inline Image Container component
-function InlineImageContainer({ src, alt, caption, size = 'medium' }) {
+function InlineImageContainer({ src, alt, caption, size = 'medium', onClick }) {
   const sizeClasses = {
     small: 'activity-modal-inline-image-small',
     medium: 'activity-modal-inline-image-medium', 
@@ -10,12 +10,20 @@ function InlineImageContainer({ src, alt, caption, size = 'medium' }) {
     xlarge: 'activity-modal-inline-image-xlarge'
   }
   
+  const handleClick = () => {
+    if (onClick) {
+      onClick()
+    }
+  }
+  
   return (
-    <div className="activity-modal-inline-image-container">
+    <div className={`activity-modal-inline-image-container ${onClick ? 'clickable' : ''}`}>
       <img 
         src={src} 
         alt={alt}
         className={`activity-modal-inline-image ${sizeClasses[size]}`}
+        onClick={handleClick}
+        style={{ cursor: onClick ? 'pointer' : 'default' }}
       />
       {caption && <div className="activity-modal-image-caption">{caption}</div>}
     </div>
