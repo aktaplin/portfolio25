@@ -1,4 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+
+// THEME CONFIGURATION
+// Change the number below to select your theme:
+// 0 - Cyan + White (Clean electric flow)
+// 1 - Volt Green (Matrix code vibes) 
+// 2 - Laser Orange (High-energy accent)
+// 3 - Plasma Pink (Synthetic intensity)
+// 4 - Neon Purple (Electric dreams)
+// 5 - Acid Yellow (Sharp contrast)
+// 6 - Monochrome (Pure minimalism)
+const SELECTED_THEME = 0
 
 const colorOptions = [
   {
@@ -46,21 +57,11 @@ const colorOptions = [
 ]
 
 export default function ColorPicker() {
-  const [selectedColor, setSelectedColor] = useState(() => {
-    // Load saved theme from localStorage on initialization
-    const savedTheme = localStorage.getItem('portfolio-theme')
-    if (savedTheme) {
-      const found = colorOptions.find(option => option.value === savedTheme)
-      return found || colorOptions[0]
-    }
-    return colorOptions[0]
-  })
-  const [isOpen, setIsOpen] = useState(false)
-
-  // Apply saved theme on component mount
+  // Apply the selected theme on component mount
   useEffect(() => {
-    updateCSSVariables(selectedColor)
-  }, [selectedColor]) // Re-run if selectedColor changes
+    const selectedColorOption = colorOptions[SELECTED_THEME]
+    updateCSSVariables(selectedColorOption)
+  }, [])
 
   const updateCSSVariables = (color) => {
     const root = document.documentElement
@@ -222,48 +223,6 @@ export default function ColorPicker() {
     }, 10)
   }
 
-  const handleColorSelect = (color) => {
-    setSelectedColor(color)
-    updateCSSVariables(color)
-    // Save theme to localStorage for persistence
-    localStorage.setItem('portfolio-theme', color.value)
-    setIsOpen(false)
-  }
-
-  return (
-    <div className="color-picker">
-      <div 
-        className="color-picker-trigger"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <div 
-          className="color-preview"
-          style={{ backgroundColor: selectedColor.value }}
-        ></div>
-        <span className="color-name">{selectedColor.name}</span>
-        <span className="color-arrow">{isOpen ? '▲' : '▼'}</span>
-      </div>
-      
-      {isOpen && (
-        <div className="color-picker-dropdown">
-          {colorOptions.map((color, index) => (
-            <div
-              key={index}
-              className={`color-option ${selectedColor.value === color.value ? 'selected' : ''}`}
-              onClick={() => handleColorSelect(color)}
-            >
-              <div 
-                className="color-swatch"
-                style={{ backgroundColor: color.value }}
-              ></div>
-              <div className="color-info">
-                <div className="color-option-name">{color.name}</div>
-                <div className="color-description">{color.description}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  )
+  // This component no longer renders any UI - it just applies the selected theme
+  return null
 }
