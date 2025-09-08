@@ -154,6 +154,9 @@ export default function CaseStudy() {
           </div>
 
           <div className="case-study-page-content">
+            <div className="intro intro-option-1">
+                <p>This project builds on a template I have used several times in my career: starting from an ambiguous brief, create a tangible vision for the 3-to-5 year future that clients can pick up and plan against. I was given just ten weeks to learn a new client, a new industry, and to assemble a new design team. We delivered to rave reviews and were asked back for a second LOB just a few weeks later.</p>
+            </div>
             <div className="case-study-section">
               <h2 className="section-title">Problem</h2>
               <div className="case-study-text">
@@ -250,12 +253,14 @@ export default function CaseStudy() {
                   <div className="activity-duration">Week 5-6</div>
                   <h3 className="activity-title">Workshop facilitation</h3>
                 </div>
-                <InlineImageContainer
-                  src={storyBriefImage}
-                  alt="Story Brief"
-                  caption="Story Brief"
-                  size="xlarge"
-                />
+                <div className="timeline-image-center">
+                  <InlineImageContainer
+                    src={storyBriefImage}
+                    alt="Story Brief"
+                    caption="Story Brief"
+                    size="xlarge"
+                  />
+                </div>
                 <div className="timeline-item-v1" onClick={() => handleActivityClick('design')}>
                   <div className="activity-duration">Week 7-8</div>
                   <h3 className="activity-title">Prototyping</h3>

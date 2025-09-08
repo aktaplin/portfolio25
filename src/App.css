@@ -642,6 +642,17 @@
   margin-bottom: 0;
 }
 
+/* Intro paragraph styling */
+.intro-option-1 p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  color: var(--color-text);
+  margin: 0 0 24px 0;
+  max-width: 65ch;
+}
+
 .case-study-image-section {
   display: flex;
   justify-content: center;
@@ -1170,6 +1181,13 @@ html {
 .timeline-option-1 {
   position: relative;
   padding: 0;
+}
+
+.timeline-image-center {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 32px 0;
 }
 
 .timeline-item-v1 {

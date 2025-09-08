@@ -8,6 +8,7 @@ import { useAuth } from './hooks/useAuth'
 import PasswordModal from './components/PasswordModal'
 import Navigation from './components/Navigation'
 import ColorPicker from './components/ColorPicker'
+import ScrollToTop from './components/ScrollToTop'
 import fordLogo from './assets/logos/ford.svg'
 import mastercardLogo from './assets/logos/mastercard.svg'
 import mercedesLogo from './assets/logos/mercedes.png'
@@ -216,6 +217,7 @@ function App() {
   return (
     <AuthProvider>
       <Router basename="/portfolio25">
+        <ScrollToTop />
         <AppContent />
         <PasswordModal />
       </Router>
