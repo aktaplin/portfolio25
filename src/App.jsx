@@ -9,6 +9,7 @@ import PasswordModal from './components/PasswordModal'
 import Navigation from './components/Navigation'
 import ColorPicker from './components/ColorPicker'
 import ScrollToTop from './components/ScrollToTop'
+import Footer from './components/Footer'
 import adamPortrait from './assets/img/adam-r2.jpg'
 import fordLogo from './assets/logos/ford.svg'
 import mastercardLogo from './assets/logos/mastercard.svg'
@@ -205,6 +206,7 @@ function Homepage() {
               </div>
             </div>
           </div>
+          <Footer />
         </div>
       </div>
     </div>

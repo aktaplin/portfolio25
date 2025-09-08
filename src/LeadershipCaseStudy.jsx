@@ -5,6 +5,7 @@ import Navigation from './components/Navigation'
 import ActivityModal, { InlineImageContainer } from './components/ActivityModal'
 import ColorPicker from './components/ColorPicker'
 import CaseStudyNavigation from './components/CaseStudyNavigation'
+import Footer from './components/Footer'
 import verizonLogo from './assets/logos/verizon.svg'
 import activity1Image from './assets/img/+play-enhancement.png'
 import activity2Image from './assets/img/+play-mvp.png'
@@ -283,6 +284,7 @@ export default function LeadershipCaseStudy() {
 
             <CaseStudyNavigation currentCaseStudyKey="leadership" />
           </div>
+          <Footer />
         </div>
       </div>
       

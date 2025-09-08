@@ -5,6 +5,7 @@ import Navigation from './components/Navigation'
 import ActivityModal, { InlineImageContainer } from './components/ActivityModal'
 import ColorPicker from './components/ColorPicker'
 import CaseStudyNavigation from './components/CaseStudyNavigation'
+import Footer from './components/Footer'
 import wexLogo from './assets/logos/wex.svg'
 import researchImage from './assets/img/research.jpg'
 import workshopImage from './assets/img/workshop.jpg'
@@ -257,7 +258,7 @@ export default function CaseStudy() {
                   <InlineImageContainer
                     src={storyBriefImage}
                     alt="Story Brief"
-                    caption="Story Brief"
+                    caption="The story brief I created became the foundation of the design process."
                     size="xlarge"
                   />
                 </div>
@@ -290,6 +291,7 @@ export default function CaseStudy() {
 
             <CaseStudyNavigation currentCaseStudyKey="innovation" />
           </div>
+          <Footer />
         </div>
       </div>
       
