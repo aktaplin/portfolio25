@@ -9,6 +9,7 @@ import PasswordModal from './components/PasswordModal'
 import Navigation from './components/Navigation'
 import ColorPicker from './components/ColorPicker'
 import ScrollToTop from './components/ScrollToTop'
+import adamPortrait from './assets/img/adam-r2.jpg'
 import fordLogo from './assets/logos/ford.svg'
 import mastercardLogo from './assets/logos/mastercard.svg'
 import mercedesLogo from './assets/logos/mercedes.png'
@@ -118,9 +119,17 @@ function Homepage() {
       <div className="content-container">
         <Navigation />
         <div className="scrollable-content">
-          <p className="display-2">
-            I turn complexity into customer experiences that deliver results. Design leader with 13 years of agency experience.
-          </p>
+        <div className="intro-portrait">
+              <img src={adamPortrait} alt="Adam Taplin portrait illustration" className="portrait-image" />
+            </div>
+          </div>
+          <div className="hero-intro">
+            <div className="intro-text">
+              <p className="display-2">
+                I turn complexity into customer experiences that deliver results. Design leader with 13 years of agency experience.
+              </p>
+            </div>
+
           
           <div className="work-section">
             <h2 className="section-title">Work</h2>
