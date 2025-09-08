@@ -155,14 +155,14 @@ export default function LeadershipCaseStudy() {
         <Navigation />
         <div className="scrollable-content">
           <div className="case-study-hero hero-layered-bg">
+            <div className="hero-logo-section">
+              <img src={imgImage} alt="Verizon logo" className="hero-logo" />
+            </div>
             <div className="case-study-title-section">
               <div className="case-study-subtitle">A story of leadership</div>
               <h1 className="case-study-main-title">
                 +play
               </h1>
-            </div>
-            <div className="hero-image-section">
-              <img src={imgImage} alt="" className="hero-verizon-logo" />
             </div>
           </div>
 

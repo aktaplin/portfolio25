@@ -8,6 +8,7 @@ import CaseStudyNavigation from './components/CaseStudyNavigation'
 import Footer from './components/Footer'
 import ImageOverlay from './components/ImageOverlay'
 import wexLogo from './assets/logos/wex.svg'
+import wexBanner from './assets/img/WEXBanner.png'
 import researchImage from './assets/img/research.jpg'
 import workshopImage from './assets/img/workshop.jpg'
 import prototypeImage from './assets/img/prototype.jpg'
@@ -158,20 +159,23 @@ export default function CaseStudy() {
         <Navigation />
         <div className="scrollable-content">
           <div className="case-study-hero hero-layered-bg">
+            <div className="hero-logo-section">
+              <img src={imgImage} alt="WEX logo" className="hero-logo" />
+            </div>
             <div className="case-study-title-section">
               <div className="case-study-subtitle">A story of innovation</div>
               <h1 className="case-study-main-title">
                 WEX Mobility Vision 2027
               </h1>
             </div>
-            <div className="hero-image-section">
-              <img src={imgImage} alt="WEX logo" className="hero-wex-logo" />
+            <div className="hero-banner-section">
+              <img src={wexBanner} alt="WEX interface mockup" className="hero-banner" />
             </div>
           </div>
 
           <div className="case-study-page-content">
             <div className="intro intro-option-1">
-                <p>This project builds on a template I have used several times in my career: starting from an ambiguous brief, create a tangible vision for the 3-to-5 year future that clients can pick up and plan against. I was given just ten weeks to learn a new client, a new industry, and to assemble a new design team. We delivered to rave reviews and were asked back for a second LOB just a few weeks later.</p>
+                <p>This project builds on a template I have used several times in my career: starting from an ambiguous brief, create a tangible vision for the 3-to-5 year future that clients can pick up and plan against. I was given just ten weeks to learn a new client, a new industry, and to assemble a new design team. We delivered to rave reviews and were asked to begin an MVP immediately.</p>
             </div>
             <div className="case-study-section">
               <h2 className="section-title">Problem</h2>
@@ -300,7 +304,7 @@ export default function CaseStudy() {
                 <p>
                 Due to this project's success, my clients pivoted to requesting an MVP for immediate deployment on their highest-profile authenticated dashboard, dropping their previous priority for our team.                </p>
                 <p>
-                Six months later they contacted us again for additional help.
+                Six months later they contacted us again to run the same project against a different line of business. In my mind there's no better endorsement than a repeat customer.
                 </p>
               </div>
             </div>
