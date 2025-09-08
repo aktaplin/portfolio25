@@ -179,6 +179,21 @@ export default function ColorPicker() {
         color: ${hex} !important;
       }
 
+      /* Timeline activity card hover states */
+      .timeline-item-v1:hover::after,
+      .timeline-item-v2:hover::after {
+        background: linear-gradient(90deg, rgba(${baseR}, ${baseG}, ${baseB}, 0.5), rgba(${r}, ${g}, ${b}, 0.5)) !important;
+      }
+
+      /* Pullquote styling */
+      .pullquote-minimal {
+        border-image: linear-gradient(180deg, ${baseHex}, ${hex}) 1 !important;
+      }
+
+      .pullquote-minimal .quote-attribution {
+        color: rgba(${r}, ${g}, ${b}, 0.8) !important;
+      }
+
       /* Override navigation link colors to stay charcoal */
       .navigation-container a {
         color: #2D3436 !important;
