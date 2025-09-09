@@ -5,11 +5,8 @@ import react from '@vitejs/plugin-react'
 function htmlEnvReplace() {
   return {
     name: 'html-env-replace',
-    transformIndexHtml: {
-      enforce: 'pre',
-      transform(html, ctx) {
-        return html.replace(/%VITE_GTM_CONTAINER_ID%/g, process.env.VITE_GTM_CONTAINER_ID || '')
-      }
+    transformIndexHtml(html) {
+      return html.replace(/%VITE_GTM_CONTAINER_ID%/g, process.env.VITE_GTM_CONTAINER_ID || '')
     }
   }
 }
