@@ -159,13 +159,13 @@ export default function CaseStudy() {
         <Navigation />
         <div className="scrollable-content">
           <div className="case-study-hero hero-layered-bg">
-            <div className="hero-logo-section">
-              <img src={imgImage} alt="WEX logo" className="hero-logo" />
-            </div>
             <div className="case-study-title-section">
               <div className="case-study-subtitle">A story of innovation</div>
+              <div className="hero-logo-section">
+                <img src={imgImage} alt="WEX logo" className="hero-logo" />
+              </div>
               <h1 className="case-study-main-title">
-                WEX Mobility Vision 2027
+                Mobility Vision 2027
               </h1>
             </div>
             <div className="hero-banner-section">
