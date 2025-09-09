@@ -533,11 +533,11 @@
   background: var(--color-hero-bg);
   padding: 40px;
   border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
   position: relative;
   overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
 }
 
 .case-study-hero.hero-layered-bg {
@@ -576,10 +576,7 @@
 }
 
 .hero-logo-section {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  z-index: 2;
+  margin-bottom: 16px;
 }
 
 .hero-logo {
@@ -591,23 +588,32 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  z-index: 1;
+  z-index: 2;
   position: relative;
+  flex: 1;
+  padding-bottom: 200px;
 }
 
 .hero-banner-section {
-  margin-top: 32px;
-  margin-bottom: -40px;
-  margin-left: -40px;
-  margin-right: -40px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
   border-radius: 0 0 16px 16px;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .hero-banner {
   width: 100%;
   height: auto;
   display: block;
+  margin: 0;
+  padding: 0;
+  vertical-align: bottom;
+  line-height: 0;
 }
 
 .case-study-subtitle {
@@ -618,6 +624,11 @@
   letter-spacing: 0.6px;
   text-transform: uppercase;
   color: var(--color-text);
+}
+
+/* Subtitle spacing in hero section */
+.case-study-title-section > .case-study-subtitle {
+  margin-bottom: 8px;
 }
 
 .case-study-main-title {
@@ -1526,6 +1537,10 @@ html {
   .nav-logo {
     font-size: 16px;
   }
+  
+  .case-study-title-section {
+    padding-bottom: 120px;
+  }
 }
 
 /* Tablet: 768px and up */
@@ -1565,20 +1580,11 @@ html {
   .case-study-hero { padding: 60px; }
   .case-study-main-title { font-size: clamp(48px, 6vw, 64px); }
   
-  .hero-logo-section {
-    top: 60px;
-    right: 60px;
-  }
   
   .hero-logo {
     height: 28px;
   }
   
-  .hero-banner-section {
-    margin-bottom: -60px;
-    margin-left: -60px;
-    margin-right: -60px;
-  }
 }
 
 /* Desktop: 1200px and up */
@@ -1625,11 +1631,6 @@ html {
     height: 32px;
   }
   
-  .hero-banner-section {
-    margin-bottom: -40px;
-    margin-left: -40px;
-    margin-right: -40px;
-  }
 }
 
 /* ========================================
@@ -2032,6 +2033,12 @@ html {
   
   .activity-modal-inline-image-container {
     margin: 20px 0;
+  }
+  
+  .activity-modal-inline-image-xlarge {
+    min-width: auto;
+    max-width: 100%;
+    width: 100%;
   }
 }
 
