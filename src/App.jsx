@@ -121,14 +121,15 @@ function Homepage() {
         <Navigation />
         <div className="scrollable-content">
           <div className="hero-intro">
+            <div className="intro-portrait">
+              <img src={adamPortrait} alt="Adam Taplin portrait illustration" className="portrait-image" />
+            </div>
             <div className="intro-text">
               <p className="display-2">
                 I turn complexity into customer experiences that deliver results. Design leader with 13 years of agency experience.
               </p>
             </div>
-            <div className="intro-portrait">
-              <img src={adamPortrait} alt="Adam Taplin portrait illustration" className="portrait-image" />
-            </div>
+
           </div>
           
           <div className="work-section">
