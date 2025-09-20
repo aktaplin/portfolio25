@@ -11,6 +11,8 @@ import activity1Image from './assets/img/+play-enhancement.png'
 import activity2Image from './assets/img/+play-mvp.png'
 import playShopImage from './assets/img/+play-shop.png'
 import playDiscoverImage from './assets/img/+play-discover.png'
+import playBanner from './assets/img/+playBanner.png'
+
 const imgImage = verizonLogo;
 
 // Set Technical Soft Futurism theme on component load
@@ -193,6 +195,9 @@ export default function LeadershipCaseStudy() {
                 +play
               </h1>
             </div>
+            <div className="hero-banner-section">
+              <img src={playBanner} alt="+play" className="hero-banner" />
+            </div>
           </div>
 
           <div className="case-study-page-content">
@@ -218,9 +223,6 @@ export default function LeadershipCaseStudy() {
               <div className="case-study-text">
                 <p>
                 Upon joining the +play project, it was evident that the client relationship was strained and the internal design team was severely siloed between UI and UX disciplines. The situation was further complicated by a rocky MVP phase, leading some clients to question the effectiveness of our product strategy. This challenging environment underscored the critical need for a new leadership approach to rebuild trust, foster collaboration, and deliver impactful solutions.
-                </p>
-                <p>
-                  
                 </p>
               </div>
             </div>

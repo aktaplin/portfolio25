@@ -1623,7 +1623,10 @@ html {
   /* Case study specific styling */
   .case-study-hero { padding: 60px 40px; border-radius: 16px; }
   .case-study-main-title { font-size: clamp(48px, 4vw, 64px); }
-  
+  .case-study-title-section {
+    padding-bottom: 320px;
+  }
+
   .hero-logo {
     height: 32px;
   }
