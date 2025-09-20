@@ -1593,7 +1593,7 @@ html {
 @media (min-width: 1200px) {
   /* Simple centered layout for homepage and case studies */
   .homepage, .case-study-page { padding: 0; }
-  .content-container { max-width: 768px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; height: auto; }
+  .content-container { max-width: 1024px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; height: auto; }
   .navigation-container { padding: 12px 80px; }
   .scrollable-content { padding: 90px 40px 40px 40px; }
   .hero-section { display: flex; flex-direction: column; gap: 40px; }
@@ -1603,12 +1603,7 @@ html {
     gap: 40px; 
   }
   
-  /* Hero intro layout for desktop */
-  .hero-intro {
-    flex-direction: row;
-    align-items: center;
-    gap: 48px;
-  }
+  /* Hero intro layout for desktop - keep single column */
   
   .portrait-image {
     width: 140px;

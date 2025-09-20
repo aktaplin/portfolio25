@@ -9,7 +9,8 @@ import Footer from './components/Footer'
 import verizonLogo from './assets/logos/verizon.svg'
 import activity1Image from './assets/img/+play-enhancement.png'
 import activity2Image from './assets/img/+play-mvp.png'
-
+import playShopImage from './assets/img/+play-shop.png'
+import playDiscoverImage from './assets/img/+play-discover.png'
 const imgImage = verizonLogo;
 
 // Set Technical Soft Futurism theme on component load
@@ -79,13 +80,13 @@ const activitiesData = {
     )
   },
   'activity-3': {
-    title: 'Show them what we can really do',
+    title: 'Limited proof of concept redesign',
     duration: '2 months',
     content: (
       <div>
         <ul>
-          <li>At client's request, took it all back to square one for a reset</li>
-          <li>Centered on customer benefit, gave team permission to ignore (for now) tech debt and previous product decisions where necessary</li>
+          <li>At client's request, took it all back to square one for a reset.</li>
+          <li>Centered on customer benefit, gave team permission to ignore (for now) tech debt and previous product decisions where necessary.</li>
         </ul>
         <InlineImageContainer 
           src={activity2Image}
@@ -99,24 +100,52 @@ const activitiesData = {
           <li>Fresh energy in the program</li>
           <li>Kernels of ideas began moving forward to wider stakeholder group</li>
         </ul>
+        <p>Gained client trust and customer research data that ultimately led to a full-scale dedesign.</p>
       </div>
     )
   },
   'activity-4': {
-    title: '',
-    duration: '',
+    title: 'Full-scale redesign',
+    duration: '1 month',
     content: (
       <div>
-        
+        <p>Based on our MVP, at this point, the Verizon team asked us to redesign the whole thing - no strings attached. Too many technical constraints and bad product decisions had hampered the original design for the platform, so we were given free reign to design the best experience possible.</p>
+        <p>We delivered about 400 mockups in 5 weeks.</p>
+        <h2>My role</h2>
+        <ul>
+          <li>Selling designs to all stakeholders</li>
+          <li>Leading the way on a clear, repeatable process forged under pressure</li>
+          <li>Mentored UI and UX leads on process and problem-solving</li>
+          <li>Cared for team morale and culture during challenging times</li>
+        </ul>
+        <InlineImageContainer 
+          src={playShopImage}
+          alt="+play shop"
+          caption="Homepage after our redesign"
+          size="large"
+        />
+        <InlineImageContainer 
+          src={playDiscoverImage}
+          alt="+play discover"
+          caption="Discover after our redesign"
+          size="large"
+        />
       </div>
     )
   },
   'activity-5': {
-    title: '',
-    duration: '',
+    title: 'Optimize the site post-launch',
+    duration: '16 months',
     content: (
       <div>
-        
+        <p>Once the new site was launched, our team collaborated with Verizon product stakeholders to monitor key KPIs and iterate on the site.</p>
+        <p>Some interaction design details needed iteration, such as a carousel on the homepage and the checkout flow.</p>
+        <h2>My role</h2>
+        <ul>
+          <li>Suggest and request analytics from the production site to guide designs</li>
+          <li>Request studies from Verizon's user research team; write briefs, suggest methods, and collaborate on synthesis of results</li>
+          <li>Brief design team on goals of design iteration</li>
+        </ul>
       </div>
     )
   }
@@ -167,6 +196,9 @@ export default function LeadershipCaseStudy() {
           </div>
 
           <div className="case-study-page-content">
+          <div className="intro intro-option-1">
+                <p>This project showcases my ability to turn around an ailing team and project. When I replaced the outgoing leader, Publicis Sapient had lost client trust and morale was low. By the time we rolled off, I had been able to re-secure an additonal 18 months of work and around $2M revenue for the agency. My team by then was scoring high marks on internal quality of life surveys and those team members became my managees and mentees.</p>
+            </div>
             <div className="case-study-section">
               <h2 className="section-title">Problem</h2>
               <div className="case-study-text">
@@ -252,15 +284,15 @@ export default function LeadershipCaseStudy() {
                 </div>
                 <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-3')}>
                   <div className="activity-duration">Month 3-4</div>
-                  <h3 className="activity-title">Show what we can <i>really</i> do</h3>
+                  <h3 className="activity-title">Lead a limited proof-of-concept redesign on key pages</h3>
                 </div>
                 <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-4')}>
                   <div className="activity-duration">Month 5</div>
-                  <h3 className="activity-title">Execute a complete redesign in 4 weeks</h3>
+                  <h3 className="activity-title">Complete a full redesign in 5 weeks</h3>
                 </div>
                 <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-5')}>
                   <div className="activity-duration">Month 6+</div>
-                  <h3 className="activity-title">Post launch optimization</h3>
+                  <h3 className="activity-title">Optimize the site post-launch</h3>
                 </div>
               </div>
             </div>

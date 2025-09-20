@@ -54,24 +54,19 @@ function TextBlock({ title, description }) {
 function SkillsSection() {
   const skillsData = {
     "Project archetypes": [
-      "Vision and value-props",
+      "Strategic visioning",
       "Journey enhancement", 
-      "Platform redesign",
-      "Design systems",
-      "Research"
+      "Platform redesign"
     ],
     "Tools": [
-      "Prototyping: Figma, Claude Code",
-      "Facilitation: Figjam, Mural",
-      "Thought partnership: Claude, ChatGPT, NotebookLM",
-      "Coding: HTML/JS/CSS, Claude Code"
+      "Figma",
+      "Claude Code",
+      "HTML/JS/CSS"
     ],
     "Soft skills": [
       "Strategic communication",
       "Mentorship",
-      "Problem-solving", 
-      "Design thinking",
-      "Business outcome alignment"
+      "Problem-solving"
     ]
   };
 
