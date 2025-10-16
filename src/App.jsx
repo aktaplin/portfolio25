@@ -10,6 +10,7 @@ import Navigation from './components/Navigation'
 import ColorPicker from './components/ColorPicker'
 import ScrollToTop from './components/ScrollToTop'
 import Footer from './components/Footer'
+import ProtectedRoute from './components/ProtectedRoute'
 import adamPortrait from './assets/img/adam-r2.jpg'
 import fordLogo from './assets/logos/ford.svg'
 import mastercardLogo from './assets/logos/mastercard.svg'
@@ -213,8 +214,8 @@ function AppContent() {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
-      <Route path="/innovation-transformation-WEX/" element={<CaseStudy />} />
-      <Route path="/leadership-case-study/" element={<LeadershipCaseStudy />} />
+      <Route path="/innovation-transformation-WEX/" element={<ProtectedRoute><CaseStudy /></ProtectedRoute>} />
+      <Route path="/leadership-case-study/" element={<ProtectedRoute><LeadershipCaseStudy /></ProtectedRoute>} />
     </Routes>
   )
 }
