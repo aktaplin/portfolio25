@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adam Taplin — Brand Identity System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --white:   #FFFFFF;
+      --off:     #F7F7F5;
+      --ink:     #0D0D0B;
+      --ink-60:  rgba(13,13,11,0.6);
+      --ink-20:  rgba(13,13,11,0.12);
+      --ink-08:  rgba(13,13,11,0.06);
+      --steel:   #1A3A5C;
+      --signal:  #E84435;
+      --font-serif: 'Libre Baskerville', Georgia, serif;
+      --font-body:  'Barlow', sans-serif;
+      --font-cond:  'Barlow Condensed', sans-serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --border: 1px solid var(--ink-20);
+      --r: 1px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      cursor: none;
+    }
+
+    /* ── CURSOR ── */
+    .cursor {
+      width: 8px; height: 8px;
+      background: var(--signal);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s var(--ease), height 0.2s var(--ease), background 0.2s;
+    }
+    .cursor-ring {
+      width: 32px; height: 32px;
+      border: 1px solid var(--steel);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width 0.25s var(--ease), height 0.25s var(--ease), border-color 0.2s;
+    }
+
+    /* ── LAYOUT ── */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    section { padding: 96px 0; border-bottom: var(--border); }
+    section:last-child { border-bottom: none; }
+
+    /* ── RULED BG ── */
+    .ruled {
+      background-image: repeating-linear-gradient(
+        to bottom, transparent, transparent calc(4rem - 1px),
+        var(--ink-08) calc(4rem - 1px), var(--ink-08) 4rem
+      );
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white); border-bottom: var(--border);
+      padding: 20px 0;
+    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .wordmark {
+      font-family: var(--font-cond); font-size: 1rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .wdot { width: 6px; height: 6px; background: var(--signal); border-radius: 50%; flex-shrink: 0; }
+    .doc-tag {
+      font-family: var(--font-cond); font-size: 0.7rem; font-weight: 400;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-60);
+      border: var(--border); padding: 4px 12px; border-radius: 100px;
+    }
+
+    /* ── SECTION LABEL ── */
+    .label {
+      font-family: var(--font-cond); font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--signal);
+      display: flex; align-items: center; gap: 12px; margin-bottom: 32px;
+    }
+    .label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--signal); }
+
+    .section-h {
+      font-family: var(--font-serif); font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400; letter-spacing: -0.02em;
+    }
+    .section-sub {
+      margin-top: 12px; color: var(--ink-60); font-size: 0.9rem;
+      max-width: 56ch; line-height: 1.7;
+    }
+
+    /* ── HERO ── */
+    .hero { padding: 120px 0 100px; border-bottom: var(--border); position: relative; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: end; }
+    .hero-eyebrow {
+      font-family: var(--font-cond); font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-60);
+      margin-bottom: 24px; display: flex; align-items: center; gap: 12px;
+      animation: fadeUp 0.8s var(--ease) both;
+    }
+    .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--ink-60); }
+    .hero-headline {
+      font-family: var(--font-serif); font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 400; line-height: 1.06; letter-spacing: -0.025em;
+      animation: fadeUp 0.9s 0.1s var(--ease) both;
+    }
+    .hero-headline em { font-style: italic; color: var(--steel); }
+    .signal-word { position: relative; display: inline-block; }
+    .signal-word::after {
+      content: ''; position: absolute; bottom: 4px; left: 0;
+      width: 100%; height: 3px; background: var(--signal);
+      transform: scaleX(0); transform-origin: left;
+      animation: scaleIn 0.6s 1s var(--ease) forwards;
+    }
+    .hero-right { padding-bottom: 8px; animation: fadeUp 1s 0.2s var(--ease) both; }
+    .hero-statement {
+      font-size: 1.05rem; font-weight: 300; line-height: 1.75; color: var(--ink-60);
+      border-left: 2px solid var(--steel); padding-left: 20px;
+    }
+    .hero-statement strong { color: var(--ink); font-weight: 400; }
+    .hero-index {
+      position: absolute; top: 40px; right: 48px;
+      font-family: var(--font-cond); font-size: clamp(120px, 18vw, 200px);
+      font-weight: 700; line-height: 1; color: transparent;
+      -webkit-text-stroke: 1px var(--ink-08); letter-spacing: -0.05em;
+      user-select: none; pointer-events: none;
+    }
+
+    /* ── PRINCIPLES ── */
+    .principles-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; border: var(--border); margin-top: 48px;
+    }
+    .principle {
+      padding: 32px; border-right: var(--border);
+      position: relative; overflow: hidden;
+      transition: background 0.3s var(--ease);
+    }
+    .principle:last-child { border-right: none; }
+    .principle:hover { background: var(--off); }
+    .principle-n {
+      font-family: var(--font-cond); font-size: 3rem; font-weight: 700;
+      line-height: 1; color: var(--ink-08); margin-bottom: 20px;
+      transition: color 0.3s var(--ease);
+    }
+    .principle:hover .principle-n { color: var(--signal); }
+    .principle-title { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 400; margin-bottom: 12px; }
+    .principle-desc { font-size: 0.82rem; color: var(--ink-60); line-height: 1.65; }
+    .principle-bar {
+      position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+      background: var(--steel); transition: width 0.4s var(--ease);
+    }
+    .principle:hover .principle-bar { width: 100%; }
+
+    /* ── PALETTE ── */
+    .palette { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-top: 48px; }
+    .swatch { display: flex; flex-direction: column; gap: 10px; }
+    .swatch-block {
+      aspect-ratio: 1; border-radius: var(--r); position: relative;
+    }
+    .swatch-block::after {
+      content: ''; position: absolute; inset: 0; border: var(--border);
+      border-radius: var(--r); pointer-events: none;
+    }
+    .swatch-name { font-family: var(--font-cond); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+    .swatch-hex { font-family: var(--font-cond); font-size: 0.7rem; color: var(--ink-60); }
+    .swatch-role { font-size: 0.72rem; color: var(--ink-60); line-height: 1.5; }
+
+    /* ── TYPE ── */
+    .type-rows { margin-top: 48px; border-top: var(--border); }
+    .type-row { display: grid; grid-template-columns: 180px 1fr; border-bottom: var(--border); align-items: start; }
+    .type-meta { padding: 32px 24px 32px 0; border-right: var(--border); }
+    .type-meta-name { font-family: var(--font-cond); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--signal); margin-bottom: 8px; }
+    .type-meta-detail { font-family: var(--font-cond); font-size: 0.72rem; color: var(--ink-60); line-height: 1.6; font-weight: 300; }
+    .type-sample { padding: 32px 0 32px 32px; }
+
+    /* ── MOTION ── */
+    .motion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .motion-card {
+      border: var(--border); padding: 32px; position: relative; overflow: hidden;
+      cursor: pointer; background: var(--white); transition: border-color 0.2s;
+    }
+    .motion-card:hover { border-color: var(--steel); }
+    .motion-card-title { font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 24px; }
+    .motion-stage { height: 56px; display: flex; align-items: center; margin-bottom: 24px; overflow: hidden; }
+    .m-bar { height: 3px; background: var(--steel); border-radius: 2px; width: 80px; }
+    .motion-card:hover .m-fade { animation: mFade 0.4s var(--ease) both; }
+    @keyframes mFade { from { opacity: 0; } to { opacity: 1; } }
+    .motion-card:hover .m-slide { animation: mSlide 0.5s var(--ease) both; }
+    @keyframes mSlide { from { transform: translateY(10px); opacity: 0; } to { transform: none; opacity: 1; } }
+    .motion-card:hover .m-reveal { animation: mReveal 0.6s var(--ease) both; }
+    @keyframes mReveal { from { width: 0; } to { width: 80px; } }
+    .motion-spec { font-family: var(--font-cond); font-size: 0.68rem; letter-spacing: 0.1em; color: var(--steel); margin-top: 8px; }
+    .motion-desc { font-size: 0.82rem; color: var(--ink-60); line-height: 1.65; }
+    .motion-corner {
+      position: absolute; top: 12px; right: 12px;
+      font-family: var(--font-cond); font-size: 0.6rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-20);
+      transition: color 0.2s;
+    }
+    .motion-card:hover .motion-corner { color: var(--signal); }
+    .motion-specs-bar {
+      margin-top: 24px; padding: 24px 28px; border: var(--border);
+      background: var(--off); display: flex; gap: 48px; align-items: start; flex-wrap: wrap;
+    }
+    .spec-key { font-family: var(--font-cond); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-60); margin-bottom: 8px; }
+    .spec-val { font-family: var(--font-cond); font-size: 1rem; color: var(--steel); font-weight: 500; }
+
+    /* ── COMPONENTS ── */
+    .component-rows { border-top: var(--border); margin-top: 48px; }
+    .component-row { display: grid; grid-template-columns: 180px 1fr; border-bottom: var(--border); align-items: start; }
+    .c-label {
+      padding: 40px 24px 40px 0; border-right: var(--border);
+      font-family: var(--font-cond); font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-60);
+    }
+    .c-sample { padding: 40px 0 40px 32px; }
+    .c-note { margin-top: 16px; font-size: 0.72rem; color: var(--ink-60); }
+
+    .nav-demo { display: flex; gap: 32px; align-items: center; }
+    .nav-link {
+      font-family: var(--font-cond); font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink);
+      text-decoration: none; position: relative; padding-bottom: 3px;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1px; background: var(--signal); transition: width 0.25s var(--ease);
+    }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .nav-link.active { color: var(--steel); }
+
+    .btn-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .btn {
+      font-family: var(--font-cond); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase; padding: 12px 24px;
+      border: none; border-radius: var(--r); cursor: none;
+      transition: all 0.2s var(--ease);
+    }
+    .btn-primary { background: var(--steel); color: white; }
+    .btn-primary:hover { background: #0f2640; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,58,92,0.25); }
+    .btn-signal { background: var(--signal); color: white; }
+    .btn-signal:hover { background: #c4301f; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,68,53,0.3); }
+    .btn-outline { background: transparent; color: var(--steel); border: 1.5px solid var(--steel); }
+    .btn-outline:hover { background: var(--steel); color: white; transform: translateY(-2px); }
+    .btn-ghost { background: transparent; color: var(--ink-60); border: 1.5px solid var(--ink-20); }
+    .btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
+
+    .tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag {
+      font-family: var(--font-cond); font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px;
+    }
+    .tag-steel { background: var(--steel); color: white; }
+    .tag-outline { border: 1px solid var(--ink-20); color: var(--ink-60); }
+    .tag-signal-outline { border: 1px solid var(--signal); color: var(--signal); }
+
+    .case-card {
+      border: var(--border); background: var(--white); max-width: 480px;
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+      position: relative; overflow: hidden;
+    }
+    .case-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(13,13,11,0.08); }
+    .case-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 0; height: 2px; background: var(--steel); transition: width 0.4s var(--ease);
+    }
+    .case-card:hover::before { width: 100%; }
+    .case-image {
+      height: 180px; background: var(--off);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .case-grid-demo {
+      display: grid; grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(4, 1fr); gap: 1px;
+      width: 120px; height: 80px; opacity: 0.15;
+    }
+    .case-grid-demo div { background: var(--ink); }
+    .case-body { padding: 28px; }
+    .case-client { font-family: var(--font-cond); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--signal); margin-bottom: 8px; }
+    .case-title { font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.35; margin-bottom: 12px; }
+    .case-desc { font-size: 0.82rem; color: var(--ink-60); line-height: 1.65; }
+    .case-footer { padding: 16px 28px; border-top: var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .case-arrow { font-size: 1.2rem; color: var(--steel); transition: transform 0.25s var(--ease); line-height: 1; }
+    .case-card:hover .case-arrow { transform: translateX(6px); }
+
+    /* ── VOICE ── */
+    .voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+    .voice-card { border: var(--border); padding: 32px; }
+    .voice-card.yes { border-top: 2px solid var(--steel); }
+    .voice-card.no  { border-top: 2px solid var(--ink-20); }
+    .voice-heading { font-family: var(--font-cond); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 24px; }
+    .voice-card.yes .voice-heading { color: var(--steel); }
+    .voice-card.no  .voice-heading { color: var(--ink-60); }
+    .voice-quote { font-size: 0.9rem; line-height: 1.7; padding: 16px 0; border-bottom: var(--border); color: var(--ink-60); }
+    .voice-quote:last-child { border-bottom: none; padding-bottom: 0; }
+    .voice-card.yes .voice-quote { color: var(--ink); }
+
+    /* ── SPACING ── */
+    .space-rows { margin-top: 48px; display: flex; flex-direction: column; gap: 16px; }
+    .space-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 24px; align-items: center; }
+    .space-key { font-family: var(--font-cond); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-60); }
+    .space-bar-wrap { height: 3px; background: var(--ink-08); border-radius: 2px; position: relative; overflow: hidden; }
+    .space-bar { height: 100%; background: var(--steel); border-radius: 2px; }
+    .space-val { font-family: var(--font-cond); font-size: 0.72rem; color: var(--ink-60); text-align: right; white-space: nowrap; }
+
+    /* ── FOOTER ── */
+    .footer { padding: 48px 0; border-top: var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    .footer-tagline { font-size: 0.78rem; color: var(--ink-60); max-width: 52ch; margin-top: 8px; }
+    .footer-right { font-family: var(--font-cond); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-60); text-align: right; }
+
+    /* ── KEYFRAMES ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    @keyframes scaleIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+    @media (max-width: 900px) {
+      .wrap { padding: 0 24px; }
+      .hero-grid, .principles-grid { grid-template-columns: 1fr 1fr; }
+      .palette { grid-template-columns: repeat(3, 1fr); }
+      .type-row, .component-row { grid-template-columns: 1fr; }
+      .type-meta, .c-label { border-right: none; border-bottom: var(--border); padding: 20px 0; }
+      .type-sample, .c-sample { padding: 20px 0; }
+      .motion-grid { grid-template-columns: 1fr; }
+      .voice-grid { grid-template-columns: 1fr; }
+      .hero-index { display: none; }
+    }
+    @media (max-width: 600px) {
+      .hero-grid, .principles-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="wordmark"><div class="wdot"></div>Adam Taplin</div>
+      <div class="doc-tag">Brand Identity System · 2026</div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="wrap">
+    <div class="hero ruled">
+      <div class="hero-index">AT</div>
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow">Brand Identity System</div>
+          <h1 class="hero-headline">
+            Structural.<br>
+            <em>Considered.</em><br>
+            <span class="signal-word">Precise.</span>
+          </h1>
+        </div>
+        <div class="hero-right">
+          <p class="hero-statement">
+            A system for a design leader who <strong>thinks in systems and builds in code</strong> — where the rigor of Swiss typography meets the honest utility of a precision instrument.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINCIPLES -->
+  <section>
+    <div class="wrap">
+      <div class="label">Principles</div>
+      <h2 class="section-h">Four rules the system never breaks</h2>
+      <div class="principles-grid">
+        <div class="principle">
+          <div class="principle-n">01</div>
+          <div class="principle-title">Nothing decorative</div>
+          <p class="principle-desc">Every element earns its place. If it doesn't carry meaning, it doesn't exist. Form follows function — and becomes beautiful because of it.</p>
+          <div class="principle-bar"></div>
+        </div>
+        <div class="principle">
+          <div class="principle-n">02</div>
+          <div class="principle-title">Structure is visible</div>
+          <p class="principle-desc">The grid, the hierarchy, the thinking — all readable. An architectural model shows its structure. So does this portfolio.</p>
+          <div class="principle-bar"></div>
+        </div>
+        <div class="principle">
+          <div class="principle-n">03</div>
+          <div class="principle-title">Tension, not decoration</div>
+          <p class="principle-desc">Steel and signal red. Serif weight against condensed precision. The contrast is intentional — it reflects how the work actually feels.</p>
+          <div class="principle-bar"></div>
+        </div>
+        <div class="principle">
+          <div class="principle-n">04</div>
+          <div class="principle-title">Move only when it matters</div>
+          <p class="principle-desc">Stillness is confidence. Animation appears only to orient, reveal, or confirm — never to impress.</p>
+          <div class="principle-bar"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOR -->
+  <section>
+    <div class="wrap">
+      <div class="label">Color</div>
+      <h2 class="section-h">Palette</h2>
+      <p class="section-sub">White ground. Near-black ink. Steel and signal in tension. Two colors that have nothing in common except that they make each other sharper.</p>
+      <div class="palette">
+        <div class="swatch">
+          <div class="swatch-block" style="background:#FFFFFF;"></div>
+          <div class="swatch-name">White</div>
+          <div class="swatch-hex">#FFFFFF</div>
+          <div class="swatch-role">Primary canvas. Maximum contrast. Nothing to hide.</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#F7F7F5;"></div>
+          <div class="swatch-name">Off-white</div>
+          <div class="swatch-hex">#F7F7F5</div>
+          <div class="swatch-role">Section alternates, ruled backgrounds, card fills.</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#0D0D0B;"></div>
+          <div class="swatch-name">Ink</div>
+          <div class="swatch-hex">#0D0D0B</div>
+          <div class="swatch-role">Primary type. Warm near-black. Authority without coldness.</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#1A3A5C;"></div>
+          <div class="swatch-name">Steel</div>
+          <div class="swatch-hex">#1A3A5C</div>
+          <div class="swatch-role">Primary. Precision, trust, depth. CTAs, structural accents.</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#E84435;"></div>
+          <div class="swatch-name">Signal</div>
+          <div class="swatch-hex">#E84435</div>
+          <div class="swatch-role">Contrast accent. One sharp note. Labels, hover moments, cursor.</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:rgba(13,13,11,0.12);"></div>
+          <div class="swatch-name">Rule</div>
+          <div class="swatch-hex">Ink / 12%</div>
+          <div class="swatch-role">Borders, dividers, ruled lines throughout.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section>
+    <div class="wrap">
+      <div class="label">Typography</div>
+      <h2 class="section-h">Type system</h2>
+      <p class="section-sub">Editorial authority through contrast — Libre Baskerville for ideas, Barlow Condensed for structure, Barlow for information.</p>
+      <div class="type-rows">
+
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-name">Display</div>
+            <div class="type-meta-detail">Libre Baskerville<br>400 / italic<br>−2.5% tracking<br>Hero, pull quotes, case titles</div>
+          </div>
+          <div class="type-sample">
+            <div style="font-family:'Libre Baskerville',serif; font-size:clamp(2.2rem,5vw,4rem); line-height:1.06; letter-spacing:-0.025em; font-weight:400;">
+              Design <em style="color:var(--steel);">decisions</em><br>with consequences.
+            </div>
+          </div>
+        </div>
+
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-name">Structure</div>
+            <div class="type-meta-detail">Barlow Condensed<br>500–700<br>+16–20% tracking<br>Labels, nav, buttons, tags</div>
+          </div>
+          <div class="type-sample">
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <div style="font-family:'Barlow Condensed',sans-serif; font-size:0.68rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--signal);">— Case Study · WEX · 2023</div>
+              <div style="font-family:'Barlow Condensed',sans-serif; font-size:1.4rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;">Product Vision · AI Strategy</div>
+              <div style="font-family:'Barlow Condensed',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; background:var(--steel); color:white; display:inline-block; padding:10px 20px;">View Work →</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-name">Body</div>
+            <div class="type-meta-detail">Barlow<br>300 / 400<br>Normal tracking<br>All running copy</div>
+          </div>
+          <div class="type-sample">
+            <p style="font-family:'Barlow',sans-serif; font-weight:300; font-size:1rem; line-height:1.75; max-width:54ch; color:var(--ink-60);">Most design organizations are caught between two failure modes: leaders who can think strategically but can't build, and makers who can build but can't align a room. I work in the gap between those two.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MOTION -->
+  <section>
+    <div class="wrap">
+      <div class="label">Motion</div>
+      <h2 class="section-h">Animation principles</h2>
+      <p class="section-sub">One easing curve. Three approved transitions. Hover each card to preview.</p>
+      <div class="motion-grid">
+        <div class="motion-card">
+          <div class="motion-corner">Hover</div>
+          <div class="motion-card-title">Fade in</div>
+          <div class="motion-stage"><div class="m-bar m-fade" style="opacity:0.15;"></div></div>
+          <p class="motion-desc">Page load reveals, content entering on scroll. Never for hover alone.</p>
+          <div class="motion-spec">400ms · ease-out-expo</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-corner">Hover</div>
+          <div class="motion-card-title">Slide up</div>
+          <div class="motion-stage"><div class="m-bar m-slide" style="transform:translateY(10px); opacity:0.15;"></div></div>
+          <p class="motion-desc">Section and card entrances. Max 10px Y travel — restrained, not dramatic.</p>
+          <div class="motion-spec">500ms · ease-out-expo</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-corner">Hover</div>
+          <div class="motion-card-title">Reveal</div>
+          <div class="motion-stage"><div class="m-bar m-reveal" style="width:0;"></div></div>
+          <p class="motion-desc">Rule lines, underlines, structural accents drawing themselves. The blueprint moment.</p>
+          <div class="motion-spec">600ms · ease-out-expo</div>
+        </div>
+      </div>
+      <div class="motion-specs-bar">
+        <div><div class="spec-key">Global easing</div><div class="spec-val">cubic-bezier(0.16, 1, 0.3, 1)</div></div>
+        <div><div class="spec-key">Duration range</div><div class="spec-val">200ms — 600ms</div></div>
+        <div style="max-width:36ch;"><div class="spec-key">Rule</div><p style="font-size:0.82rem; color:var(--ink-60); line-height:1.6;">Stillness is the default. Nothing moves without a reason. Longer elements move slower.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section>
+    <div class="wrap">
+      <div class="label">Components</div>
+      <h2 class="section-h">UI elements in practice</h2>
+      <div class="component-rows">
+
+        <div class="component-row">
+          <div class="c-label">Navigation</div>
+          <div class="c-sample">
+            <nav class="nav-demo">
+              <a class="nav-link active" href="#">Work</a>
+              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="#">Process</a>
+              <a class="nav-link" href="#">Contact</a>
+            </nav>
+            <p class="c-note">Barlow Condensed 500 · 14% tracking · signal red underline on hover/active</p>
+          </div>
+        </div>
+
+        <div class="component-row">
+          <div class="c-label">Buttons</div>
+          <div class="c-sample">
+            <div class="btn-row">
+              <button class="btn btn-primary">View work</button>
+              <button class="btn btn-signal">Get in touch</button>
+              <button class="btn btn-outline">Download CV</button>
+              <button class="btn btn-ghost">Learn more</button>
+            </div>
+            <p class="c-note">Barlow Condensed 500 · 18% tracking · 1px radius · 2px lift + shadow on hover</p>
+          </div>
+        </div>
+
+        <div class="component-row">
+          <div class="c-label">Tags</div>
+          <div class="c-sample">
+            <div class="tag-row">
+              <span class="tag tag-steel">AgTech</span>
+              <span class="tag tag-signal-outline">AI-augmented</span>
+              <span class="tag tag-outline">Design Systems</span>
+              <span class="tag tag-outline">Product Strategy</span>
+              <span class="tag tag-outline">B2B SaaS</span>
+            </div>
+            <p class="c-note">Barlow Condensed 500 · pill shape · three states: filled steel, signal outlined, neutral</p>
+          </div>
+        </div>
+
+        <div class="component-row">
+          <div class="c-label">Case study card</div>
+          <div class="c-sample">
+            <div class="case-card">
+              <div class="case-image">
+                <div class="case-grid-demo">
+                  <div></div><div></div><div></div><div></div><div></div><div></div>
+                  <div></div><div></div><div></div><div></div><div></div><div></div>
+                  <div></div><div></div><div></div><div></div><div></div><div></div>
+                  <div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
+              </div>
+              <div class="case-body">
+                <div class="case-client">WEX · 2023–2024</div>
+                <div class="case-title">3–5 Year Product Vision for Digital Payments & Benefits</div>
+                <p class="case-desc">AI strategy, design system development, and future-state product definition across fuel cards, digital payments, and benefits platforms.</p>
+              </div>
+              <div class="case-footer">
+                <div class="tag-row">
+                  <span class="tag tag-outline">B2B SaaS</span>
+                  <span class="tag tag-outline">AI Strategy</span>
+                </div>
+                <span class="case-arrow">→</span>
+              </div>
+            </div>
+            <p class="c-note">Steel top-border reveal on hover · 4px lift · arrow translates right</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICE -->
+  <section>
+    <div class="wrap">
+      <div class="label">Voice & Tone</div>
+      <h2 class="section-h">How it sounds</h2>
+      <p class="section-sub">The visual system and the written voice must be the same person. Direct. Confident without posturing. Never corporate.</p>
+      <div class="voice-grid">
+        <div class="voice-card yes">
+          <div class="voice-heading">✓ Write like this</div>
+          <div class="voice-quote">"Most design organizations are caught between two failure modes. I work in the gap."</div>
+          <div class="voice-quote">"Domain fluency that goes beyond research."</div>
+          <div class="voice-quote">"If your design function needs to move faster without losing coherence — that's the problem I know how to solve."</div>
+        </div>
+        <div class="voice-card no">
+          <div class="voice-heading">✗ Not this</div>
+          <div class="voice-quote">"Passionate design leader with a proven track record of delivering impactful user experiences."</div>
+          <div class="voice-quote">"Leveraging AI to unlock synergies across the design lifecycle."</div>
+          <div class="voice-quote">"I'm excited to bring my unique skill set to a forward-thinking organization."</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPACING -->
+  <section>
+    <div class="wrap">
+      <div class="label">Spacing</div>
+      <h2 class="section-h">Space scale</h2>
+      <p class="section-sub">8px base. All values multiples. Space is not wasted — it's working.</p>
+      <div class="space-rows">
+        <div class="space-row"><div class="space-key">xs</div><div class="space-bar-wrap"><div class="space-bar" style="width:4%;"></div></div><div class="space-val">0.5rem · 8px · micro gaps</div></div>
+        <div class="space-row"><div class="space-key">s</div><div class="space-bar-wrap"><div class="space-bar" style="width:8%;"></div></div><div class="space-val">1rem · 16px · element padding</div></div>
+        <div class="space-row"><div class="space-key">m</div><div class="space-bar-wrap"><div class="space-bar" style="width:16%;"></div></div><div class="space-val">2rem · 32px · between components</div></div>
+        <div class="space-row"><div class="space-key">l</div><div class="space-bar-wrap"><div class="space-bar" style="width:32%;"></div></div><div class="space-val">4rem · 64px · section breathing room</div></div>
+        <div class="space-row"><div class="space-key">xl</div><div class="space-bar-wrap"><div class="space-bar" style="width:64%;"></div></div><div class="space-val">6rem · 96px · major separators</div></div>
+        <div class="space-row"><div class="space-key">2xl</div><div class="space-bar-wrap"><div class="space-bar" style="width:100%;"></div></div><div class="space-val">8rem · 128px · hero padding</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="wrap">
+    <div class="footer">
+      <div>
+        <div class="wordmark"><div class="wdot"></div>Adam Taplin</div>
+        <p class="footer-tagline">Design leader who thinks in systems and builds in code · AgTech · Food Tech · Climate</p>
+      </div>
+      <div class="footer-right">Brand Identity System<br>Version 2.0 · March 2026</div>
+    </div>
+  </div>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    const ring   = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top  = my + 'px';
+    });
+    (function tick() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      requestAnimationFrame(tick);
+    })();
+  </script>
+</body>
+</html>
