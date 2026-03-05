@@ -1,9 +1,7 @@
 import './App.css'
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import Navigation from './components/Navigation'
 import ActivityModal, { InlineImageContainer } from './components/ActivityModal'
-import ColorPicker from './components/ColorPicker'
 import CaseStudyNavigation from './components/CaseStudyNavigation'
 import Footer from './components/Footer'
 import verizonLogo from './assets/logos/verizon.svg'
@@ -12,28 +10,6 @@ import activity2Image from './assets/img/+play-mvp.png'
 import playShopImage from './assets/img/+play-shop.png'
 import playDiscoverImage from './assets/img/+play-discover.png'
 import playBanner from './assets/img/+playBanner.png'
-
-const imgImage = verizonLogo;
-
-// Set Technical Soft Futurism theme on component load
-function useInitializeTheme() {
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', 'technical-soft-futurism')
-  }, [])
-}
-
-function BackButton() {
-  const navigate = useNavigate()
-  
-  return (
-    <button 
-      onClick={() => navigate('/')}
-      className="back-button"
-    >
-      ← Back
-    </button>
-  )
-}
 
 // Empty activity data template
 const activitiesData = {
@@ -47,14 +23,14 @@ const activitiesData = {
           <li>Road show with key stakeholders</li>
           <li>Prioritization based on customer value, business appetite, and technical level of effort</li>
         </ul>
-        
-        <InlineImageContainer 
+
+        <InlineImageContainer
           src={activity1Image}
           alt="+play enhancement wireframes showing quick wins"
           caption="Quick enhancement wireframes presented to stakeholders"
           size="large"
         />
-        
+
         <h2>Outcome</h2>
         <ul>
           <li>3-5 enhancements released</li>
@@ -90,7 +66,7 @@ const activitiesData = {
           <li>At client's request, took it all back to square one for a reset.</li>
           <li>Centered on customer benefit, gave team permission to ignore (for now) tech debt and previous product decisions where necessary.</li>
         </ul>
-        <InlineImageContainer 
+        <InlineImageContainer
           src={activity2Image}
           alt="+play MVP before and after"
           caption="Homepage before and after our redesign"
@@ -98,7 +74,7 @@ const activitiesData = {
         />
         <h2>Outcome</h2>
         <ul>
-          <li>“This is fantastic” - client Head of Design Verizon Consumer Group</li>
+          <li>"This is fantastic" - client Head of Design Verizon Consumer Group</li>
           <li>Fresh energy in the program</li>
           <li>Kernels of ideas began moving forward to wider stakeholder group</li>
         </ul>
@@ -120,13 +96,13 @@ const activitiesData = {
           <li>Mentored UI and UX leads on process and problem-solving</li>
           <li>Cared for team morale and culture during challenging times</li>
         </ul>
-        <InlineImageContainer 
+        <InlineImageContainer
           src={playShopImage}
           alt="+play shop"
           caption="Homepage after our redesign"
           size="large"
         />
-        <InlineImageContainer 
+        <InlineImageContainer
           src={playDiscoverImage}
           alt="+play discover"
           caption="Discover after our redesign"
@@ -154,175 +130,163 @@ const activitiesData = {
 }
 
 export default function LeadershipCaseStudy() {
-  // Initialize theme
-  useInitializeTheme()
-  
   // Modal state
   const [selectedActivity, setSelectedActivity] = useState(null)
   const [selectedActivityKey, setSelectedActivityKey] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  
+
   const handleActivityClick = (activityKey) => {
     setSelectedActivity(activitiesData[activityKey])
     setSelectedActivityKey(activityKey)
     setIsModalOpen(true)
   }
-  
+
   const handleActivityChange = (activityKey) => {
     setSelectedActivity(activitiesData[activityKey])
     setSelectedActivityKey(activityKey)
   }
-  
+
   const handleCloseModal = () => {
     setIsModalOpen(false)
     setSelectedActivity(null)
     setSelectedActivityKey(null)
   }
-  
+
   return (
-    <div className="case-study-page bg-radial-gradients bg-dot-grid-overlay">
-      <ColorPicker />
-      <div className="content-container">
-        <Navigation />
-        <div className="scrollable-content">
-          <div className="case-study-hero hero-layered-bg">
-            <div className="case-study-title-section">
-              <div className="case-study-subtitle">A story of leadership</div>
-              <div className="hero-logo-section">
-                <img src={imgImage} alt="Verizon logo" className="hero-logo" />
-              </div>
-              <h1 className="case-study-main-title">
-                +play
-              </h1>
+    <div className="case-study-page">
+      <Navigation />
+      <div className="wrap">
+        {/* Hero */}
+        <div className="case-study-hero ruled">
+          <div className="hero-index">AT</div>
+          <div className="case-study-title-section">
+            <div className="case-study-subtitle">A story of leadership</div>
+            <div className="hero-logo-section">
+              <img src={verizonLogo} alt="Verizon logo" className="hero-logo" />
             </div>
-            <div className="hero-banner-section">
-              <img src={playBanner} alt="+play" className="hero-banner" />
-            </div>
+            <h1 className="case-study-main-title">
+              +play
+            </h1>
           </div>
-
-          <div className="case-study-page-content">
-          <div className="intro intro-option-1">
-                <p>This project showcases my ability to turn around an ailing team and project. When I replaced the outgoing leader, Publicis Sapient had lost client trust and morale was low. By the time we rolled off, I had been able to re-secure an additonal 18 months of work and around $2M revenue for the agency. My team by then was scoring high marks on internal quality of life surveys and those team members became my managees and mentees.</p>
-            </div>
-            <div className="case-study-section">
-              <h2 className="section-title">Problem</h2>
-              <div className="case-study-text">
-                <p>
-                  The "cord-cutting" phenomenon has led to a fragmented entertainment experience, with a rapid increase in broadband-only homes and a booming digital subscription economy. The US digital subscription economy is projected to reach $74 billion in 2025. In response, +play offers a unified platform designed to help users discover, purchase, and manage all their subscriptions in one place, exclusively through Verizon.
-                </p>
-                {/* <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul> */}
-              </div>
-            </div>
-
-            <div className="case-study-section">
-              <h2 className="section-title">Brief</h2>
-              <div className="case-study-text">
-                <p>
-                Upon joining the +play project, it was evident that the client relationship was strained and the internal design team was severely siloed between UI and UX disciplines. The situation was further complicated by a rocky MVP phase, leading some clients to question the effectiveness of our product strategy. This challenging environment underscored the critical need for a new leadership approach to rebuild trust, foster collaboration, and deliver impactful solutions.
-                </p>
-              </div>
-            </div>
-
-            <div className="case-study-section">
-              <h2 className="section-title">My role</h2>
-              <div className="role-items">
-                <div className="role-item">
-                  <div className="role-text">
-                    <div className="role-title">Lead 🎯</div>
-                    <ul className="role-bullets">
-                      <li>Improve stakeholder relationships</li>
-                      <li>Reset design team culture</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="role-item">
-                  <div className="role-text">
-                    <div className="role-title">Plan 📅</div>
-                    <ul className="role-bullets">
-                      <li>Plan & execute MVP redesign</li>
-                      <li>Select talent to augment the team</li>
-                      <li>Improve efficiency of handoffs to engineering</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="role-item">
-                  <div className="role-text">
-                    <div className="role-title">Design 🎨</div>
-                    <ul className="role-bullets">
-                      <li>Create a new vision</li>
-                      <li>Identify key improvements</li>
-                      <li>Interpret and act on user research</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="role-item">
-                  <div className="role-text">
-                    <div className="role-title">Sell it 🤝</div>
-                    <ul className="role-bullets">
-                      <li>Inspire confidence our work</li>
-                      <li>Present to C-Suite brand and product design leadership</li>
-                      <li>Energize project stakeholders to take on new direction</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* PROJECT TIMELINE */}
-            <div className="case-study-section">
-              <h2 className="section-title">My activities</h2>
-              <div className="timeline-option-1">
-                <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-1')}>
-                  <div className="activity-duration">Month 1-2</div>
-                  <h3 className="activity-title">Regain client trust</h3>
-                </div>
-                <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-2')}>
-                  <div className="activity-duration">Month 2-3</div>
-                  <h3 className="activity-title">Reset the design team culture</h3>
-                </div>
-                <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-3')}>
-                  <div className="activity-duration">Month 3-4</div>
-                  <h3 className="activity-title">Lead a limited proof-of-concept redesign on key pages</h3>
-                </div>
-                <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-4')}>
-                  <div className="activity-duration">Month 5</div>
-                  <h3 className="activity-title">Complete a full redesign in 5 weeks</h3>
-                </div>
-                <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-5')}>
-                  <div className="activity-duration">Month 6+</div>
-                  <h3 className="activity-title">Optimize the site post-launch</h3>
-                </div>
-              </div>
-            </div>
-
-            <div className="case-study-section">
-              <h2 className="section-title">Outcome</h2>
-              <div className="pullquote-minimal">
-                <div className="quote-text">Your team made the impossible, possible.</div>
-                <div className="quote-attribution">Senior Director of Design, Verizon Beyond Connectivity Products</div>
-              </div>
-              
-              <div className="case-study-text">
-                <p>
-                  
-                </p>
-                <p>
-                  
-                </p>
-              </div>
-            </div>
-
-            <CaseStudyNavigation currentCaseStudyKey="leadership" />
+          <div className="hero-banner-section">
+            <img src={playBanner} alt="+play" className="hero-banner" />
           </div>
-          <Footer />
         </div>
+
+        <div className="case-study-page-content">
+          <div className="intro">
+            <p>This project showcases my ability to turn around an ailing team and project. When I replaced the outgoing leader, Publicis Sapient had lost client trust and morale was low. By the time we rolled off, I had been able to re-secure an additonal 18 months of work and around $2M revenue for the agency. My team by then was scoring high marks on internal quality of life surveys and those team members became my managees and mentees.</p>
+          </div>
+
+          <div className="case-study-section">
+            <div className="label">Context</div>
+            <h2 className="section-h">Problem</h2>
+            <div className="case-study-text">
+              <p>
+                The "cord-cutting" phenomenon has led to a fragmented entertainment experience, with a rapid increase in broadband-only homes and a booming digital subscription economy. The US digital subscription economy is projected to reach $74 billion in 2025. In response, +play offers a unified platform designed to help users discover, purchase, and manage all their subscriptions in one place, exclusively through Verizon.
+              </p>
+            </div>
+          </div>
+
+          <div className="case-study-section">
+            <div className="label">Objective</div>
+            <h2 className="section-h">Brief</h2>
+            <div className="case-study-text">
+              <p>
+              Upon joining the +play project, it was evident that the client relationship was strained and the internal design team was severely siloed between UI and UX disciplines. The situation was further complicated by a rocky MVP phase, leading some clients to question the effectiveness of our product strategy. This challenging environment underscored the critical need for a new leadership approach to rebuild trust, foster collaboration, and deliver impactful solutions.
+              </p>
+            </div>
+          </div>
+
+          <div className="case-study-section">
+            <div className="label">Contribution</div>
+            <h2 className="section-h">My role</h2>
+            <div className="role-items">
+              <div className="role-item">
+                <div className="role-text">
+                  <div className="role-title">Lead</div>
+                  <ul className="role-bullets">
+                    <li>Improve stakeholder relationships</li>
+                    <li>Reset design team culture</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="role-item">
+                <div className="role-text">
+                  <div className="role-title">Plan</div>
+                  <ul className="role-bullets">
+                    <li>Plan & execute MVP redesign</li>
+                    <li>Select talent to augment the team</li>
+                    <li>Improve efficiency of handoffs to engineering</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="role-item">
+                <div className="role-text">
+                  <div className="role-title">Design</div>
+                  <ul className="role-bullets">
+                    <li>Create a new vision</li>
+                    <li>Identify key improvements</li>
+                    <li>Interpret and act on user research</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="role-item">
+                <div className="role-text">
+                  <div className="role-title">Sell it</div>
+                  <ul className="role-bullets">
+                    <li>Inspire confidence our work</li>
+                    <li>Present to C-Suite brand and product design leadership</li>
+                    <li>Energize project stakeholders to take on new direction</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* PROJECT TIMELINE */}
+          <div className="case-study-section">
+            <div className="label">Process</div>
+            <h2 className="section-h">My activities</h2>
+            <div className="timeline-option-1">
+              <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-1')}>
+                <div className="activity-duration">Month 1-2</div>
+                <h3 className="activity-title">Regain client trust</h3>
+              </div>
+              <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-2')}>
+                <div className="activity-duration">Month 2-3</div>
+                <h3 className="activity-title">Reset the design team culture</h3>
+              </div>
+              <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-3')}>
+                <div className="activity-duration">Month 3-4</div>
+                <h3 className="activity-title">Lead a limited proof-of-concept redesign on key pages</h3>
+              </div>
+              <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-4')}>
+                <div className="activity-duration">Month 5</div>
+                <h3 className="activity-title">Complete a full redesign in 5 weeks</h3>
+              </div>
+              <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-5')}>
+                <div className="activity-duration">Month 6+</div>
+                <h3 className="activity-title">Optimize the site post-launch</h3>
+              </div>
+            </div>
+          </div>
+
+          <div className="case-study-section">
+            <div className="label">Results</div>
+            <h2 className="section-h">Outcome</h2>
+            <div className="pullquote-minimal">
+              <div className="quote-text">Your team made the impossible, possible.</div>
+              <div className="quote-attribution">Senior Director of Design, Verizon Beyond Connectivity Products</div>
+            </div>
+          </div>
+
+          <CaseStudyNavigation currentCaseStudyKey="leadership" />
+        </div>
+        <Footer />
       </div>
-      
-      <ActivityModal 
+
+      <ActivityModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         activity={selectedActivity}
