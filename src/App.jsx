@@ -1,5 +1,4 @@
 import './App.css'
-import { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import CaseStudy from './CaseStudy'
 import LeadershipCaseStudy from './LeadershipCaseStudy'
@@ -7,7 +6,7 @@ import { AuthProvider } from './contexts/AuthContext'
 import { useAuth } from './hooks/useAuth'
 import PasswordModal from './components/PasswordModal'
 import Navigation from './components/Navigation'
-import ColorPicker from './components/ColorPicker'
+import CustomCursor from './components/CustomCursor'
 import ScrollToTop from './components/ScrollToTop'
 import Footer from './components/Footer'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -22,22 +21,21 @@ import verizonLogo from './assets/logos/verizon.svg'
 import wellsFargoLogo from './assets/logos/wellsfargo.svg'
 import wexLogo from './assets/logos/wex.svg'
 
-// Set Technical Soft Futurism theme on app load
-function useInitializeTheme() {
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', 'technical-soft-futurism')
-  }, [])
-}
-
-function CaseStudyLockup({ category, title, icon, onClick }) {
+function CaseStudyCard({ category, title, icon, onClick }) {
   return (
-    <div className="case-study" onClick={onClick}>
-      <div className="case-study-icon">
-        {icon || '✦'}
+    <div className="case-card" onClick={onClick}>
+      <div className="case-card-image">
+        <span className="case-card-icon">{icon || '✦'}</span>
       </div>
-      <div className="case-study-content">
-        <div className="case-study-category">{category}</div>
-        <div className="case-study-title">{title}</div>
+      <div className="case-card-body">
+        <div className="case-card-client">{category}</div>
+        <div className="case-card-title">{title}</div>
+      </div>
+      <div className="case-card-footer">
+        <div className="tag-row">
+          <span className="tag tag-outline">Case Study</span>
+        </div>
+        <span className="case-card-arrow">→</span>
       </div>
     </div>
   )
@@ -56,7 +54,7 @@ function SkillsSection() {
   const skillsData = {
     "Project archetypes": [
       "Strategic visioning",
-      "Journey enhancement", 
+      "Journey enhancement",
       "Platform redesign"
     ],
     "Tools": [
@@ -71,29 +69,32 @@ function SkillsSection() {
     ]
   };
 
-  const icons = {
-    "Project archetypes": "🎯",
-    "Tools": "🛠️", 
-    "Soft skills": "🧠"
+  const numbers = {
+    "Project archetypes": "01",
+    "Tools": "02",
+    "Soft skills": "03"
   };
 
   return (
     <div className="skills-section">
-      <h2 className="section-title">Skills & expertise</h2>
-      <div className="skills-columns">
-        {Object.entries(skillsData).map(([category, skills]) => (
-          <div key={category} className="skill-category">
-            <div className="skill-category-header">
-              <div className="skill-category-icon">{icons[category]}</div>
-              <h3 className="skill-category-title">{category}</h3>
+      <div className="wrap">
+        <div className="label">Expertise</div>
+        <h2 className="section-h">Skills & expertise</h2>
+        <div className="skills-columns">
+          {Object.entries(skillsData).map(([category, skills]) => (
+            <div key={category} className="skill-category">
+              <div className="skill-category-header">
+                <div className="skill-category-icon">{numbers[category]}</div>
+                <h3 className="skill-category-title">{category}</h3>
+              </div>
+              <div className="skill-items">
+                {skills.map((skill, index) => (
+                  <div key={index} className="skill-item">{skill}</div>
+                ))}
+              </div>
             </div>
-            <div className="skill-items">
-              {skills.map((skill, index) => (
-                <div key={index} className="skill-item">{skill}</div>
-              ))}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -102,109 +103,128 @@ function SkillsSection() {
 function Homepage() {
   const { requestAccess } = useAuth()
   const navigate = useNavigate()
-  
+
   const handleCaseStudyClick = (url) => {
     requestAccess(() => navigate(url))
   }
 
-  // Initialize theme
-  useInitializeTheme()
-
   return (
-    <div className="homepage bg-radial-gradients bg-dot-grid-overlay">
-      <ColorPicker />
-      <div className="content-container">
-        <Navigation />
-        <div className="scrollable-content">
-          <div className="hero-intro">
-            <div className="intro-portrait">
-              <img src={adamPortrait} alt="Adam Taplin portrait illustration" className="portrait-image" />
+    <div className="homepage">
+      <Navigation />
+
+      {/* Hero Section */}
+      <div className="hero ruled">
+        <div className="wrap">
+          <div className="hero-index">AT</div>
+          <div className="hero-grid">
+            <div>
+              <div className="hero-portrait">
+                <img src={adamPortrait} alt="Adam Taplin portrait illustration" className="portrait-image" />
+              </div>
+              <div className="hero-eyebrow">Design Leadership</div>
+              <h1 className="hero-headline">
+                I turn <em>complexity</em> into<br />
+                customer <span className="signal-word">experiences</span>
+              </h1>
             </div>
-            <div className="intro-text">
-              <p className="display-2">
-                I turn complexity into customer experiences that deliver results. Design leader with 13 years of agency experience.
+            <div className="hero-right">
+              <p className="hero-statement">
+                <strong>Design leader with 13 years of agency experience.</strong> I turn complexity into customer experiences that deliver results.
               </p>
             </div>
-
           </div>
-          
-          <div className="work-section">
-            <h2 className="section-title">Work</h2>
-            <div className="case-studies">
-              <CaseStudyLockup 
-                category="A story of innovation"
-                title="(Re)defining the AI-powered future for an aging incumbent"
-                icon="🚀"
-                onClick={() => handleCaseStudyClick('/innovation-transformation-WEX/')}
-              />
-              <CaseStudyLockup 
-                category="A story of leadership"
-                title="Reviving a struggling team to deliver the impossible"
-                icon="👥"
-                onClick={() => handleCaseStudyClick('/leadership-case-study/')}
-              />
-            </div>
-          </div>
-
-          <div className="philosophy-section">
-            <h2 className="section-title">Philosophy</h2>
-            <div className="text-blocks">
-              <TextBlock 
-                title="Build collaboratively"
-                description="Creativity thrives when multiple viewpoints inform a solution. I strive to create an environment of risk-taking and trust."
-              />
-              <TextBlock 
-                title="Stay curious"
-                description="I am a lifelong learner, and that is why I love design. Knowing the details can make the difference between success and failure."
-              />
-              <TextBlock 
-                title="Listen well"
-                description="Design is industrial-grade, professional empathy. I listen to my team, clients, and users to find the intersection of their needs."
-              />
-              <TextBlock 
-                title="Keep it light"
-                description="In a world of JIRA tickets, politics, and arguments over pixels sometimes the biggest unlock is just to have a little fun."
-              />
-            </div>
-          </div>
-
-          <SkillsSection />
-
-          <div className="clients-section">
-            <h2 className="section-title">Select clients</h2>
-            <div className="client-logos">
-              <div className="client-logo">
-                <img src={fordLogo} alt="Ford" />
-              </div>
-              <div className="client-logo">
-                <img src={mastercardLogo} alt="Mastercard" />
-              </div>
-              <div className="client-logo">
-                <img src={mercedesLogo} alt="Mercedes-Benz" />
-              </div>
-              <div className="client-logo">
-                <img src={microsoftLogo} alt="Microsoft" />
-              </div>
-              <div className="client-logo">
-                <img src={prudentialLogo} alt="Prudential" />
-              </div>
-              <div className="client-logo">
-                <img src={statefarmLogo} alt="State Farm" />
-              </div>
-              <div className="client-logo">
-                <img src={verizonLogo} alt="Verizon" />
-              </div>
-              <div className="client-logo">
-                <img src={wellsFargoLogo} alt="Wells Fargo" />
-              </div>
-              <div className="client-logo">
-                <img src={wexLogo} alt="WEX" />
-              </div>
-            </div>
-          </div>
-          <Footer />
         </div>
       </div>
+
+      {/* Work Section */}
+      <div className="work-section">
+        <div className="wrap">
+          <div className="label">Work</div>
+          <h2 className="section-h">Selected case studies</h2>
+          <div className="case-studies">
+            <CaseStudyCard
+              category="A story of innovation"
+              title="(Re)defining the AI-powered future for an aging incumbent"
+              icon="🚀"
+              onClick={() => handleCaseStudyClick('/innovation-transformation-WEX/')}
+            />
+            <CaseStudyCard
+              category="A story of leadership"
+              title="Reviving a struggling team to deliver the impossible"
+              icon="👥"
+              onClick={() => handleCaseStudyClick('/leadership-case-study/')}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Philosophy Section */}
+      <div className="philosophy-section">
+        <div className="wrap">
+          <div className="label">Philosophy</div>
+          <h2 className="section-h">How I work</h2>
+          <div className="text-blocks">
+            <TextBlock
+              title="Build collaboratively"
+              description="Creativity thrives when multiple viewpoints inform a solution. I strive to create an environment of risk-taking and trust."
+            />
+            <TextBlock
+              title="Stay curious"
+              description="I am a lifelong learner, and that is why I love design. Knowing the details can make the difference between success and failure."
+            />
+            <TextBlock
+              title="Listen well"
+              description="Design is industrial-grade, professional empathy. I listen to my team, clients, and users to find the intersection of their needs."
+            />
+            <TextBlock
+              title="Keep it light"
+              description="In a world of JIRA tickets, politics, and arguments over pixels sometimes the biggest unlock is just to have a little fun."
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Skills Section */}
+      <SkillsSection />
+
+      {/* Clients Section */}
+      <div className="clients-section">
+        <div className="wrap">
+          <div className="label">Clients</div>
+          <h2 className="section-h">Select clients</h2>
+          <div className="client-logos">
+            <div className="client-logo">
+              <img src={fordLogo} alt="Ford" />
+            </div>
+            <div className="client-logo">
+              <img src={mastercardLogo} alt="Mastercard" />
+            </div>
+            <div className="client-logo">
+              <img src={mercedesLogo} alt="Mercedes-Benz" />
+            </div>
+            <div className="client-logo">
+              <img src={microsoftLogo} alt="Microsoft" />
+            </div>
+            <div className="client-logo">
+              <img src={prudentialLogo} alt="Prudential" />
+            </div>
+            <div className="client-logo">
+              <img src={statefarmLogo} alt="State Farm" />
+            </div>
+            <div className="client-logo">
+              <img src={verizonLogo} alt="Verizon" />
+            </div>
+            <div className="client-logo">
+              <img src={wellsFargoLogo} alt="Wells Fargo" />
+            </div>
+            <div className="client-logo">
+              <img src={wexLogo} alt="WEX" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
     </div>
   )
 }
@@ -225,6 +245,7 @@ function App() {
     <AuthProvider>
       <Router basename="/portfolio25">
         <ScrollToTop />
+        <CustomCursor />
         <AppContent />
         <PasswordModal />
       </Router>
