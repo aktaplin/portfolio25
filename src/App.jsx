@@ -121,16 +121,10 @@ function Homepage() {
               <div className="hero-portrait">
                 <img src={adamPortrait} alt="Adam Taplin portrait illustration" className="portrait-image" />
               </div>
-              <div className="hero-eyebrow">Design Leadership</div>
+              <div className="hero-eyebrow">Mission</div>
               <h1 className="hero-headline">
-                I turn <em>complexity</em> into<br />
-                customer <span className="signal-word">experiences</span>
+              I turn <span className='signal-word'>complex systems</span> into <span className='signal-word'>products</span> people trust, by building the teams that make it possible.
               </h1>
-            </div>
-            <div className="hero-right">
-              <p className="hero-statement">
-                <strong>Design leader with 13 years of agency experience.</strong> I turn complexity into customer experiences that deliver results.
-              </p>
             </div>
           </div>
         </div>
@@ -145,13 +139,13 @@ function Homepage() {
             <CaseStudyCard
               category="A story of innovation"
               title="(Re)defining the AI-powered future for an aging incumbent"
-              icon="🚀"
+              icon={<img src={wexLogo} alt="WEX" />}
               onClick={() => handleCaseStudyClick('/innovation-transformation-WEX/')}
             />
             <CaseStudyCard
               category="A story of leadership"
               title="Reviving a struggling team to deliver the impossible"
-              icon="👥"
+              icon={<img src={verizonLogo} alt="Verizon" />}
               onClick={() => handleCaseStudyClick('/leadership-case-study/')}
             />
           </div>

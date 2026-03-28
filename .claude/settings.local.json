@@ -8,7 +8,15 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(node:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(tasklist)",
+      "Bash(findstr:*)",
+      "Bash(npm run dev:*)",
+      "Bash(windsurf:*)",
+      "Bash(git push:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Bash(git fetch:*)"
     ],
     "deny": []
   },
