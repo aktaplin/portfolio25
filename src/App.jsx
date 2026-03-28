@@ -133,7 +133,7 @@ function Homepage() {
       </div>
 
       {/* Work Section */}
-      <div className="work-section">
+      <div id="work" className="work-section">
         <div className="wrap">
           <div className="label">Work</div>
           <h2 className="section-h">Delivering results in complex environments</h2>
@@ -155,7 +155,7 @@ function Homepage() {
       </div>
 
       {/* Philosophy Section */}
-      <div className="philosophy-section">
+      <div id="about" className="philosophy-section">
         <div className="wrap">
           <div className="label">Philosophy</div>
           <h2 className="section-h">Lead with compassion</h2>
