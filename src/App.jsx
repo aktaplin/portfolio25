@@ -55,9 +55,10 @@ function SkillsSection() {
     "Project archetypes": [
       "Strategic visioning",
       "Journey enhancement",
-      "Platform redesign"
+      "Platform redesign",
+      "Product optimization"
     ],
-    "Tools": [
+    "Current tools": [
       "Figma",
       "Claude Code",
       "HTML/JS/CSS"
@@ -65,13 +66,14 @@ function SkillsSection() {
     "Soft skills": [
       "Strategic communication",
       "Mentorship",
+      "Team building",
       "Problem-solving"
     ]
   };
 
   const numbers = {
     "Project archetypes": "01",
-    "Tools": "02",
+    "Current tools": "02",
     "Soft skills": "03"
   };
 
@@ -79,7 +81,7 @@ function SkillsSection() {
     <div className="skills-section">
       <div className="wrap">
         <div className="label">Expertise</div>
-        <h2 className="section-h">Skills & expertise</h2>
+        <h2 className="section-h">Thirteen years from strategy through delivery</h2>
         <div className="skills-columns">
           {Object.entries(skillsData).map(([category, skills]) => (
             <div key={category} className="skill-category">
@@ -134,7 +136,7 @@ function Homepage() {
       <div className="work-section">
         <div className="wrap">
           <div className="label">Work</div>
-          <h2 className="section-h">Selected case studies</h2>
+          <h2 className="section-h">Delivering results in complex environments</h2>
           <div className="case-studies">
             <CaseStudyCard
               category="A story of innovation"
@@ -156,7 +158,7 @@ function Homepage() {
       <div className="philosophy-section">
         <div className="wrap">
           <div className="label">Philosophy</div>
-          <h2 className="section-h">How I work</h2>
+          <h2 className="section-h">Lead with compassion</h2>
           <div className="text-blocks">
             <TextBlock
               title="Build collaboratively"

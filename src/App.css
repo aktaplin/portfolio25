@@ -223,7 +223,7 @@
 /* Hero portrait */
 .hero-portrait {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: var(--space-4);
   animation: fadeUp 0.7s var(--ease) both;
 }
@@ -426,10 +426,8 @@
   border-right: var(--border);
   position: relative;
   overflow: hidden;
-  transition: background 0.3s var(--ease);
 }
 .skill-category:last-child { border-right: none; }
-.skill-category:hover { background: var(--off); }
 .skill-category-header {
   display: flex;
   flex-direction: column;
@@ -441,10 +439,8 @@
   font-size: 3rem;
   font-weight: 700;
   line-height: 1;
-  color: var(--ink-08);
-  transition: color 0.3s var(--ease);
+  color: var(--signal);
 }
-.skill-category:hover .skill-category-icon { color: var(--signal); }
 .skill-category-title {
   font-family: var(--font-serif);
   font-size: var(--text-xl);
