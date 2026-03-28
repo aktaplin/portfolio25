@@ -104,6 +104,10 @@ export default function CaseStudy() {
     setIsModalOpen(true)
   }
 
+  const handleKeyActivate = (activityKey) => (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleActivityClick(activityKey) }
+  }
+
   const handleActivityChange = (activityKey) => {
     setSelectedActivity(activitiesData[activityKey])
     setSelectedActivityKey(activityKey)
@@ -239,15 +243,15 @@ export default function CaseStudy() {
             <div className="label">Process</div>
             <h2 className="section-h">My activities</h2>
             <div className="timeline-option-1">
-              <div className="timeline-item-v1" onClick={() => handleActivityClick('planning')}>
+              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('planning')} onKeyDown={handleKeyActivate('planning')}>
                 <div className="activity-duration">Week 1-2</div>
                 <h3 className="activity-title">Project planning, team selection, and briefing</h3>
               </div>
-              <div className="timeline-item-v1" onClick={() => handleActivityClick('research')}>
+              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('research')} onKeyDown={handleKeyActivate('research')}>
                 <div className="activity-duration">Week 3-4</div>
                 <h3 className="activity-title">Research + concept generation</h3>
               </div>
-              <div className="timeline-item-v1" onClick={() => handleActivityClick('workshop')}>
+              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('workshop')} onKeyDown={handleKeyActivate('workshop')}>
                 <div className="activity-duration">Week 5-6</div>
                 <h3 className="activity-title">Workshop facilitation</h3>
               </div>
@@ -260,11 +264,11 @@ export default function CaseStudy() {
                   onClick={() => handleImageClick(storyBriefImage, "Story Brief", "The story brief I created became the foundation of the design process.")}
                 />
               </div>
-              <div className="timeline-item-v1" onClick={() => handleActivityClick('design')}>
+              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('design')} onKeyDown={handleKeyActivate('design')}>
                 <div className="activity-duration">Week 7-8</div>
                 <h3 className="activity-title">Prototyping</h3>
               </div>
-              <div className="timeline-item-v1" onClick={() => handleActivityClick('presentation')}>
+              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('presentation')} onKeyDown={handleKeyActivate('presentation')}>
                 <div className="activity-duration">Week 9-10</div>
                 <h3 className="activity-title">Presentation prep + delivery</h3>
               </div>

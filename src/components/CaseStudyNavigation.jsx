@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
+import wexLogo from '../assets/logos/wex.svg'
+import verizonLogo from '../assets/logos/verizon.svg'
 
 function CaseStudyCard({ category, title, icon, onClick }) {
   return (
@@ -27,14 +29,14 @@ const allCaseStudies = [
     path: '/innovation-transformation-WEX/',
     category: 'A story of innovation',
     title: '(Re)defining the AI-powered future for an aging incumbent',
-    icon: '🚀'
+    icon: <img src={wexLogo} alt="WEX" />
   },
   {
     key: 'leadership',
     path: '/leadership-case-study/',
     category: 'A story of leadership',
     title: 'Reviving a struggling team to deliver the impossible',
-    icon: '👥'
+    icon: <img src={verizonLogo} alt="Verizon" />
   }
 ]
 

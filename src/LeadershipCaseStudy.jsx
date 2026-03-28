@@ -31,7 +31,7 @@ const activitiesData = {
           size="large"
         />
 
-        <h2>Outcome</h2>
+        <h3>Outcome</h3>
         <ul>
           <li>3-5 enhancements released</li>
           <li>Client partnership established</li>
@@ -49,7 +49,7 @@ const activitiesData = {
           <li>Modeled cross-team collaboration</li>
           <li>Listened to legacy team to solve collaboration and communication problems across disciplines</li>
         </ul>
-        <h2>Outcome</h2>
+        <h3>Outcome</h3>
         <ul>
           <li>Gradual increase in overall team quality of life survey scores; soon led these scores on the wider account</li>
           <li>Junior members of team have asked for me to be their people manager</li>
@@ -72,7 +72,7 @@ const activitiesData = {
           caption="Homepage before and after our redesign"
           size="large"
         />
-        <h2>Outcome</h2>
+        <h3>Outcome</h3>
         <ul>
           <li>"This is fantastic" - client Head of Design Verizon Consumer Group</li>
           <li>Fresh energy in the program</li>
@@ -89,7 +89,7 @@ const activitiesData = {
       <div>
         <p>Based on our MVP, at this point, the Verizon team asked us to redesign the whole thing - no strings attached. Too many technical constraints and bad product decisions had hampered the original design for the platform, so we were given free reign to design the best experience possible.</p>
         <p>We delivered about 400 mockups in 5 weeks.</p>
-        <h2>My role</h2>
+        <h3>My role</h3>
         <ul>
           <li>Selling designs to all stakeholders</li>
           <li>Leading the way on a clear, repeatable process forged under pressure</li>
@@ -118,7 +118,7 @@ const activitiesData = {
       <div>
         <p>Once the new site was launched, our team collaborated with Verizon product stakeholders to monitor key KPIs and iterate on the site.</p>
         <p>Some interaction design details needed iteration, such as a carousel on the homepage and the checkout flow.</p>
-        <h2>My role</h2>
+        <h3>My role</h3>
         <ul>
           <li>Suggest and request analytics from the production site to guide designs</li>
           <li>Request studies from Verizon's user research team; write briefs, suggest methods, and collaborate on synthesis of results</li>
@@ -139,6 +139,10 @@ export default function LeadershipCaseStudy() {
     setSelectedActivity(activitiesData[activityKey])
     setSelectedActivityKey(activityKey)
     setIsModalOpen(true)
+  }
+
+  const handleKeyActivate = (activityKey) => (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleActivityClick(activityKey) }
   }
 
   const handleActivityChange = (activityKey) => {
@@ -249,23 +253,23 @@ export default function LeadershipCaseStudy() {
             <div className="label">Process</div>
             <h2 className="section-h">My activities</h2>
             <div className="timeline-option-1">
-              <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-1')}>
+              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('activity-1')} onKeyDown={handleKeyActivate('activity-1')}>
                 <div className="activity-duration">Month 1-2</div>
                 <h3 className="activity-title">Regain client trust</h3>
               </div>
-              <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-2')}>
+              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('activity-2')} onKeyDown={handleKeyActivate('activity-2')}>
                 <div className="activity-duration">Month 2-3</div>
                 <h3 className="activity-title">Reset the design team culture</h3>
               </div>
-              <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-3')}>
+              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('activity-3')} onKeyDown={handleKeyActivate('activity-3')}>
                 <div className="activity-duration">Month 3-4</div>
                 <h3 className="activity-title">Lead a limited proof-of-concept redesign on key pages</h3>
               </div>
-              <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-4')}>
+              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('activity-4')} onKeyDown={handleKeyActivate('activity-4')}>
                 <div className="activity-duration">Month 5</div>
                 <h3 className="activity-title">Complete a full redesign in 5 weeks</h3>
               </div>
-              <div className="timeline-item-v1" onClick={() => handleActivityClick('activity-5')}>
+              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('activity-5')} onKeyDown={handleKeyActivate('activity-5')}>
                 <div className="activity-duration">Month 6+</div>
                 <h3 className="activity-title">Optimize the site post-launch</h3>
               </div>
