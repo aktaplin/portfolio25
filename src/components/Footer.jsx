@@ -5,12 +5,11 @@ export default function Footer() {
         <div className="footer-left">
           <div className="wordmark"><div className="wdot"></div>Adam Taplin</div>
           <p className="footer-tagline">
-            Copyright 2025. 100% built by me and Claude Code.
-            No template or CMS was used in the making of this portfolio.
+            Copyright 2026.
           </p>
         </div>
         <div className="footer-right">
-          Portfolio<br />Version 2.0 &middot; 2025
+          Portfolio<br />Version 2.0 &middot;
         </div>
       </div>
     </footer>
