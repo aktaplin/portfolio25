@@ -27,11 +27,6 @@ export default function Navigation() {
     }
   }
 
-  const handleAboutClick = (e) => {
-    e.preventDefault()
-    console.log('About page navigation - to be implemented')
-  }
-
   return (
     <header className="site-header">
       <div className="wrap header-inner">
@@ -46,13 +41,6 @@ export default function Navigation() {
             onClick={handleWorkClick}
           >
             Work
-          </a>
-          <a
-            href="#about"
-            className="nav-link"
-            onClick={handleAboutClick}
-          >
-            About
           </a>
         </nav>
       </div>
