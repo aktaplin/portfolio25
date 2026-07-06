@@ -8,6 +8,7 @@ import PasswordModal from './components/PasswordModal'
 import Navigation from './components/Navigation'
 import CustomCursor from './components/CustomCursor'
 import ScrollToTop from './components/ScrollToTop'
+import AnalyticsPageView from './components/AnalyticsPageView'
 import Footer from './components/Footer'
 import ProtectedRoute from './components/ProtectedRoute'
 import adamPortrait from './assets/img/adam-r2.jpg'
@@ -241,6 +242,7 @@ function App() {
     <AuthProvider>
       <Router basename="/portfolio25">
         <ScrollToTop />
+        <AnalyticsPageView />
         <CustomCursor />
         <AppContent />
         <PasswordModal />
