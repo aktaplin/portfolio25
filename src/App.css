@@ -785,6 +785,7 @@ textarea:focus-visible {
 }
 .timeline-detail {
   min-height: 320px;
+  scroll-margin-top: 96px;
 }
 .timeline-detail-image {
   width: 100%;

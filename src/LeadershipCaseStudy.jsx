@@ -14,7 +14,7 @@ import playBanner from './assets/img/+playBanner.png'
 const activitiesData = {
   'activity-1': {
     title: 'Regain client trust',
-    duration: '2 months',
+    duration: 'Month 1-2',
     content: (
       <div>
         <ul>
@@ -40,7 +40,7 @@ const activitiesData = {
   },
   'activity-2': {
     title: 'Reset the culture of my new team',
-    duration: '2 months',
+    duration: 'Month 2-3',
     content: (
       <div>
         <ul>
@@ -58,7 +58,7 @@ const activitiesData = {
   },
   'activity-3': {
     title: 'Limited proof of concept redesign',
-    duration: '2 months',
+    duration: 'Month 3-4',
     content: (
       <div>
         <ul>
@@ -83,7 +83,7 @@ const activitiesData = {
   },
   'activity-4': {
     title: 'Full-scale redesign',
-    duration: '1 month',
+    duration: 'Month 5',
     content: (
       <div>
         <p>Based on our MVP, at this point, the Verizon team asked us to redesign the whole thing - no strings attached. Too many technical constraints and bad product decisions had hampered the original design for the platform, so we were given free reign to design the best experience possible.</p>
@@ -112,7 +112,7 @@ const activitiesData = {
   },
   'activity-5': {
     title: 'Optimize the site post-launch',
-    duration: '16 months',
+    duration: 'Month 6+',
     content: (
       <div>
         <p>Once the new site was launched, our team collaborated with Verizon product stakeholders to monitor key KPIs and iterate on the site.</p>

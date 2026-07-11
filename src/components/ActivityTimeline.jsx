@@ -1,9 +1,21 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 export default function ActivityTimeline({ activities }) {
   const keys = Object.keys(activities)
   const [selected, setSelected] = useState(keys[0])
   const current = activities[selected]
+  const detailRef = useRef(null)
+  const isInitial = useRef(true)
+
+  // On selection change, scroll the detail pane's top into view (desktop only)
+  useEffect(() => {
+    if (isInitial.current) {
+      isInitial.current = false
+      return
+    }
+    if (window.matchMedia('(max-width: 767px)').matches) return
+    detailRef.current?.scrollIntoView({ behavior: 'auto', block: 'start' })
+  }, [selected])
 
   return (
     <>
@@ -27,7 +39,7 @@ export default function ActivityTimeline({ activities }) {
             )
           })}
         </div>
-        <div className="timeline-detail" aria-live="polite">
+        <div className="timeline-detail" aria-live="polite" ref={detailRef}>
           {current.image && (
             <img
               src={current.image}
