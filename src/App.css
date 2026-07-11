@@ -2,26 +2,6 @@
    ADAM TAPLIN PORTFOLIO — DESIGN SYSTEM CSS
    ══════════════════════════════════════════ */
 
-/* ── CUSTOM CURSOR ── */
-.cursor {
-  width: 8px; height: 8px;
-  background: var(--signal);
-  border-radius: 50%;
-  position: fixed; top: 0; left: 0;
-  pointer-events: none; z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s var(--ease), height 0.2s var(--ease), background 0.2s;
-}
-.cursor-ring {
-  width: 32px; height: 32px;
-  border: 1px solid var(--steel);
-  border-radius: 50%;
-  position: fixed; top: 0; left: 0;
-  pointer-events: none; z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 0.25s var(--ease), height 0.25s var(--ease), border-color 0.2s;
-}
-
 /* ── FOCUS VISIBLE ── */
 a:focus-visible,
 button:focus-visible,

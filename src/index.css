@@ -78,12 +78,6 @@ body {
   line-height: var(--leading-normal);
   min-height: 100vh;
 }
-/* Custom cursor is only hidden when JS activates it (see CustomCursor.jsx).
-   If JS fails or user prefers reduced motion, the system cursor stays visible. */
-body.custom-cursor-active,
-body.custom-cursor-active * {
-  cursor: none;
-}
 
 #root {
   min-height: 100vh;
@@ -126,17 +120,6 @@ img {
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
-}
-
-/* ── DISABLE CURSOR ON MOBILE / TOUCH ── */
-@media (max-width: 480px) {
-  body { cursor: auto; }
-  .cursor, .cursor-ring { display: none !important; }
-}
-
-@media (pointer: coarse) {
-  body { cursor: auto; }
-  .cursor, .cursor-ring { display: none !important; }
 }
 
 /* ── SKIP LINK ── */

@@ -6,7 +6,6 @@ import { AuthProvider } from './contexts/AuthContext'
 import { useAuth } from './hooks/useAuth'
 import PasswordModal from './components/PasswordModal'
 import Navigation from './components/Navigation'
-import CustomCursor from './components/CustomCursor'
 import ScrollToTop from './components/ScrollToTop'
 import AnalyticsPageView from './components/AnalyticsPageView'
 import Footer from './components/Footer'
@@ -255,7 +254,6 @@ function App() {
       <Router basename="/portfolio25">
         <ScrollToTop />
         <AnalyticsPageView />
-        <CustomCursor />
         <AppContent />
         <PasswordModal />
       </Router>
