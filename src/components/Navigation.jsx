@@ -28,22 +28,25 @@ export default function Navigation() {
   }
 
   return (
-    <header className="site-header">
-      <div className="wrap header-inner">
-        <a href="/" className="wordmark" onClick={handleHomeClick}>
-          <div className="wdot"></div>
-          Adam Taplin
-        </a>
-        <nav className="nav-links">
-          <a
-            href="#work"
-            className={`nav-link${location.pathname === '/' ? ' active' : ''}`}
-            onClick={handleWorkClick}
-          >
-            Work
+    <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+      <header className="site-header">
+        <div className="wrap header-inner">
+          <a href="/" className="wordmark" onClick={handleHomeClick}>
+            <div className="wdot"></div>
+            Adam Taplin
           </a>
-        </nav>
-      </div>
-    </header>
+          <nav className="nav-links">
+            <a
+              href="#work"
+              className={`nav-link${location.pathname === '/' ? ' active' : ''}`}
+              onClick={handleWorkClick}
+            >
+              Work
+            </a>
+          </nav>
+        </div>
+      </header>
+    </>
   )
 }

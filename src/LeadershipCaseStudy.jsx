@@ -160,6 +160,7 @@ export default function LeadershipCaseStudy() {
     <div className="case-study-page">
       <Navigation />
       <div className="wrap">
+        <main id="main-content">
         {/* Hero */}
         <div className="case-study-hero ruled">
           <div className="hero-index">AT</div>
@@ -287,6 +288,7 @@ export default function LeadershipCaseStudy() {
 
           <CaseStudyNavigation currentCaseStudyKey="leadership" />
         </div>
+        </main>
         <Footer />
       </div>
 

@@ -1,23 +1,15 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useAuth } from '../hooks/useAuth'
+
+const FOCUSABLE = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
 
 export default function PasswordModal() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const { authenticate, closePasswordModal, isLoading, showPasswordModal } = useAuth()
-
-  if (!showPasswordModal) return null
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setError('')
-    
-    const result = await authenticate(password)
-    if (!result.success) {
-      setError(result.error)
-      setPassword('')
-    }
-  }
+  const modalRef = useRef(null)
+  const previousFocusRef = useRef(null)
+  const titleId = 'password-modal-title'
 
   const handleClose = () => {
     setPassword('')
@@ -25,12 +17,85 @@ export default function PasswordModal() {
     closePasswordModal()
   }
 
+  // Focus management: move focus into modal on open, restore on close
+  useEffect(() => {
+    if (showPasswordModal) {
+      previousFocusRef.current = document.activeElement
+      requestAnimationFrame(() => {
+        const first = modalRef.current?.querySelector(FOCUSABLE)
+        if (first) first.focus()
+      })
+    } else if (previousFocusRef.current) {
+      previousFocusRef.current.focus()
+      previousFocusRef.current = null
+    }
+  }, [showPasswordModal])
+
+  // Trap focus within modal
+  useEffect(() => {
+    if (!showPasswordModal) return
+    const handleTab = (e) => {
+      if (e.key !== 'Tab' || !modalRef.current) return
+      const focusable = Array.from(modalRef.current.querySelectorAll(FOCUSABLE))
+        .filter(el => !el.disabled)
+      if (!focusable.length) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus() }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus() }
+      }
+    }
+    document.addEventListener('keydown', handleTab)
+    return () => document.removeEventListener('keydown', handleTab)
+  }, [showPasswordModal])
+
+  // Close on Escape
+  useEffect(() => {
+    const handleEscape = (e) => { if (e.key === 'Escape' && showPasswordModal) handleClose() }
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showPasswordModal])
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (showPasswordModal) {
+      document.body.style.overflow = 'hidden'
+      return () => { document.body.style.overflow = 'unset' }
+    }
+  }, [showPasswordModal])
+
+  if (!showPasswordModal) return null
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setError('')
+
+    const result = await authenticate(password)
+    if (!result.success) {
+      setError(result.error)
+      setPassword('')
+    }
+  }
+
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) handleClose()
+  }
+
   return (
-    <div className="password-modal-overlay">
-      <div className="password-modal">
+    <div className="password-modal-overlay" onClick={handleBackdropClick}>
+      <div
+        className="password-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        ref={modalRef}
+      >
         <div className="password-modal-header">
-          <h2 className="password-modal-title">Case Study Access</h2>
-          <button 
+          <h2 id={titleId} className="password-modal-title">Case Study Access</h2>
+          <button
             onClick={handleClose}
             className="password-modal-close"
             aria-label="Close"
@@ -38,12 +103,12 @@ export default function PasswordModal() {
             ×
           </button>
         </div>
-        
+
         <div className="password-modal-content">
           <p className="password-modal-description">
             Please enter the password to view case study details.
           </p>
-          
+
           <form onSubmit={handleSubmit} className="password-form">
             <div className="password-input-group">
               <input
@@ -51,18 +116,19 @@ export default function PasswordModal() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter password"
+                aria-label="Password"
                 className="password-input"
                 autoFocus
                 disabled={isLoading}
               />
             </div>
-            
+
             {error && (
-              <div className="password-error">
+              <div className="password-error" role="alert">
                 {error}
               </div>
             )}
-            
+
             <div className="password-modal-actions">
               <button
                 type="submit"

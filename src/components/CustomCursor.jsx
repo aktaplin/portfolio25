@@ -11,6 +11,14 @@ export default function CustomCursor() {
     const ringEl = ringRef.current
     if (!cursor || !ringEl) return
 
+    // Skip custom cursor for touch/coarse pointers, small screens, or reduced-motion preference
+    const disabled = window.matchMedia(
+      '(pointer: coarse), (max-width: 480px), (prefers-reduced-motion: reduce)'
+    ).matches
+    if (disabled) return
+
+    document.body.classList.add('custom-cursor-active')
+
     const onMouseMove = (e) => {
       mouse.current.x = e.clientX
       mouse.current.y = e.clientY
@@ -32,6 +40,7 @@ export default function CustomCursor() {
     return () => {
       document.removeEventListener('mousemove', onMouseMove)
       cancelAnimationFrame(raf)
+      document.body.classList.remove('custom-cursor-active')
     }
   }, [])
 

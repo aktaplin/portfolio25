@@ -4,8 +4,18 @@ import wexLogo from '../assets/logos/wex.svg'
 import verizonLogo from '../assets/logos/verizon.svg'
 
 function CaseStudyCard({ category, title, icon, onClick }) {
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick() }
+  }
   return (
-    <div className="case-card" onClick={onClick}>
+    <div
+      className="case-card"
+      role="button"
+      tabIndex="0"
+      onClick={onClick}
+      onKeyDown={handleKeyDown}
+      aria-label={`${category}: ${title}`}
+    >
       <div className="case-card-image">
         <span className="case-card-icon">{icon || '✦'}</span>
       </div>

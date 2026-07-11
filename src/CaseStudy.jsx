@@ -133,6 +133,7 @@ export default function CaseStudy() {
     <div className="case-study-page">
       <Navigation />
       <div className="wrap">
+        <main id="main-content">
         {/* Hero */}
         <div className="case-study-hero ruled">
           <div className="hero-index">AT</div>
@@ -294,6 +295,7 @@ export default function CaseStudy() {
 
           <CaseStudyNavigation currentCaseStudyKey="innovation" />
         </div>
+        </main>
         <Footer />
       </div>
 

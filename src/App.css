@@ -22,6 +22,24 @@
   transition: width 0.25s var(--ease), height 0.25s var(--ease), border-color 0.2s;
 }
 
+/* ── FOCUS VISIBLE ── */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex="0"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--steel);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+/* Password input keeps its custom focus treatment */
+.password-input:focus-visible {
+  outline: none;
+  outline-offset: 0;
+}
+
 /* ── SITE HEADER ── */
 .site-header {
   position: sticky; top: 0; z-index: 100;
@@ -70,7 +88,6 @@
   text-decoration: none;
   position: relative;
   padding-bottom: 3px;
-  cursor: none;
 }
 .nav-link::after {
   content: '';
@@ -245,7 +262,6 @@
   padding: 12px 24px;
   border: none;
   border-radius: var(--radius);
-  cursor: none;
   transition: all 0.2s var(--ease);
   display: inline-block;
   text-decoration: none;
@@ -305,7 +321,6 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
-  cursor: none;
 }
 .case-card::before {
   content: '';
@@ -705,7 +720,6 @@
   padding: var(--space-4);
   border: var(--border);
   border-radius: var(--radius);
-  cursor: none;
   transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
   overflow: hidden;
 }
@@ -814,7 +828,6 @@
   border: none;
   font-size: 24px;
   color: var(--ink);
-  cursor: none;
   padding: 0;
   width: 32px; height: 32px;
   display: flex;
@@ -884,7 +897,6 @@
   padding: 12px 24px;
   border-radius: var(--radius);
   border: none;
-  cursor: none;
   transition: all 0.2s var(--ease);
 }
 .password-button:disabled { cursor: not-allowed; opacity: 0.6; }
@@ -905,7 +917,6 @@
   font-size: var(--text-xs);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  cursor: none;
   padding: 0;
 }
 .password-link-cancel:hover:not(:disabled) { color: var(--ink); }
@@ -963,7 +974,6 @@
   border: none;
   font-size: 28px;
   color: var(--ink);
-  cursor: none;
   padding: 8px;
   width: 44px; height: 44px;
   display: flex;
@@ -1066,7 +1076,6 @@
   border-radius: 50%;
   font-size: 24px;
   color: #FFFFFF;
-  cursor: none;
   padding: 8px;
   width: 40px; height: 40px;
   display: flex;
@@ -1128,7 +1137,6 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--steel);
-  cursor: none;
   padding: 0;
   text-align: left;
   transition: color 0.2s var(--ease);
@@ -1165,7 +1173,6 @@
   font-size: 24px;
   font-weight: 300;
   color: var(--ink);
-  cursor: none;
   z-index: 4001;
   display: flex;
   align-items: center;
