@@ -1,7 +1,7 @@
 import './App.css'
-import { useState } from 'react'
 import Navigation from './components/Navigation'
-import ActivityModal, { InlineImageContainer } from './components/ActivityModal'
+import { InlineImageContainer } from './components/ActivityModal'
+import ActivityTimeline from './components/ActivityTimeline'
 import CaseStudyNavigation from './components/CaseStudyNavigation'
 import Footer from './components/Footer'
 import verizonLogo from './assets/logos/verizon.svg'
@@ -11,7 +11,6 @@ import playShopImage from './assets/img/+play-shop.png'
 import playDiscoverImage from './assets/img/+play-discover.png'
 import playBanner from './assets/img/+playBanner.png'
 
-// Empty activity data template
 const activitiesData = {
   'activity-1': {
     title: 'Regain client trust',
@@ -130,32 +129,6 @@ const activitiesData = {
 }
 
 export default function LeadershipCaseStudy() {
-  // Modal state
-  const [selectedActivity, setSelectedActivity] = useState(null)
-  const [selectedActivityKey, setSelectedActivityKey] = useState(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const handleActivityClick = (activityKey) => {
-    setSelectedActivity(activitiesData[activityKey])
-    setSelectedActivityKey(activityKey)
-    setIsModalOpen(true)
-  }
-
-  const handleKeyActivate = (activityKey) => (e) => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleActivityClick(activityKey) }
-  }
-
-  const handleActivityChange = (activityKey) => {
-    setSelectedActivity(activitiesData[activityKey])
-    setSelectedActivityKey(activityKey)
-  }
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false)
-    setSelectedActivity(null)
-    setSelectedActivityKey(null)
-  }
-
   return (
     <div className="case-study-page">
       <Navigation />
@@ -253,28 +226,7 @@ export default function LeadershipCaseStudy() {
           <div className="case-study-section">
             <div className="label">Process</div>
             <h2 className="section-h">My activities</h2>
-            <div className="timeline-option-1">
-              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('activity-1')} onKeyDown={handleKeyActivate('activity-1')}>
-                <div className="activity-duration">Month 1-2</div>
-                <h3 className="activity-title">Regain client trust</h3>
-              </div>
-              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('activity-2')} onKeyDown={handleKeyActivate('activity-2')}>
-                <div className="activity-duration">Month 2-3</div>
-                <h3 className="activity-title">Reset the design team culture</h3>
-              </div>
-              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('activity-3')} onKeyDown={handleKeyActivate('activity-3')}>
-                <div className="activity-duration">Month 3-4</div>
-                <h3 className="activity-title">Lead a limited proof-of-concept redesign on key pages</h3>
-              </div>
-              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('activity-4')} onKeyDown={handleKeyActivate('activity-4')}>
-                <div className="activity-duration">Month 5</div>
-                <h3 className="activity-title">Complete a full redesign in 5 weeks</h3>
-              </div>
-              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('activity-5')} onKeyDown={handleKeyActivate('activity-5')}>
-                <div className="activity-duration">Month 6+</div>
-                <h3 className="activity-title">Optimize the site post-launch</h3>
-              </div>
-            </div>
+            <ActivityTimeline activities={activitiesData} />
           </div>
 
           <div className="case-study-section">
@@ -291,15 +243,6 @@ export default function LeadershipCaseStudy() {
         </main>
         <Footer />
       </div>
-
-      <ActivityModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        activity={selectedActivity}
-        currentActivityKey={selectedActivityKey}
-        activitiesData={activitiesData}
-        onActivityChange={handleActivityChange}
-      />
     </div>
   )
 }

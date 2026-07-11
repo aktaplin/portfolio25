@@ -1,7 +1,8 @@
 import './App.css'
 import { useState } from 'react'
 import Navigation from './components/Navigation'
-import ActivityModal, { InlineImageContainer } from './components/ActivityModal'
+import { InlineImageContainer } from './components/ActivityModal'
+import ActivityTimeline from './components/ActivityTimeline'
 import CaseStudyNavigation from './components/CaseStudyNavigation'
 import Footer from './components/Footer'
 import ImageOverlay from './components/ImageOverlay'
@@ -12,112 +13,10 @@ import workshopImage from './assets/img/workshop.jpg'
 import prototypeImage from './assets/img/prototype.jpg'
 import storyBriefImage from './assets/img/storyBrief.png'
 
-// Sample activity data
-const activitiesData = {
-  'planning': {
-    title: 'Project planning, team selection, and briefing',
-    duration: 'Week 1-2',
-    content: (
-      <div>
-        <p>I evaluated the design resources on the bench, spoke with those available, and selected the skill and personality mix best suited to this project.</p>
-        <p>With all aboard, I fleshed out the design portion of the internal briefing for day 1.</p>
-      </div>
-    )
-  },
-  'research': {
-    title: 'Research + concept generation',
-    duration: 'Week 3-4',
-    image: researchImage,
-    content: (
-      <div>
-        <h3>Research</h3>
-        <p>The clients threw a ton of documents at us. Alongside the strategists, I dove into marking those up for insights and opportunities.I led stakeholder interviews with commercial teams, designers, and other clients.</p>
-
-        <h3>Concept Generation</h3>
-        <p>Our currency in these phase was ideas. We filled digital post-its full of little snippets like "driver profile" or "morning huddle".</p>
-      </div>
-    )
-  },
-  'workshop': {
-    title: 'Workshop planning + facilitation',
-    duration: 'Week 5-6',
-    image: workshopImage,
-    content: (
-      <div>
-        <h3>Workshop Planning</h3>
-        <p>With just three weeks from kickoff to client workshop, we needed to be laser-focused on what we would be doing in the room and work backwards. Based on past experience, I suggested the framework for organizing our ideas that we could iterate against and take with us.</p>
-
-        <h3>Workshop Facilitation</h3>
-        <p>We presented two sets of ideas: one for fleet managers and one for drivers.
-          The lead strategist and I tag-teamed our presentation. My part was to paint an inspiring picture of the possibilities and to represent the real needs being met by our concepts.
-          We led the clients through down-selecting our ideas, and I led an exercise to imagine a narrative that could stitch them all together into prototype.</p>
-      </div>
-    )
-  },
-  'design': {
-    title: 'Prototyping',
-    image: prototypeImage,
-    duration: 'Week 7-8',
-    content: (
-      <div>
-        <h3>Story briefing</h3>
-        <p>An outcome of the workshop, aside from a short-list of concepts, was a pair of narratives for our prototypes.
-          I synthesized the artifacts I had co-created with the clients into a comprehensive visual brief for the design team to build from.</p>
-
-        <h3>Creative leadership</h3>
-        <p>We had three weeks to complete our work. Under such pressure, all aspects of the creative process can surge at different times. Are people creating create work? Are they collaborating at their best? Problems big and small come up during this time that require empathy, listening, decisiveness, and a little humor to achieve success.</p>
-
-        <h3>Client demos</h3>
-        <p>I presented all our work to the clients, making me uniquely responsible for understanding all the intentions of the designs and the decision-making to highlight.
-          I'm proud of the response I received to these demos. In addition,  we learned a little each time to respond to for the next round.</p>
-      </div>
-    )
-  },
-  'presentation': {
-    title: 'Presentation prep + delivery',
-    duration: 'Week 9-10',
-    content: (
-      <div>
-        <h3>C-Suite Presentation</h3>
-        <p>The final presentation to WEX's C-suite was the culmination of 10 weeks of intensive work. I presented our recommendations with confidence, backed by research, prototypes, and a clear implementation roadmap.</p>
-
-        <h3>Securing Buy-in</h3>
-        <p>The presentation was so well-received that WEX immediately pivoted their roadmap priorities, asking us to develop an MVP for their highest-profile dashboard. This wasn't just a design win—it was a business transformation.</p>
-      </div>
-    )
-  }
-}
-
 export default function CaseStudy() {
-  // Modal state
-  const [selectedActivity, setSelectedActivity] = useState(null)
-  const [selectedActivityKey, setSelectedActivityKey] = useState(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
   // Image overlay state
   const [isImageOverlayOpen, setIsImageOverlayOpen] = useState(false)
   const [overlayImageData, setOverlayImageData] = useState({ src: '', alt: '', caption: '' })
-
-  const handleActivityClick = (activityKey) => {
-    setSelectedActivity(activitiesData[activityKey])
-    setSelectedActivityKey(activityKey)
-    setIsModalOpen(true)
-  }
-
-  const handleKeyActivate = (activityKey) => (e) => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleActivityClick(activityKey) }
-  }
-
-  const handleActivityChange = (activityKey) => {
-    setSelectedActivity(activitiesData[activityKey])
-    setSelectedActivityKey(activityKey)
-  }
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false)
-    setSelectedActivity(null)
-    setSelectedActivityKey(null)
-  }
 
   const handleImageClick = (src, alt, caption) => {
     setOverlayImageData({ src, alt, caption })
@@ -127,6 +26,89 @@ export default function CaseStudy() {
   const handleCloseImageOverlay = () => {
     setIsImageOverlayOpen(false)
     setOverlayImageData({ src: '', alt: '', caption: '' })
+  }
+
+  const activitiesData = {
+    'planning': {
+      title: 'Project planning, team selection, and briefing',
+      duration: 'Week 1-2',
+      content: (
+        <div>
+          <p>I evaluated the design resources on the bench, spoke with those available, and selected the skill and personality mix best suited to this project.</p>
+          <p>With all aboard, I fleshed out the design portion of the internal briefing for day 1.</p>
+        </div>
+      )
+    },
+    'research': {
+      title: 'Research + concept generation',
+      duration: 'Week 3-4',
+      image: researchImage,
+      content: (
+        <div>
+          <h3>Research</h3>
+          <p>The clients threw a ton of documents at us. Alongside the strategists, I dove into marking those up for insights and opportunities.I led stakeholder interviews with commercial teams, designers, and other clients.</p>
+
+          <h3>Concept Generation</h3>
+          <p>Our currency in these phase was ideas. We filled digital post-its full of little snippets like "driver profile" or "morning huddle".</p>
+        </div>
+      )
+    },
+    'workshop': {
+      title: 'Workshop planning + facilitation',
+      duration: 'Week 5-6',
+      image: workshopImage,
+      content: (
+        <div>
+          <h3>Workshop Planning</h3>
+          <p>With just three weeks from kickoff to client workshop, we needed to be laser-focused on what we would be doing in the room and work backwards. Based on past experience, I suggested the framework for organizing our ideas that we could iterate against and take with us.</p>
+
+          <h3>Workshop Facilitation</h3>
+          <p>We presented two sets of ideas: one for fleet managers and one for drivers.
+            The lead strategist and I tag-teamed our presentation. My part was to paint an inspiring picture of the possibilities and to represent the real needs being met by our concepts.
+            We led the clients through down-selecting our ideas, and I led an exercise to imagine a narrative that could stitch them all together into prototype.</p>
+        </div>
+      )
+    },
+    'design': {
+      title: 'Prototyping',
+      image: prototypeImage,
+      duration: 'Week 7-8',
+      content: (
+        <div>
+          <h3>Story briefing</h3>
+          <p>An outcome of the workshop, aside from a short-list of concepts, was a pair of narratives for our prototypes.
+            I synthesized the artifacts I had co-created with the clients into a comprehensive visual brief for the design team to build from.</p>
+
+          <InlineImageContainer
+            src={storyBriefImage}
+            alt="Story Brief"
+            caption="The story brief I created became the foundation of the design process."
+            size="large"
+            onClick={() => handleImageClick(storyBriefImage, "Story Brief", "The story brief I created became the foundation of the design process.")}
+          />
+
+          <h3>Creative leadership</h3>
+          <p>We had three weeks to complete our work. Under such pressure, all aspects of the creative process can surge at different times. Are people creating create work? Are they collaborating at their best? Problems big and small come up during this time that require empathy, listening, decisiveness, and a little humor to achieve success.</p>
+
+          <h3>Client demos</h3>
+          <p>I presented all our work to the clients, making me uniquely responsible for understanding all the intentions of the designs and the decision-making to highlight.
+            I'm proud of the response I received to these demos. In addition,  we learned a little each time to respond to for the next round.</p>
+        </div>
+      )
+    },
+    'presentation': {
+      title: 'Presentation prep + delivery',
+      duration: 'Week 9-10',
+      content: (
+        <div>
+          <h3>C-Suite Presentation</h3>
+          <p>The final presentation to WEX's C-suite was the culmination of 10 weeks of intensive work. I presented our recommendations with confidence, backed by research, prototypes, and a clear implementation roadmap.</p>
+
+          <h3>Securing Buy-in</h3>
+          <p>The presentation was so well-received that WEX immediately pivoted their roadmap priorities, asking us to develop an MVP for their highest-profile dashboard. This wasn't just a design win—it was a business transformation.</p>
+        </div>
+      )
+    }
   }
 
   return (
@@ -243,37 +225,7 @@ export default function CaseStudy() {
           <div className="case-study-section">
             <div className="label">Process</div>
             <h2 className="section-h">My activities</h2>
-            <div className="timeline-option-1">
-              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('planning')} onKeyDown={handleKeyActivate('planning')}>
-                <div className="activity-duration">Week 1-2</div>
-                <h3 className="activity-title">Project planning, team selection, and briefing</h3>
-              </div>
-              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('research')} onKeyDown={handleKeyActivate('research')}>
-                <div className="activity-duration">Week 3-4</div>
-                <h3 className="activity-title">Research + concept generation</h3>
-              </div>
-              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('workshop')} onKeyDown={handleKeyActivate('workshop')}>
-                <div className="activity-duration">Week 5-6</div>
-                <h3 className="activity-title">Workshop facilitation</h3>
-              </div>
-              <div className="timeline-image-center">
-                <InlineImageContainer
-                  src={storyBriefImage}
-                  alt="Story Brief"
-                  caption="The story brief I created became the foundation of the design process."
-                  size="xlarge"
-                  onClick={() => handleImageClick(storyBriefImage, "Story Brief", "The story brief I created became the foundation of the design process.")}
-                />
-              </div>
-              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('design')} onKeyDown={handleKeyActivate('design')}>
-                <div className="activity-duration">Week 7-8</div>
-                <h3 className="activity-title">Prototyping</h3>
-              </div>
-              <div className="timeline-item-v1" role="button" tabIndex="0" onClick={() => handleActivityClick('presentation')} onKeyDown={handleKeyActivate('presentation')}>
-                <div className="activity-duration">Week 9-10</div>
-                <h3 className="activity-title">Presentation prep + delivery</h3>
-              </div>
-            </div>
+            <ActivityTimeline activities={activitiesData} />
           </div>
 
           <div className="case-study-section">
@@ -298,15 +250,6 @@ export default function CaseStudy() {
         </main>
         <Footer />
       </div>
-
-      <ActivityModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        activity={selectedActivity}
-        currentActivityKey={selectedActivityKey}
-        activitiesData={activitiesData}
-        onActivityChange={handleActivityChange}
-      />
 
       <ImageOverlay
         isOpen={isImageOverlayOpen}
