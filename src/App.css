@@ -435,9 +435,7 @@ textarea:focus-visible {
 }
 .writing-card-arrow {
   flex-shrink: 0;
-  font-size: var(--text-xl);
   color: var(--steel);
-  line-height: 1;
   transition: transform 0.25s var(--ease);
 }
 .writing-card:hover .writing-card-arrow {
