@@ -409,11 +409,21 @@ textarea:focus-visible {
   padding: var(--space-2) var(--space-3);
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
+.writing-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--steel);
+  transition: width 0.4s var(--ease);
+}
+.writing-card:hover::before { width: 100%; }
 .writing-card:hover {
-  border-color: var(--steel);
-  transform: translateX(4px);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(13,13,11,0.08);
 }
 .writing-card-text {
   display: flex;
@@ -461,11 +471,9 @@ textarea:focus-visible {
   border-bottom: var(--border);
   position: relative;
   overflow: hidden;
-  transition: background 0.3s var(--ease);
 }
 .text-block:nth-child(2n) { border-right: none; }
 .text-block:nth-child(n+3) { border-bottom: none; }
-.text-block:hover { background: var(--off); }
 .text-block-title {
   font-family: var(--font-serif);
   font-size: var(--text-xl);
