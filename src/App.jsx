@@ -55,14 +55,14 @@ function ExternalLinkIcon() {
   return (
     <svg
       className="writing-card-arrow"
-      width="18"
-      height="18"
+      width="1em"
+      height="1em"
       viewBox="0 0 18 18"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      strokeWidth="1.25"
+      strokeLinecap="butt"
+      strokeLinejoin="miter"
       aria-hidden="true"
     >
       <path d="M7.5 4.5H13.5V10.5" />
