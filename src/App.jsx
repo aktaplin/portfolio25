@@ -51,6 +51,23 @@ function CaseStudyCard({ category, title, icon, onClick }) {
   )
 }
 
+function WritingCard({ title, href, source = 'Published on LinkedIn' }) {
+  return (
+    <a
+      className="writing-card"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span className="writing-card-text">
+        <span className="writing-card-title">{title}</span>
+        <span className="writing-card-source">{source}</span>
+      </span>
+      <span className="writing-card-arrow" aria-hidden="true">↗</span>
+    </a>
+  )
+}
+
 function TextBlock({ title, description }) {
   return (
     <div className="text-block">
@@ -162,6 +179,21 @@ function Homepage() {
               onClick={() => handleCaseStudyClick('/leadership-case-study/')}
             />
           </div>
+
+          <div className="writing-subsection">
+            <div className="label">Writing</div>
+            <h3 className="subsection-h">Notes from the practice</h3>
+            <div className="writing-list">
+              <WritingCard
+                title="I built a baseball app and accidentally learned something about AI"
+                href="https://www.linkedin.com/pulse/i-built-baseball-app-accidentally-learned-something-ai-adam-taplin-dsmkc/"
+              />
+              <WritingCard
+                title="Lessons from a designer vibecoding"
+                href="https://www.linkedin.com/pulse/lessons-from-designer-vibecoding-adam-taplin-hziic/"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -198,7 +230,7 @@ function Homepage() {
       <div className="clients-section">
         <div className="wrap">
           <div className="label">Clients</div>
-          <h2 className="section-h">Select clients</h2>
+          <h2 className="section-h">Selected clients</h2>
           <div className="client-logos">
             <div className="client-logo">
               <img src={fordLogo} alt="Ford" />
