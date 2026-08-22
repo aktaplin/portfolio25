@@ -5,6 +5,10 @@ import { InlineImageContainer } from './components/ActivityModal'
 import ActivityTimeline from './components/ActivityTimeline'
 import CaseStudyNavigation from './components/CaseStudyNavigation'
 import Footer from './components/Footer'
+import SectionHead from './components/SectionHead'
+import SpecBlock from './components/SpecBlock'
+import { useReveal } from './hooks/useReveal'
+import { engagementByKey } from './content/profile'
 import ImageOverlay from './components/ImageOverlay'
 import wexLogo from './assets/logos/wex.svg'
 import wexBanner from './assets/img/WEXBanner.png'
@@ -14,6 +18,7 @@ import prototypeImage from './assets/img/prototype.jpg'
 import storyBriefImage from './assets/img/storyBrief.png'
 
 export default function CaseStudy() {
+  useReveal()
   // Image overlay state
   const [isImageOverlayOpen, setIsImageOverlayOpen] = useState(false)
   const [overlayImageData, setOverlayImageData] = useState({ src: '', alt: '', caption: '' })
@@ -117,8 +122,7 @@ export default function CaseStudy() {
       <div className="wrap">
         <main id="main-content">
         {/* Hero */}
-        <div className="case-study-hero ruled">
-          <div className="hero-index">AT</div>
+        <div className="case-study-hero">
           <div className="case-study-title-section">
             <div className="case-study-subtitle">A story of innovation</div>
             <div className="hero-logo-section">
@@ -128,6 +132,7 @@ export default function CaseStudy() {
               Mobility Vision 2027
             </h1>
           </div>
+          <SpecBlock engagement={engagementByKey('wex')} />
           <div className="hero-banner-section">
             <img src={wexBanner} alt="WEX interface mockup" className="hero-banner" />
           </div>
@@ -139,8 +144,7 @@ export default function CaseStudy() {
           </div>
 
           <div className="case-study-section">
-            <div className="label">Context</div>
-            <h2 className="section-h">Problem</h2>
+            <SectionHead label="Context">Problem</SectionHead>
             <div className="case-study-text">
               <p>
                 WEX, a $2.5B+ industry leader/encumbent providing payment
@@ -158,8 +162,7 @@ export default function CaseStudy() {
           </div>
 
           <div className="case-study-section">
-            <div className="label">Objective</div>
-            <h2 className="section-h">Brief</h2>
+            <SectionHead label="Objective">Brief</SectionHead>
             <div className="case-study-text">
               <p>
                 Against this backdrop of uncertainty, our team was asked to design
@@ -175,8 +178,7 @@ export default function CaseStudy() {
           </div>
 
           <div className="case-study-section">
-            <div className="label">Contribution</div>
-            <h2 className="section-h">My role</h2>
+            <SectionHead label="Contribution">My role</SectionHead>
             <div className="role-items">
               <div className="role-item">
                 <div className="role-text">
@@ -223,14 +225,12 @@ export default function CaseStudy() {
 
           {/* PROJECT TIMELINE */}
           <div className="case-study-section">
-            <div className="label">Process</div>
-            <h2 className="section-h">My activities</h2>
+            <SectionHead label="Process">My activities</SectionHead>
             <ActivityTimeline activities={activitiesData} />
           </div>
 
           <div className="case-study-section">
-            <div className="label">Results</div>
-            <h2 className="section-h">Outcome</h2>
+            <SectionHead label="Results">Outcome</SectionHead>
             <div className="pullquote-minimal">
               <div className="quote-text">This is fantastic work, and exactly what we've been wanting for some time now.</div>
               <div className="quote-attribution">Chief Design Officer, WEX Inc.</div>
@@ -245,7 +245,7 @@ export default function CaseStudy() {
             </div>
           </div>
 
-          <CaseStudyNavigation currentCaseStudyKey="innovation" />
+          <CaseStudyNavigation currentCaseStudyKey="wex" />
         </div>
         </main>
         <Footer />

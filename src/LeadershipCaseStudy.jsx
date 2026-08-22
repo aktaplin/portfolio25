@@ -4,6 +4,10 @@ import { InlineImageContainer } from './components/ActivityModal'
 import ActivityTimeline from './components/ActivityTimeline'
 import CaseStudyNavigation from './components/CaseStudyNavigation'
 import Footer from './components/Footer'
+import SectionHead from './components/SectionHead'
+import SpecBlock from './components/SpecBlock'
+import { useReveal } from './hooks/useReveal'
+import { engagementByKey } from './content/profile'
 import verizonLogo from './assets/logos/verizon.svg'
 import activity1Image from './assets/img/+play-enhancement.png'
 import activity2Image from './assets/img/+play-mvp.png'
@@ -129,14 +133,14 @@ const activitiesData = {
 }
 
 export default function LeadershipCaseStudy() {
+  useReveal()
   return (
     <div className="case-study-page">
       <Navigation />
       <div className="wrap">
         <main id="main-content">
         {/* Hero */}
-        <div className="case-study-hero ruled">
-          <div className="hero-index">AT</div>
+        <div className="case-study-hero">
           <div className="case-study-title-section">
             <div className="case-study-subtitle">A story of leadership</div>
             <div className="hero-logo-section">
@@ -146,6 +150,7 @@ export default function LeadershipCaseStudy() {
               +play
             </h1>
           </div>
+          <SpecBlock engagement={engagementByKey('verizon')} />
           <div className="hero-banner-section">
             <img src={playBanner} alt="+play" className="hero-banner" />
           </div>
@@ -157,8 +162,7 @@ export default function LeadershipCaseStudy() {
           </div>
 
           <div className="case-study-section">
-            <div className="label">Context</div>
-            <h2 className="section-h">Problem</h2>
+            <SectionHead label="Context">Problem</SectionHead>
             <div className="case-study-text">
               <p>
                 The "cord-cutting" phenomenon has led to a fragmented entertainment experience, with a rapid increase in broadband-only homes and a booming digital subscription economy. The US digital subscription economy is projected to reach $74 billion in 2025. In response, +play offers a unified platform designed to help users discover, purchase, and manage all their subscriptions in one place, exclusively through Verizon.
@@ -167,8 +171,7 @@ export default function LeadershipCaseStudy() {
           </div>
 
           <div className="case-study-section">
-            <div className="label">Objective</div>
-            <h2 className="section-h">Brief</h2>
+            <SectionHead label="Objective">Brief</SectionHead>
             <div className="case-study-text">
               <p>
               Upon joining the +play project, it was evident that the client relationship was strained and the internal design team was severely siloed between UI and UX disciplines. The situation was further complicated by a rocky MVP phase, leading some clients to question the effectiveness of our product strategy. This challenging environment underscored the critical need for a new leadership approach to rebuild trust, foster collaboration, and deliver impactful solutions.
@@ -177,8 +180,7 @@ export default function LeadershipCaseStudy() {
           </div>
 
           <div className="case-study-section">
-            <div className="label">Contribution</div>
-            <h2 className="section-h">My role</h2>
+            <SectionHead label="Contribution">My role</SectionHead>
             <div className="role-items">
               <div className="role-item">
                 <div className="role-text">
@@ -224,21 +226,19 @@ export default function LeadershipCaseStudy() {
 
           {/* PROJECT TIMELINE */}
           <div className="case-study-section">
-            <div className="label">Process</div>
-            <h2 className="section-h">My activities</h2>
+            <SectionHead label="Process">My activities</SectionHead>
             <ActivityTimeline activities={activitiesData} />
           </div>
 
           <div className="case-study-section">
-            <div className="label">Results</div>
-            <h2 className="section-h">Outcome</h2>
+            <SectionHead label="Results">Outcome</SectionHead>
             <div className="pullquote-minimal">
               <div className="quote-text">Your team made the impossible, possible.</div>
               <div className="quote-attribution">Senior Director of Design, Verizon Beyond Connectivity Products</div>
             </div>
           </div>
 
-          <CaseStudyNavigation currentCaseStudyKey="leadership" />
+          <CaseStudyNavigation currentCaseStudyKey="verizon" />
         </div>
         </main>
         <Footer />

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useAuth } from '../hooks/useAuth'
+import { access, accessRequestLink } from '../content/profile'
 
 const FOCUSABLE = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
 
@@ -26,7 +27,10 @@ export default function PasswordModal() {
         if (first) first.focus()
       })
     } else if (previousFocusRef.current) {
-      previousFocusRef.current.focus()
+      // preventScroll matters here: on a successful unlock the modal closes and
+      // the route changes in the same commit, and a plain focus() can scroll the
+      // page away from the top of the case study we just navigated to.
+      previousFocusRef.current.focus({ preventScroll: true })
       previousFocusRef.current = null
     }
   }, [showPasswordModal])
@@ -67,6 +71,8 @@ export default function PasswordModal() {
     }
   }, [showPasswordModal])
 
+  const requestLink = accessRequestLink()
+
   if (!showPasswordModal) return null
 
   const handleSubmit = async (e) => {
@@ -94,7 +100,7 @@ export default function PasswordModal() {
         ref={modalRef}
       >
         <div className="password-modal-header">
-          <h2 id={titleId} className="password-modal-title">Case Study Access</h2>
+          <h2 id={titleId} className="password-modal-title">Protected case study</h2>
           <button
             onClick={handleClose}
             className="password-modal-close"
@@ -106,8 +112,19 @@ export default function PasswordModal() {
 
         <div className="password-modal-content">
           <p className="password-modal-description">
-            Please enter the password to view case study details.
+            {access.modalCopy}
           </p>
+
+          {requestLink && (
+            <a
+              className="password-modal-request"
+              href={requestLink.href}
+              {...(requestLink.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
+              Request the password
+              <span aria-hidden="true">↗</span>
+            </a>
+          )}
 
           <form onSubmit={handleSubmit} className="password-form">
             <div className="password-input-group">
@@ -115,7 +132,7 @@ export default function PasswordModal() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter password"
+                placeholder="Password"
                 aria-label="Password"
                 className="password-input"
                 autoFocus
@@ -135,7 +152,7 @@ export default function PasswordModal() {
                 className="password-button password-button-primary"
                 disabled={isLoading || !password.trim()}
               >
-                {isLoading ? 'Checking...' : 'Access Case Studies'}
+                {isLoading ? 'Checking…' : 'Unlock'}
               </button>
               <button
                 type="button"
