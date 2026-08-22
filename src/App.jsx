@@ -26,6 +26,26 @@ import verizonLogo from './assets/logos/verizon.svg'
 import wellsFargoLogo from './assets/logos/wellsfargo.svg'
 import wexLogo from './assets/logos/wex.svg'
 
+function ExternalLinkIcon() {
+  return (
+    <svg
+      className="writing-card-arrow"
+      width="1em"
+      height="1em"
+      viewBox="0 0 18 18"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.25"
+      strokeLinecap="butt"
+      strokeLinejoin="miter"
+      aria-hidden="true"
+    >
+      <path d="M7.5 4.5H13.5V10.5" />
+      <path d="M13.5 4.5L4.5 13.5" />
+    </svg>
+  )
+}
+
 function WritingCard({ title, href, source = 'Published on LinkedIn' }) {
   return (
     <a
@@ -38,7 +58,7 @@ function WritingCard({ title, href, source = 'Published on LinkedIn' }) {
         <span className="writing-card-title">{title}</span>
         <span className="writing-card-source">{source}</span>
       </span>
-      <span className="writing-card-arrow" aria-hidden="true">↗</span>
+      <ExternalLinkIcon />
     </a>
   )
 }

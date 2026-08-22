@@ -241,7 +241,9 @@ textarea:focus-visible {
   padding: var(--space-2) var(--space-3);
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 .writing-card::after {
   content: '';
@@ -279,7 +281,6 @@ textarea:focus-visible {
   flex-shrink: 0;
   font-size: var(--text-xl);
   color: var(--steel);
-  line-height: 1;
   transition: transform 0.25s var(--ease);
 }
 .writing-card:hover .writing-card-arrow {
