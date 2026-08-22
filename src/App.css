@@ -633,12 +633,16 @@ textarea:focus-visible {
 }
 
 /* ── ACTIVITY TIMELINE (two-column sticky index) ── */
-.timeline-two-col {
+.timeline {
   display: grid;
-  grid-template-columns: minmax(220px, 260px) 1fr;
+  grid-template-columns: minmax(200px, 240px) 1fr;
   gap: var(--space-6);
   margin-top: var(--space-6);
+  align-items: start;
 }
+
+/* Sticky phase index. The left rule fills to show how far through the
+   sequence the reader is — a quiet progress signal, not a scrollbar. */
 .timeline-index {
   position: sticky;
   top: 96px;
@@ -646,7 +650,11 @@ textarea:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  border-left: 1px solid var(--ink-20);
+  padding-left: 1px;
+  position: sticky;
+  background:
+    linear-gradient(var(--signal), var(--signal)) 0 0 / 1px calc(var(--timeline-progress, 0) * 100%) no-repeat,
+    linear-gradient(var(--ink-20), var(--ink-20)) 0 0 / 1px 100% no-repeat;
 }
 .timeline-index-item {
   background: transparent;
@@ -658,15 +666,15 @@ textarea:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease), opacity 0.2s var(--ease);
 }
-.timeline-index-item:hover {
-  background: var(--off);
-}
+.timeline-index-item:hover { background: var(--off); }
 .timeline-index-item.active {
   border-left-color: var(--signal);
   background: var(--off);
 }
+/* Phases already scrolled past read as completed */
+.timeline-index-item.is-past .timeline-index-title { color: var(--ink-60); }
 .timeline-index-duration {
   font-family: var(--font-cond);
   font-size: var(--text-xs);
@@ -682,10 +690,21 @@ textarea:focus-visible {
   line-height: var(--leading-snug);
   color: var(--ink);
 }
-.timeline-detail {
-  min-height: 320px;
-  scroll-margin-top: 96px;
+
+/* Phase panels — the full sequence, in the normal scroll flow. */
+.timeline-panels {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+.timeline-panel {
+  scroll-margin-top: 96px;
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--ink-20);
+}
+.timeline-panel:first-child { border-top: none; padding-top: 0; }
+.timeline-panel:last-child { padding-bottom: 0; }
+
 .timeline-detail-image {
   width: 100%;
   height: auto;
@@ -725,9 +744,7 @@ textarea:focus-visible {
   margin: var(--space-3) 0 var(--space-2) 0;
 }
 .timeline-detail-body h3:first-child { margin-top: 0; }
-.timeline-detail-body p {
-  margin: 0 0 var(--space-2) 0;
-}
+.timeline-detail-body p { margin: 0 0 var(--space-2) 0; }
 .timeline-detail-body p:last-child { margin-bottom: 0; }
 .timeline-detail-body ul {
   padding-left: var(--space-3);
@@ -738,22 +755,10 @@ textarea:focus-visible {
   line-height: var(--leading-normal);
 }
 
-/* Mobile: stacked sequence (all weeks visible, scroll through them) */
-.timeline-stacked {
-  display: none;
-  list-style: none;
-  padding: 0;
-  margin: var(--space-6) 0 0 0;
-}
-.timeline-stacked-item {
-  border-top: 1px solid var(--ink-20);
-  padding: var(--space-6) 0 var(--space-4);
-}
-.timeline-stacked-item:first-child { border-top: none; padding-top: var(--space-4); }
-
+/* Mobile: drop the index, let the panels read as a plain sequence. */
 @media (max-width: 767px) {
-  .timeline-two-col { display: none; }
-  .timeline-stacked { display: block; }
+  .timeline { grid-template-columns: 1fr; }
+  .timeline-index { display: none; }
 }
 
 /* ── PULLQUOTE ── */
