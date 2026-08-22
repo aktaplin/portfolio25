@@ -16,7 +16,18 @@
       "Bash(git push:*)",
       "Bash(git checkout:*)",
       "Bash(git merge:*)",
-      "Bash(git fetch:*)"
+      "Bash(git fetch:*)",
+      "Bash(npx @axe-core/cli http://localhost:5173/portfolio25/)",
+      "Bash(npx pa11y:*)",
+      "Bash(\"C:\\\\Users\\\\aktap\\\\Code Projects\\\\portfolio25\\\\pa11y-config.json\":*)",
+      "Bash(curl:*)",
+      "Bash(Select-String -Pattern \"skip-link|main-content|<html\" -SimpleMatch)",
+      "Bash(git check-ignore *)",
+      "Skill(artifact-design)",
+      "Artifact",
+      "Bash(gh run *)",
+      "PowerShell(gh run *)",
+      "PowerShell($conns = Get-NetTCPConnection -LocalPort 5175 -State Listen -ErrorAction SilentlyContinue; if \\($conns\\) { $conns | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force; \"Stopped PID $_\" } } else { \"No listener on 5175\" })"
     ],
     "deny": []
   },

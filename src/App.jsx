@@ -159,7 +159,7 @@ function Homepage() {
             <div className="philosophy-portrait">
               <img src={adamPortrait} alt="Adam Taplin" className="portrait-image" />
             </div>
-            <SectionHead label="Philosophy">Lead with compassion</SectionHead>
+            <SectionHead label="Philosophy">Lead with openness</SectionHead>
           </div>
           <div className="text-blocks">
             <TextBlock
