@@ -51,10 +51,10 @@ export default function CaseStudy() {
       content: (
         <div>
           <h3>Research</h3>
-          <p>The clients threw a ton of documents at us. Alongside the strategists, I dove into marking those up for insights and opportunities.I led stakeholder interviews with commercial teams, designers, and other clients.</p>
+          <p>The clients threw a ton of documents at us. Alongside the strategists, I dove into marking those up for insights and opportunities. I led stakeholder interviews with commercial teams, designers, and other clients.</p>
 
           <h3>Concept Generation</h3>
-          <p>Our currency in these phase was ideas. We filled digital post-its full of little snippets like "driver profile" or "morning huddle".</p>
+          <p>Our currency in this phase was ideas. We filled digital post-its full of little snippets like "driver profile" or "morning huddle".</p>
         </div>
       )
     },
@@ -93,11 +93,11 @@ export default function CaseStudy() {
           />
 
           <h3>Creative leadership</h3>
-          <p>We had three weeks to complete our work. Under such pressure, all aspects of the creative process can surge at different times. Are people creating create work? Are they collaborating at their best? Problems big and small come up during this time that require empathy, listening, decisiveness, and a little humor to achieve success.</p>
+          <p>We had three weeks to complete our work. Under such pressure, all aspects of the creative process can surge at different times. Are people creating great work? Are they collaborating at their best? Problems big and small come up during this time that require empathy, listening, decisiveness, and a little humor to achieve success.</p>
 
           <h3>Client demos</h3>
           <p>I presented all our work to the clients, making me uniquely responsible for understanding all the intentions of the designs and the decision-making to highlight.
-            I'm proud of the response I received to these demos. In addition,  we learned a little each time to respond to for the next round.</p>
+            I'm proud of the response I received to these demos. In addition, we learned a little each time about how to respond for the next round.</p>
         </div>
       )
     },
@@ -147,7 +147,7 @@ export default function CaseStudy() {
             <SectionHead label="Context">Problem</SectionHead>
             <div className="case-study-text">
               <p>
-                WEX, a $2.5B+ industry leader/encumbent providing payment
+                WEX, a $2.5B+ industry leader/incumbent providing payment
                 solutions for 19M+ professional fleets across the nation, bases
                 its financial performance primarily on how many gallons its
                 customers purchase at the pump. Yet this model faces significant
@@ -238,7 +238,7 @@ export default function CaseStudy() {
 
             <div className="case-study-text">
               <p>
-              Due to this project's success, my clients pivoted to requesting an MVP for immediate deployment on their highest-profile authenticated dashboard, dropping their previous priority for our team.                </p>
+              Due to this project's success, my clients pivoted to requesting an MVP for immediate deployment on their highest-profile authenticated dashboard, dropping their previous priority for our team.</p>
               <p>
               Six months later they contacted us again to run the same project against a different line of business. In my mind there's no better endorsement than a repeat customer.
               </p>

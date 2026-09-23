@@ -81,7 +81,7 @@ const activitiesData = {
           <li>Fresh energy in the program</li>
           <li>Kernels of ideas began moving forward to wider stakeholder group</li>
         </ul>
-        <p>Gained client trust and customer research data that ultimately led to a full-scale dedesign.</p>
+        <p>Gained client trust and customer research data that ultimately led to a full-scale redesign.</p>
       </div>
     )
   },
@@ -90,7 +90,7 @@ const activitiesData = {
     duration: 'Month 5',
     content: (
       <div>
-        <p>Based on our MVP, at this point, the Verizon team asked us to redesign the whole thing - no strings attached. Too many technical constraints and bad product decisions had hampered the original design for the platform, so we were given free reign to design the best experience possible.</p>
+        <p>Based on our MVP, at this point, the Verizon team asked us to redesign the whole thing - no strings attached. Too many technical constraints and bad product decisions had hampered the original design for the platform, so we were given free rein to design the best experience possible.</p>
         <p>We delivered about 400 mockups in 5 weeks.</p>
         <h3>My role</h3>
         <ul>
@@ -158,7 +158,7 @@ export default function LeadershipCaseStudy() {
 
         <div className="case-study-page-content">
           <div className="intro">
-            <p>This project showcases my ability to turn around an ailing team and project. When I replaced the outgoing leader, Publicis Sapient had lost client trust and morale was low. By the time we rolled off, I had been able to re-secure an additonal 18 months of work and around $2M revenue for the agency. My team by then was scoring high marks on internal quality of life surveys and those team members became my managees and mentees.</p>
+            <p>This project showcases my ability to turn around an ailing team and project. When I replaced the outgoing leader, Publicis Sapient had lost client trust and morale was low. By the time we rolled off, I had been able to re-secure an additional 18 months of work and around $2M revenue for the agency. My team by then was scoring high marks on internal quality of life surveys and those team members became my managees and mentees.</p>
           </div>
 
           <div className="case-study-section">
@@ -215,7 +215,7 @@ export default function LeadershipCaseStudy() {
                 <div className="role-text">
                   <div className="role-title">Sell it</div>
                   <ul className="role-bullets">
-                    <li>Inspire confidence our work</li>
+                    <li>Inspire confidence in our work</li>
                     <li>Present to C-Suite brand and product design leadership</li>
                     <li>Energize project stakeholders to take on new direction</li>
                   </ul>

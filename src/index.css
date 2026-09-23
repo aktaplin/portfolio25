@@ -30,7 +30,7 @@
   /* Type scale (fluid, clamp-based) */
   --text-xs:   clamp(0.68rem,  0.65rem + 0.15vw, 0.75rem);
   --text-sm:   clamp(0.82rem,  0.78rem + 0.20vw, 0.90rem);
-  --text-base: clamp(0.95rem,  0.90rem + 0.25vw, 1.00rem);
+  --text-base: clamp(1.00rem,  0.98rem + 0.15vw, 1.02rem);
   --text-lg:   clamp(1.05rem,  1.00rem + 0.25vw, 1.10rem);
   --text-xl:   clamp(1.10rem,  1.00rem + 0.50vw, 1.25rem);
   --text-2xl:  clamp(1.40rem,  1.20rem + 1.00vw, 1.75rem);
