@@ -55,9 +55,20 @@ export const engagements = [
     team: '6 designers',
     mandate: 'New product launch',
     outcome: 'Full-scale redesign of MVP',
-    locked: true
+    locked: true,
+    // Temporarily hidden: removed from the homepage, "Other engagements" and
+    // its route redirects home. Set to false (or delete this line) to restore.
+    hidden: true
   }
 ]
+
+// Engagements that should appear on the site. Anything flagged `hidden: true`
+// is left out of every listing and its case study route redirects home.
+export const visibleEngagements = engagements.filter((e) => !e.hidden)
+
+export function isEngagementHidden(key) {
+  return Boolean(engagementByKey(key)?.hidden)
+}
 
 // Field order is the signature — do not reorder per-engagement.
 // SPEC_FIELDS drives case study pages; CARD_FIELDS is the homepage subset.

@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom'
 import CaseStudy from './CaseStudy'
 import LeadershipCaseStudy from './LeadershipCaseStudy'
 import { AuthProvider } from './contexts/AuthContext'
@@ -14,7 +14,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import EngagementCard from './components/EngagementCard'
 import SectionHead from './components/SectionHead'
 import { useReveal } from './hooks/useReveal'
-import { hero, engagements, writing, heroKicker } from './content/profile'
+import { hero, visibleEngagements, writing, heroKicker, isEngagementHidden } from './content/profile'
 import adamPortrait from './assets/img/adam-r2.jpg'
 import fordLogo from './assets/logos/ford.svg'
 import mastercardLogo from './assets/logos/mastercard.svg'
@@ -152,7 +152,7 @@ function Homepage() {
         <div className="wrap">
           <SectionHead label="Work">Delivering results in complex environments</SectionHead>
           <div className="engagements">
-            {engagements.map((e) => (
+            {visibleEngagements.map((e) => (
               <EngagementCard
                 key={e.key}
                 engagement={e}
@@ -236,7 +236,12 @@ function AppContent() {
     <Routes>
       <Route path="/" element={<Homepage />} />
       <Route path="/innovation-transformation-WEX/" element={<ProtectedRoute><CaseStudy /></ProtectedRoute>} />
-      <Route path="/leadership-case-study/" element={<ProtectedRoute><LeadershipCaseStudy /></ProtectedRoute>} />
+      <Route
+        path="/leadership-case-study/"
+        element={isEngagementHidden('verizon')
+          ? <Navigate to="/" replace />
+          : <ProtectedRoute><LeadershipCaseStudy /></ProtectedRoute>}
+      />
     </Routes>
   )
 }

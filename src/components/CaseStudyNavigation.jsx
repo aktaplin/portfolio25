@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
-import { engagements } from '../content/profile'
+import { visibleEngagements } from '../content/profile'
 import SectionHead from './SectionHead'
 import EngagementCard from './EngagementCard'
 
@@ -9,7 +9,7 @@ export default function CaseStudyNavigation({ currentCaseStudyKey }) {
   const navigate = useNavigate()
   const { requestAccess } = useAuth()
 
-  const others = engagements.filter((e) => e.key !== currentCaseStudyKey)
+  const others = visibleEngagements.filter((e) => e.key !== currentCaseStudyKey)
   if (others.length === 0) return null
 
   return (
